@@ -1,7 +1,7 @@
 {
   "name": "aozhou-pc-nuxt",
   "version": "1.0.0",
-  "description": "My top-notch Nuxt.js project",
+  "description": "My bedazzling Nuxt.js project",
   "author": "hsgzhuanyong",
   "private": true,
   "scripts": {
@@ -16,7 +16,9 @@
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "iview": "^3.1.5",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "swiper": "^5.4.2",
+    "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

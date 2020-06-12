@@ -1,24 +1,34 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        aozhou-pc-nuxt
-      </h1>
-      <h2 class="subtitle">
-        Welcome to the iView + Nuxt.js template
-      </h2>
-      <div class="links">
-        <Button type="primary" target="_blank" to="https://nuxtjs.org/">
-          Documentation
-        </Button>
-        <Button target="_blank" to="https://github.com/nuxt/nuxt.js">
-          GitHub
-        </Button>
-        <Button target="_blank" to="https://www.iviewui.com/">
-          iView
-        </Button>
+    <div v-swiper:mySwiper="swiperOption">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div>
+            <logo />
+            <h1 class="title">
+              aozhou-pc-nuxt
+            </h1>
+            <h2 class="subtitle">
+              Welcome to the iView + Nuxt.js template
+            </h2>
+            <div class="links">
+              <Button type="primary" target="_blank" to="https://nuxtjs.org/">
+                Documentation
+              </Button>
+              <Button target="_blank" to="https://github.com/nuxt/nuxt.js">
+                GitHub
+              </Button>
+              <Button target="_blank" to="https://www.iviewui.com/">
+                iView
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          2
+        </div>
       </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </template>
@@ -29,10 +39,15 @@ export default {
   components: {
     Logo
   },
-  asyncData({ app }) {
-    app.$api.app.projectlist().then(({ data }) => {
-      console.log(data)
-    })
+  data() {
+    return {
+      swiperOption: {
+        // some swiper options...
+      }
+    }
+  },
+  mounted() {
+    this.mySwiper.slideTo(3, 1000, false)
   }
 }
 </script>
