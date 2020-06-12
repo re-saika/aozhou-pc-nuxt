@@ -11,7 +11,7 @@ export default ({ $axios }, inject) => {
     return config
   })
   $axios.onResponse((response) => {
-    if (response.data.status === 1) {
+    if (response.data.status === 1 || response.data.state === 'SUCCESS') {
       return response.data
     } else {
       return Promise.reject(response)

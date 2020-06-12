@@ -237,8 +237,6 @@
 <script>
 import subtitle from '@/components/Subtitle'
 import navigation from '@/components/Navigation'
-// import * as app from '@/api/app'
-// import * as about from '@/api/about'
 import { validateForm, deepCopy, debounce } from '@/libs/tools.js'
 
 const defaultForm = {
@@ -255,8 +253,15 @@ export default {
     subtitle,
     navigation
   },
-  asyncData({ app }) {
-    console.log(app)
+  async asyncData({ app }) {
+    try {
+    // 获得项目列表
+      return await app.$api.app.projectlist().then(({ data }) => {
+        return { list: data }
+      })
+    } catch (error) {
+      console.log(error.message)
+    }
   },
   data() {
     return {
@@ -282,25 +287,19 @@ export default {
     }
   },
   created() {
-    this.getProjectList()
+    // this.getProjectList(this.list)
   },
   mounted() {
     this.t1 = debounce(() => { this.submit() }, 2000)
     this.t2 = debounce(() => { this.submitForm() }, 2000)
+    console.log(this.list)
   },
   methods: {
-    // changeMenu(index) {
-    //   this.isActive = index
-    //   document.documentElement.scrollTop = 200
-    //   this.$refs.foot.isBottom = true
-    //   this.$refs.foot.isAlive = true
-    // },
-    getProjectList() {
-      // app.projectlist().then((res) => {
-      //   if (res.status === 1) {
-      //     this.list = res.data
-      //   }
-      // })
+    changeMenu(index) {
+      this.isActive = index
+      document.documentElement.scrollTop = 200
+      // this.$refs.foot.isBottom = true
+      // this.$refs.foot.isAlive = true
     },
     showSelecter() {
       this.isShow = !this.isShow
@@ -331,12 +330,12 @@ export default {
       this.t2()
     },
     submit() {
-      // const obj = {
-      //   name: this.name,
-      //   mobile: this.mobile,
-      //   data: this.consulting,
-      //   remark: this.remark
-      // }
+      const obj = {
+        name: this.name,
+        mobile: this.mobile,
+        data: this.consulting,
+        remark: this.remark
+      }
       const array = [
         [this.name, '请正确输入姓名'],
         [this.mobile, '请正确输入联系方式', /^(1[1-9]\d{9}$)/],
@@ -344,17 +343,17 @@ export default {
         [this.remark, '请正确输入留言']
       ]
       if (validateForm(array)) {
-        // about.contactus({ info: obj }).then((res) => {
-        //   this.spinShow = false
-        //   this.$Message.success({
-        //     content: '提交成功',
-        //     duration: 3,
-        //     closable: true
-        //   })
-        //   this.name = ''
-        //   this.mobile = ''
-        //   this.consulting = ''
-        // })
+        this.$api.about.contactus({ info: obj }).then((res) => {
+          this.spinShow = false
+          this.$Message.success({
+            content: '提交成功',
+            duration: 3,
+            closable: true
+          })
+          this.name = ''
+          this.mobile = ''
+          this.consulting = ''
+        })
       }
       this.spinShow = false
     },
@@ -371,7 +370,7 @@ export default {
       // e.target.value = null
     },
     upload() {
-      return about.upload(this.formData).then((res) => {
+      return this.$api.about.upload(this.formData).then((res) => {
         return res.aid
       })
     },
@@ -388,16 +387,16 @@ export default {
       if (validateForm(array)) {
         this.upload().then((res) => {
           this.form.cv_id = res
-          // about.resume({ info: this.form }).then((res) => {
-          //   this.spinShow = false
-          //   this.$Message.success({
-          //     content: '提交成功',
-          //     duration: 3,
-          //     closable: true
-          //   })
-          //   this.isShowModel = false
-          //   this.form = defaultForm
-          // })
+          this.$api.about.resume({ info: this.form }).then((res) => {
+            this.spinShow = false
+            this.$Message.success({
+              content: '提交成功',
+              duration: 3,
+              closable: true
+            })
+            this.isShowModel = false
+            this.form = defaultForm
+          })
         })
       }
       this.spinShow = false

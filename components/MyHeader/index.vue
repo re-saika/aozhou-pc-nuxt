@@ -8,7 +8,7 @@
             <li class="nav__li" :class="isActive == 'index'?'nav__li_active':''" @click="routeTo('index')">
               首页
             </li>
-            <nuxt-link class="nav__li" to="index">首页</nuxt-link>
+            <!-- <nuxt-link class="nav__li" to="index">首页</nuxt-link> -->
             <li class="nav__li" :class="isActive == 'project'?'nav__li_active':''" @click="routeTo('project')">
               项目推荐
             </li>
