@@ -13,9 +13,9 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
-    // link: [
-    //   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    // ]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
   },
   /*
   ** Customize the progress-bar color
@@ -26,14 +26,16 @@ module.exports = {
   */
   css: [
     'iview/dist/styles/iview.css',
-    '@/styles/index.scss'
+    '@/styles/index.scss',
+    'swiper/css/swiper.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/iview',
     '@/plugins/axios',
-    '@/plugins/iview'
+    '@/plugins/vue-swiper'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -47,24 +49,23 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/axios'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    proxy: true, // 表示开启代理
+    proxy: true // 表示开启代理
   },
   proxy: {
     '/flaz': {
-      target: target,
+      target,
       // ws: true,
       changOrigin: true // 接口跨域
     },
     '/api': {
-      target: target,
+      target,
       // ws: true,
       changOrigin: true, // 接口跨域
       pathRewrite: {
@@ -79,7 +80,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }

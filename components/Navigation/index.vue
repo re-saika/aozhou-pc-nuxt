@@ -9,9 +9,7 @@
     </div>
     <img src="@/static/images/icon/down.png" class="navigation__icon">
     <div class="navigation__item font-blue">
-      <span v-if="isActive == 0">关于我们</span>
-      <span v-if="isActive == 1">联系我们</span>
-      <span v-if="isActive == 2">人才招聘</span>
+      <span>关于我们</span>
     </div>
   </nav>
 </template>
