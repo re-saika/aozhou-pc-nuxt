@@ -1,0 +1,112 @@
+*  {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  box-sizing: border-box;
+}
+body {
+  color:#333;
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+.lf{
+  float:left
+}
+.rf{
+  float:right
+}
+.clear:after{
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.text-over{
+  overflow:hidden; //超出的文本隐藏
+  text-overflow:ellipsis; //溢出用省略号显示
+  white-space:nowrap; //溢出不换行
+}
+.text-overs{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //行数
+  -webkit-box-orient: vertical;
+}
+.wt {
+  color: white;
+}
+.red {
+  color: #FF1F1F;
+}
+// 背景灰色
+.gray {
+  background: #F5F8FB;
+}
+//主题颜色
+.font-blue {
+  color: #2E6CB1;
+}
+.inputs {
+  border:0;/*去掉未选中状态边框*/
+  outline:none;/*去掉选中状态边框*/
+  background-color:rgba(0,0,0,0);/*透明背景*/
+}
+// 很多地方用到
+.bm {
+  margin-bottom: 50px;
+}
+// 下面有一条200px蓝线的标题
+.common-title {
+  font-size:30px;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  height: 108px;
+  line-height: 108px;
+  border-bottom: 2px solid #2E6CB1;
+  max-width: 200px;
+  overflow:hidden; //超出的文本隐藏
+  text-overflow:ellipsis; //溢出用省略号显示
+  white-space:nowrap; //溢出不换行
+}
+/* 0.2s 标签过渡 */
+.pointtwo-enter-active, .pointtwo-leave-active {
+  transition: opacity .2s;
+}
+.pointtwo-enter, .pointtwo-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+// 等比缩放图片
+.zoom-img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+// 分页器样式 组件内已默认添加此类名
+.mt{
+  margin-top: 50px;
+  text-align: center;
+}
+.mr {
+  margin-right: 30px;
+}
+.navigation{
+
+  &__item{
+    cursor: pointer;
+  }
+}
