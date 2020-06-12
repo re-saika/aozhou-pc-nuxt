@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div>
-      <logo />
       <h1 class="title">
         aozhou-pc-nuxt
       </h1>
@@ -24,11 +23,10 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 export default {
   components: {
-    Logo
   },
+  layout: 'coommend',
   asyncData({ app }) {
     app.$api.app.projectlist().then(({ data }) => {
       console.log(data)

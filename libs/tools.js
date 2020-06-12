@@ -16,7 +16,9 @@ export function validateObject(obj) {
   const array = Object.values(obj)
   for (let i = 0; i < array.length; i++) {
     const str = array[i].replace(/^\s+|\s+$/g, '')
-    if (str === '' || str == null) return false
+    if (str === '' || str == null) {
+      return false
+    }
   }
   return true
 }
@@ -25,29 +27,28 @@ export function validateObject(obj) {
  * 判断是否为空
  * @param {Object} v
  */
-export function isEmpty(v) {
-  switch (typeof v) {
-    case 'undefined':
-      return true
-    case 'string':
-      if (v.replace(/(^[ \t\n\r]*)|([ \t\n\r]*$)/g, '').length === 0) return true
-      break
-    case 'boolean':
-      if (!v) return true
-      break
-    case 'number':
-      // if (0 === v || isNaN(v)) return true;
-      if (isNaN(v)) return true
-      break
-    case 'object':
-      if (v === null || v.length === 0) return true
-      for (const i in v) {
-        return false
-      }
-      return true
-  }
-  return false
-}
+// export function isEmpty(v) {
+//   switch (typeof v) {
+//   case 'undefined':
+//     return true
+//   case 'string':
+//     if (v.replace(/(^[ \t\n\r]*)|([ \t\n\r]*$)/g, '').length === 0) return true
+//     break
+//   case 'boolean':
+//     if (!v) return true
+//     break
+//   case 'number':
+//     if (isNaN(v)) return true
+//     break
+//   case 'object':
+//     if (v === null || v.length === 0) return true
+//     for (const i in v) {
+//       return false
+//     }
+//     return true
+//   }
+//   return false
+// }
 
 /**
   * 防抖
@@ -119,16 +120,16 @@ export const assignExist = (obj1, obj2) => {
  * @param {Array} arr2
  * @description 得到两个数组的交集, 两个数组的元素为数值或字符串
  */
-export const getIntersection = (arr1, arr2) => {
-  const len = Math.min(arr1.length, arr2.length)
-  let i = -1
-  const res = []
-  while (++i < len) {
-    const item = arr2[i]
-    if (arr1.indexOf(item) > -1) res.push(item)
-  }
-  return res
-}
+// export const getIntersection = (arr1, arr2) => {
+//   const len = Math.min(arr1.length, arr2.length)
+//   let i = -1
+//   const res = []
+//   while (++i < len) {
+//     const item = arr2[i]
+//     if (arr1.indexOf(item) > -1) res.push(item)
+//   }
+//   return res
+// }
 
 /**
  * @param {Array} arr1
@@ -142,17 +143,17 @@ export const getUnion = (arr1, arr2) => {
 /**
  * @returns {String} 当前浏览器名称
  */
-export const getExplorer = () => {
-  const ua = window.navigator.userAgent
-  const isExplorer = (exp) => {
-    return ua.indexOf(exp) > -1
-  }
-  if (isExplorer('MSIE')) return 'IE'
-  else if (isExplorer('Firefox')) return 'Firefox'
-  else if (isExplorer('Chrome')) return 'Chrome'
-  else if (isExplorer('Opera')) return 'Opera'
-  else if (isExplorer('Safari')) return 'Safari'
-}
+// export const getExplorer = () => {
+//   const ua = window.navigator.userAgent
+//   const isExplorer = (exp) => {
+//     return ua.indexOf(exp) > -1
+//   }
+//   if (isExplorer('MSIE')) return 'IE'
+//   else if (isExplorer('Firefox')) return 'Firefox'
+//   else if (isExplorer('Chrome')) return 'Chrome'
+//   else if (isExplorer('Opera')) return 'Opera'
+//   else if (isExplorer('Safari')) return 'Safari'
+// }
 
 /**
  * 标准时间/时间戳 转Date
@@ -160,9 +161,9 @@ export const getExplorer = () => {
  * @returns { Date } 时间（该项目只需要年月）
  */
 export function standardtoDate(time) {
-  var date = new Date(time)
-  var y = date.getFullYear()
-  var m = date.getMonth() + 1
+  const date = new Date(time)
+  const y = date.getFullYear()
+  let m = date.getMonth() + 1
   m = m < 10 ? ('0' + m) : m
   // var d = date.getDate()
   // d = d < 10 ? ('0' + d) : d
@@ -178,8 +179,8 @@ export function standardtoDate(time) {
  * @returns { Number } 随机数
  */
 export function Rand(num) {
-  var today = new Date()
-  var seed = today.getTime()
+  const today = new Date()
+  let seed = today.getTime()
 
   function rnd() {
     seed = (seed * 9301 + 49297) % 233280
@@ -199,7 +200,9 @@ export function Rand(num) {
  */
 export function validateForm(array) {
   for (let i = 0; i < array.length; i++) {
-    if (!validateObj(...array[i])) return false
+    if (!validateObj(...array[i])) {
+      return false
+    }
   }
   return true
 }
