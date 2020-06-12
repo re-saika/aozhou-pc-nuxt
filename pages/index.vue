@@ -2,48 +2,26 @@
   <div class="container">
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div>
-            <logo />
-            <h1 class="title">
-              aozhou-pc-nuxt
-            </h1>
-            <h2 class="subtitle">
-              Welcome to the iView + Nuxt.js template
-            </h2>
-            <div class="links">
-              <Button type="primary" target="_blank" to="https://nuxtjs.org/">
-                Documentation
-              </Button>
-              <Button target="_blank" to="https://github.com/nuxt/nuxt.js">
-                GitHub
-              </Button>
-              <Button target="_blank" to="https://www.iviewui.com/">
-                iView
-              </Button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          2
+        <div v-viewer v-for="image in images" :key="image" class="swiper-slide">
+          <img :src="image" class="image" />
         </div>
       </div>
-      <div class="swiper-pagination"></div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 export default {
-  components: {
-    Logo
-  },
   data() {
     return {
       swiperOption: {
         // some swiper options...
-      }
+      },
+      images: [
+        'https://picsum.photos/200/200',
+        'https://picsum.photos/300/200',
+        'https://picsum.photos/250/200'
+      ]
     }
   },
   mounted() {
