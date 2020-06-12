@@ -9090,6 +9090,11 @@ v-click-outside-x@^4.0.19:
   resolved "https://registry.npm.taobao.org/v-click-outside-x/download/v-click-outside-x-4.1.0.tgz#be826680e2d25666a8a185332929d46244aa2447"
   integrity sha1-voJmgOLSVmaooYUzKSnUYkSqJEc=
 
+v-clipboard@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.npm.taobao.org/v-clipboard/download/v-clipboard-2.2.3.tgz#f5db3d7004145041b6d7d06ca48236de4cee3a41"
+  integrity sha1-9ds9cAQUUEG219BspII23kzuOkE=
+
 v-viewer@^1.5.1:
   version "1.5.1"
   resolved "https://registry.npm.taobao.org/v-viewer/download/v-viewer-1.5.1.tgz?cache=0&sync_timestamp=1576116656384&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fv-viewer%2Fdownload%2Fv-viewer-1.5.1.tgz#94804d83814cca566e691339fe1e64793486f200"

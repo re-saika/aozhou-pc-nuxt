@@ -36,7 +36,8 @@ module.exports = {
     '@/plugins/iview',
     '@/plugins/axios',
     '@/plugins/vue-swiper',
-    '@/plugins/i-viewer'
+    '@/plugins/i-viewer',
+    '@/plugins/v-clipboard'
   ],
   /*
   ** Nuxt.js dev-modules
