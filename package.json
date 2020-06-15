@@ -11,6 +11,12 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
+  "config": {
+    "nuxt": {
+      "port": 39006,
+      "host": "0.0.0.0"
+    }
+  },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "cross-env": "^5.2.0",
