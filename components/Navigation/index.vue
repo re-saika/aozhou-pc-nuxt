@@ -1,6 +1,6 @@
 <template>
   <nav class="navigation">
-    <div class="navigation__item" @click="routeTo('Home')">
+    <div class="navigation__item" @click="routeTo('index')">
       首页
     </div>
     <img src="@/static/images/icon/down.png" class="navigation__icon">
@@ -16,8 +16,12 @@
 
 <script>
 export default {
-  mounted() {
-    console.log(this.$route)
+  methods: {
+    routeTo(name) {
+      this.$router.push({
+        name
+      })
+    }
   }
 }
 </script>

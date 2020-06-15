@@ -93,7 +93,7 @@ export default {
     },
     getProjectList() {
       this.$router.push({
-        name: 'projec',
+        name: 'project',
         query: {
           value: this.value
         }

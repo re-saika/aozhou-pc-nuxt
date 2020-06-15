@@ -240,3 +240,17 @@ function validateObj(param, msg, reg = null) {
   // 通过验证
   return true
 }
+
+/**
+ * 5个5个分数组
+ * @param array 数组对象
+ * @returns { Object } 二维数组
+ */
+export function spliceArray(array) {
+  const ra = []
+  for (let i = 0; i < array.length;) {
+    ra.push(array.slice(i, i + 5))
+    i += 5
+  }
+  return ra
+}

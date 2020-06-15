@@ -3,8 +3,8 @@
     <subtitle sub-title="置业澳洲认准澳洲好房" sub-title-en="Homebuy Australia Recognizes Australian Life" />
     <div class="about">
       <nav class="about__navigation">
-        <!-- <nav class="navigation">
-          <div class="navigation__item" @click="routeTo('Home')">
+        <nav class="navigation">
+          <div class="navigation__item" @click="routeTo('index')">
             首页
           </div>
           <img src="@/static/images/icon/down.png" class="navigation__icon">
@@ -17,8 +17,8 @@
             <span v-if="isActive == 1">联系我们</span>
             <span v-if="isActive == 2">人才招聘</span>
           </div>
-        </nav> -->
-        <navigation />
+        </nav>
+        <!-- <navigation /> -->
         <ul class="bread">
           <li v-for="(item,index) in menu" :key="'5' + index" class="bread__li" :class="isActive == index?'bread__li_active':''" @click="changeMenu(index)">
             {{ item }}
@@ -236,7 +236,7 @@
 
 <script>
 import subtitle from '@/components/Subtitle'
-import navigation from '@/components/Navigation'
+// import navigation from '@/components/Navigation'
 import { validateForm, deepCopy, debounce } from '@/libs/tools.js'
 
 const defaultForm = {
@@ -250,8 +250,8 @@ const defaultForm = {
 
 export default {
   components: {
-    subtitle,
-    navigation
+    subtitle
+    // navigation
   },
   async asyncData({ app }) {
     try {
@@ -260,7 +260,7 @@ export default {
         return { list: data }
       })
     } catch (error) {
-      console.log(error.message)
+      console.error(error)
     }
   },
   data() {

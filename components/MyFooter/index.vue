@@ -56,7 +56,7 @@
       <div class="footer">
         <div class="left-footer">
           <ul class="left-footer__navs">
-            <li class="navs__nav" @click="routeTo('Home')">
+            <li class="navs__nav" @click="routeTo('index')">
               首页
             </li>
             <li class="navs__nav" @click="routeTo('project')">
@@ -105,7 +105,6 @@
 </template>
 
 <script>
-// import * as app from '@/api/app'
 import { debounce, validateForm } from '@/libs/tools.js'
 
 export default {
@@ -128,12 +127,19 @@ export default {
     this.getProjectList()
   },
   mounted() {
+    console.log(this.list)
     window.addEventListener('scroll', this.showMenu)
     this.beforeMount()
     // 防抖
     this.t = debounce(() => { this.submit() }, 2000)
   },
   methods: {
+    // 获得列表
+    getProjectList() {
+      this.$api.app.projectlist().then((res) => {
+        this.list = res.data
+      })
+    },
     // 获取高度
     beforeMount() {
       const h = document.documentElement.clientHeight || document.body.clientHeight
@@ -167,14 +173,8 @@ export default {
         this.isBottom = false
       }
     },
-    getProjectList() {
-      // app.projectlist().then(res => {
-      //   if (res.status === 1) {
-      //     this.list = res.data
-      //   }
-      // })
-    },
     showSelecter() {
+      console.log(this.list)
       this.isShow = !this.isShow
     },
     changeSelect(name) {
@@ -199,7 +199,7 @@ export default {
         [this.consulting, '请正确输入咨询项目']
       ]
       if (validateForm(array)) {
-        app.consulting({ info: obj }).then((res) => {
+        this.$api.app.consulting({ info: obj }).then((res) => {
           if (res.status === 1) {
             this.$Message.success({
               content: '提交成功',
