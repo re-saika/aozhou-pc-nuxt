@@ -2,7 +2,7 @@
   <header>
     <div class="header">
       <div class="header__content">
-        <img class="logo" src="@/static/images/icon/logo.png">
+        <img class="logo" src="@/static/images/icon/logo.png" @click="routeTo('index')">
         <div class="header__nav wt">
           <ul class="nav">
             <li class="nav__li" :class="isActive == 'index'?'nav__li_active':''" @click="routeTo('index')">
@@ -28,8 +28,8 @@
             <span>020-38882777</span>
           </div>
           <div class="dropdown" @mouseleave="showThePic(0)">
-            <div style="visibility:hidden;" @click="changeLang()">
-              中/简
+            <div @click="showTheLang()">
+              中/EN
               <img src="@/static/images/icon/dropdown.png">
             </div>
             <div @mouseover="showThePic(2)">
@@ -41,6 +41,14 @@
               <img src="@/static/images/icon/dropdown.png">
             </div>
             <!-- 弹出窗 -->
+            <transition name="pointtwo">
+              <div v-show="showLang" class="nav__lang">
+                <div>中</div>
+                <div @click="changeLang">
+                  EN
+                </div>
+              </div>
+            </transition>
             <transition name="pointtwo">
               <div v-show="showPic == 2" class="nav__imgbg">
                 <img class="img-applet" src="@/static/images/icon/Applet_code.jpg">
@@ -66,7 +74,8 @@ export default {
       visible: false,
       showPic: 0,
       value: '',
-      isActive: ''
+      isActive: '',
+      showLang: false
     }
   },
   watch: {
@@ -83,6 +92,9 @@ export default {
     showThePic(index) {
       this.showPic = index
     },
+    showTheLang() {
+      this.showLang = !this.showLang
+    },
     routeTo(to) {
       if (to === this.$route.name) {
         history.go(0)
@@ -98,6 +110,9 @@ export default {
           value: this.value
         }
       })
+    },
+    changeLang() {
+      window.open('https://www.rfpropertyaustralia.com.au/')
     }
     // changeLang() {
     //   zhTran()
@@ -164,6 +179,18 @@ export default {
           width: 28px;
           transition: all .2s;
         }
+        .white-search__input::-webkit-input-placeholder { /* WebKit browsers 适配谷歌 */
+            color: #FFFFFF;
+        }
+        .white-search__input:-moz-placeholder { /* Mozilla Firefox 4 to 18 适配火狐 */
+            color: #FFFFFF;
+        }
+        .white-search__input::-moz-placeholder { /* Mozilla Firefox 19+ 适配火狐 */
+            color: #FFFFFF;
+        }
+        .white-search__input:-ms-input-placeholder { /* Internet Explorer 10+  适配ie*/
+            color: #FFFFFF;
+        }
         .white-search__input:focus {
           width: 150px;
           transition: all .5s;
@@ -187,11 +214,23 @@ export default {
         justify-content: space-between;
         cursor: pointer;
         position: relative;
+        .nav__lang {
+          display: flex;
+          position: absolute;
+          justify-content: space-around;
+          align-items: center;
+          top: 65px;
+          left: 0px;
+          z-index: 99;
+          background-color: #2E6CB1;
+          width: 140px;
+          height: 70px;
+        }
         .nav__imgbg {
           position: absolute;
           width: 223px;
           height: 223px;
-          background: #2E6CB1;
+          background-color: #2E6CB1;
           top: 65px;
           left: -37px;
           z-index: 99;

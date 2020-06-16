@@ -147,7 +147,7 @@
               </div>
               <div class="list_content">
                 <div class="content_number">
-                  188+
+                  {{ num1 }}+
                 </div>
                 <p>澳洲好房</p>
                 <p>现在售房源总数</p>
@@ -159,7 +159,7 @@
               </div>
               <div class="list_content">
                 <div class="content_number">
-                  500+
+                  {{ num2 }}+
                 </div>
                 <p>澳洲好房</p>
                 <p>现业主总数</p>
@@ -171,7 +171,7 @@
               </div>
               <div class="list_content">
                 <div class="content_number">
-                  6年+
+                  {{ num3 }}年+
                 </div>
                 <p>澳洲好房</p>
                 <p>在澳深耕年数</p>
@@ -183,7 +183,7 @@
               </div>
               <div class="list_content">
                 <div class="content_number">
-                  2+
+                  {{ num4 }}+
                 </div>
                 <p>澳洲好房</p>
                 <p>已开发澳洲城市总数</p>
@@ -331,6 +331,11 @@ export default {
   },
   data() {
     return {
+      num1: 0,
+      num2: 0,
+      num3: 0,
+      num4: 0,
+      isNum: false, // 为了性能，只执行一次数字增加的定时器
       swiperOption: {
         autoplay: true,
         // loop: true,
@@ -371,8 +376,53 @@ export default {
     }
   },
   mounted() {
+    window.addEventListener('scroll', this.handleScroll)
   },
   methods: {
+    // 监听滚动并执行数字增加
+    handleScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > 0 && !this.isNum) {
+        this.addNum()
+      }
+    },
+    // 数字增加效果
+    addNum() {
+      this.isNum = true // 已执行，不再执行
+      const num = [188, 500, 6, 2]
+      const timer1 = window.setInterval(() => {
+        if (num[0] > 0) {
+          this.num1++
+          num[0]--
+        } else {
+          window.clearInterval(timer1)
+        }
+      }, 1000 / num[0])
+      const timer2 = window.setInterval(() => {
+        if (num[1] > 0) {
+          this.num2++
+          num[1]--
+        } else {
+          window.clearInterval(timer2)
+        }
+      }, 1000 / num[1])
+      const timer3 = window.setInterval(() => {
+        if (num[2] > 0) {
+          this.num3++
+          num[2]--
+        } else {
+          window.clearInterval(timer3)
+        }
+      }, 1000 / num[2])
+      const timer4 = window.setInterval(() => {
+        if (num[3] > 0) {
+          this.num4++
+          num[3]--
+        } else {
+          window.clearInterval(timer4)
+        }
+      }, 1000 / num[3])
+    },
     toDetail() {
       // 写死的，需要知道id多少才能跳转 6 1 7 8
       let id = 1
@@ -481,7 +531,7 @@ export default {
         // top: 50%;
         transform: translateY(-50%);
         z-index: 2;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.2);
         border-radius: 10px;
         font-size: 18px;
         font-family: Microsoft YaHei;
@@ -552,7 +602,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.1);
   }
   .w1200 {
     z-index: 10;
@@ -579,6 +629,7 @@ export default {
   .swiper__content h3 {
     font-size: 38px;
     margin-bottom: 15px;
+    text-shadow:0px 0px 3px rgba(51,51,51,0.69);
   }
   .swiper__content .swiper__row {
     display: flex;
@@ -586,13 +637,15 @@ export default {
   .swiper__content .swiper__row button {
     background: none;
     outline: none;
-    border: solid 1px #ffffff;
+    border: solid 1px #2e6cb1;
+    background-color: #2e6cb1;
     border-radius: 6px;
     width: 130px;
     height: 40px;
     color: #fff;
     font-size: 18px;
     margin-right: 268px;
+    // box-shadow:rgba(0, 0, 0, 0.12) 0px 2px 6px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   }
   .swiper__content .swiper__row .swiper__position {
     width: 147px;
@@ -710,7 +763,7 @@ export default {
 .index__bg {
   background: #F5F8FB;
   width: 100%;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 .swiper-box {
   margin: auto;
