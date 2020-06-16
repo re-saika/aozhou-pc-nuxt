@@ -1,5 +1,5 @@
 const isDev = process.env.NODE_ENV === 'development'
-const target = isDev ? 'http://192.168.1.4:81' : 'http://azhfang.com'
+const target = isDev ? 'http://192.168.1.4:81' : 'http://haofang.wkan.cn'
 
 module.exports = {
   mode: 'universal',
