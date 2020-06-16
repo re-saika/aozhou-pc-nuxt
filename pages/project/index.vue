@@ -4,10 +4,10 @@
     <div class="project">
       <div v-for="(item, index) in list" :key="index" class="project__box">
         <div class="project__left">
-          <img class="project__img" :src="item.img_url">
+          <img class="project__img" :src="item.img_url" @click="toDetail(item.id)">
         </div>
         <div class="project__main">
-          <div class="common-title">
+          <div class="common-title common-title_project" @click="toDetail(item.id)">
             {{ item.name }}
           </div>
           <div class="boderblock boderblock_project">
@@ -144,6 +144,9 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      .common-title_project {
+        cursor: pointer;
+      }
       .boderblock {
         display: flex;
         .boderblock__item {
