@@ -22,6 +22,9 @@ async function start () {
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
+  app.use('/test', (req, res) => {
+    res.send('123')
+  })
 
   // Listen the server
   app.listen(port, host)
