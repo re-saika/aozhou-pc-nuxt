@@ -76,6 +76,16 @@ export default {
         name
       })
     }
+  },
+  head() {
+    return {
+      title: this.detail.name,
+      meta: [
+        { charset: 'utf-8' },
+        { hid: 'keywords', name: 'keywords', content: this.detail.keyword },
+        { hid: 'description', name: 'description', content: this.detail.introduction }
+      ]
+    }
   }
 }
 </script>

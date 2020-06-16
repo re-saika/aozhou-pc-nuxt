@@ -422,6 +422,14 @@ export default {
       }
       this.$router.push({ name })
     }
+  },
+  head() {
+    return {
+      meta: [
+        { charset: 'utf-8' },
+        { hid: 'keywords', name: 'keywords', content: '富力,富力集团,富力地产,房地产开发,商业运营,物业服务' }
+      ]
+    }
   }
 }
 </script>

@@ -127,7 +127,6 @@ export default {
     this.getProjectList()
   },
   mounted() {
-    console.log(this.list)
     window.addEventListener('scroll', this.showMenu)
     this.beforeMount()
     // 防抖

@@ -73,7 +73,6 @@ export default {
     try {
     // 获得项目列表
       return await context.app.$api.app.projectlist({ hot }).then(({ data }) => {
-        console.log(data)
         return { list: data }
       })
     } catch (error) {
@@ -103,6 +102,14 @@ export default {
     toSee(url) {
       window.open(url)
       // window.history.pushState('', this.list.vr_url)
+    }
+  },
+  head() {
+    return {
+      meta: [
+        { charset: 'utf-8' },
+        { hid: 'keywords', name: 'keywords', content: '富力,富力集团,富力地产,房地产开发,商业运营,物业服务' }
+      ]
     }
   }
 }

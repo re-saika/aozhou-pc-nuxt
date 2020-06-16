@@ -121,7 +121,6 @@ export default {
             }
           })
         ])
-        console.log(data1.detail)
         const res = {
           detail: data1.detail,
           list: data2.list,

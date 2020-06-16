@@ -7,10 +7,10 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: '澳洲好房',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1s' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [

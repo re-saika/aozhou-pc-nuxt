@@ -292,7 +292,6 @@ export default {
   mounted() {
     this.t1 = debounce(() => { this.submit() }, 2000)
     this.t2 = debounce(() => { this.submitForm() }, 2000)
-    console.log(this.list)
   },
   methods: {
     changeMenu(index) {

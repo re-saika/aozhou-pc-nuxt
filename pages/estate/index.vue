@@ -299,7 +299,6 @@ export default {
         window.open(row.link)
         return false
       } else if (row.classify_id === 4) {
-        console.log(row.id)
         this.$router.push({
           name: 'estate-video',
           query: {
