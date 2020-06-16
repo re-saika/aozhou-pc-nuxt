@@ -506,7 +506,7 @@ export default {
         position: relative;
         .menu__bannerbtn {
           position: absolute;
-          top: 54px;
+          top: 49px;
           left: 127px;
           width: 130px;
           height: 40px;

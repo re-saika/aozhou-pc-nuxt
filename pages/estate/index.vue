@@ -27,7 +27,7 @@
                     </div>
                     <img class="main__active" src="@/static/images/img/action.png" alt="">
                     <div class="main__info">
-                      <div class="main__info-title text-overs">
+                      <div class="text-overs main__info-title text-overs_viewbox">
                         {{ element.name }}
                       </div>
                       <p class="main__p">
@@ -66,7 +66,7 @@
                       <img :src="element.aid" alt="" class="main__pic">
                     </div>
                     <div class="main__info">
-                      <div class="main__info-title text-overs">
+                      <div class="text-overs main__info-title text-overs_viewbox">
                         {{ element.name }}
                       </div>
                       <p class="main__p">
@@ -105,7 +105,7 @@
                       <img :src="element.aid" alt="" class="main__pic">
                     </div>
                     <div class="main__info">
-                      <div class="main__info-title text-overs">
+                      <div class="text-overs main__info-title text-overs_viewbox">
                         {{ element.name }}
                       </div>
                       <p class="main__p">
@@ -144,7 +144,7 @@
                       <img :src="element.aid" alt="" class="main__pic">
                     </div>
                     <div class="main__info">
-                      <div class="main__info-title text-overs">
+                      <div class="text-overs main__info-title text-overs_viewbox">
                         {{ element.name }}
                       </div>
                       <p class="main__p">
@@ -470,7 +470,8 @@ export default {
     }
   }
 }
-.text-overs {
-  height: 36px;
+.text-overs_viewbox {
+  height: 46px;
+  line-height: 24px;
 }
 </style>

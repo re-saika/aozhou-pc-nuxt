@@ -7,7 +7,7 @@
     <div class="view__content">
       <div class="view__title">
         <!-- <img class="view__playicon" src="@/static/images/icon/play_icon.png"> -->
-        <div class="text-overs">
+        <div class="text-overs text-overs_viewbox">
           {{ title }}
         </div>
       </div>
@@ -109,7 +109,7 @@ export default {
       display: flex;
       margin-bottom: 13px;
       font-size:18px;
-      font-family:Microsoft YaHei;
+      font: 18px "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
       font-weight:400;
       color:rgba(51,51,51,1);
       .view__playicon {
@@ -117,6 +117,10 @@ export default {
         height: 16px;
         margin-right: 15px;
       }
+    }
+    .text-overs_viewbox {
+      height: 46px;
+      line-height: 24px;
     }
     .view__msg {
       font-size:16px;
