@@ -73,12 +73,12 @@
             <div class="left-footer__boderbox">
               澳洲好房版权所有
             </div>
-            <div class="left-footer__boderbox">
+            <!-- <div class="left-footer__boderbox">
               法律声明
             </div>
             <div class="left-footer__boderbox">
               粤ICP备11089557号-3
-            </div>
+            </div> -->
           </div>
           <!-- 之后要改 -->
           <!-- <div class="left-footer__navs">

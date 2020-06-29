@@ -147,14 +147,18 @@ export default {
         .nav__li {
           font-family:Microsoft YaHei;
           list-style: none;
-          height: 46px;
-          line-height: 46px;
+          width: 92px;
+          height: 100px;
+          text-align: center;
+          line-height: 100px;
           margin-right: 23px;
           cursor: pointer;
+          transition: all .2s;
         }
         .nav__li:hover {
-          font-weight:bold;
-          border-bottom: 2px solid white;
+          background-color: #FFFFFF;
+          color: rgba(46,108,177,1);
+          transition: all .2s;
         }
         .nav__li_active {
           font-weight:bold;

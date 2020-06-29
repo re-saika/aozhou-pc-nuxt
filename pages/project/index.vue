@@ -48,9 +48,9 @@
             <div class="white-btn white-btn_project" @click="toDetail(item.id)">
               查看项目
             </div>
-            <div class="white-btn" @click="toSee(item.vr_url)">
+            <!-- <div class="white-btn" @click="toSee(item.vr_url)">
               在线看房
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

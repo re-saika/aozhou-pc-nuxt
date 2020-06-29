@@ -168,9 +168,9 @@
                 详细地址：{{ detail.address }}
               </div>
               <div class="project__btns">
-                <div class="project__btn1" @click="toVR">
+                <!-- <div class="project__btn1" @click="toVR">
                   VR看房
-                </div>
+                </div> -->
                 <div class="project__btn2" @click="doCopy">
                   <img class="projectd__btnicon" src="@/static/images/icon/project_phone.png">获取电话号码
                 </div>
@@ -274,7 +274,7 @@
 <script>
 import MyArticle from '@/components/MyArticle'
 import recommend from '@/components/Recommend'
-import { standardtoDate, spliceArray } from '@/libs/tools'
+import { spliceArray } from '@/libs/tools'
 export default {
   components: {
     MyArticle,
@@ -285,7 +285,7 @@ export default {
       try {
         const [data1, data2, data3] = await Promise.all([
           context.app.$api.project.projectDetail({ id: context.route.query.id }).then(({ data }) => {
-            data.boarding_time = standardtoDate(data.boarding_time * 1000)
+            // data.boarding_time = standardtoDate(data.boarding_time * 1000) // 后台说由他转换 2020/6/17
             return { detail: data }
           }),
           context.app.$api.project.projectPhoto({ project_id: context.route.query.id }).then(({ data }) => {
