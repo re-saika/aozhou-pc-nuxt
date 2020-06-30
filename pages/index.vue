@@ -200,7 +200,14 @@
       </div>
       <div class="index__navlist">
         <div class="navlist">
-          <div v-for="(item, index) in navList" :key="index" class="navlist__item" :class="navListIndex == (index+1)?'navlist__item_active':'navlist__item_gray'" @mouseover="changeNavList(index+1)">
+          <div
+            v-for="(item, index) in navList"
+            :key="index"
+            class="navlist__item"
+            :class="navListIndex == (index+1)?'navlist__item_active':'navlist__item_gray'"
+            @mouseover="changeNavList(index+1)"
+            @click="navRouter(index)"
+          >
             <img v-show="navListIndex != (index+1)" :class="'navlist__icon'+(index+1)" :src="require('@/static/images/icon/nav' + (index+1) + '.png')">
             <img v-show="navListIndex == (index+1)" :class="'navlist__icon'+(index+1)" :src="require('@/static/images/icon/nav' + (index+1) + '_a.png')">
             {{ item }}
@@ -235,7 +242,7 @@
     <div class="news">
       <div class="news__content">
         <div class="infobox__title">
-          <div>置业澳洲</div>
+          <div>新闻资讯</div>
           <div class="swiper-box__nav">
             <ul class="swiper-box__ul">
               <li v-for="(item,index) in pageMenu" :key="'3' + index" class="swiper-box__li" :class="pageActive == index?'swiper-box__li_active':''" @click="changePage(index)">
@@ -253,13 +260,13 @@
             <img src="@/static/images/img/news_img.png">
           </div>
           <div class="news__list">
-            <div v-for="(item, index) in articleList" :key="index" class="new">
+            <div v-for="(item, index) in articleList" :key="index" class="new" @click="toArticle(item.id)">
               <div class="new__time">
                 <div class="new__date">
-                  04-20
+                  {{ item.create_time.substring(5,10) }}
                 </div>
                 <div class="new__year">
-                  2020
+                  {{ item.create_time.substring(0,4) }}
                 </div>
               </div>
               <div class="new__msg">
@@ -400,6 +407,7 @@ export default {
     try {
     // 获得文章列表
       return await app.$api.estate.setHouseAus().then(({ data }) => {
+        console.log(data)
         return {
           videoList: data[0].children,
           articleList: data[1].children[0].data,
@@ -610,13 +618,36 @@ export default {
         history.go(0)
       }
       this.$router.push({ name })
+    },
+    navRouter(index) {
+      if (index == 0) {
+        window.location.href = 'https://play.yunxi.tv/wechat/liveroom/67407?key=1d5fdb0bcd0510df2d1b183292b3edaf'
+        // window.open('https://play.yunxi.tv/wechat/liveroom/67407?key=1d5fdb0bcd0510df2d1b183292b3edaf')
+      } else if (index == 1) {
+        this.$router.push({ name: 'estate-videoList' })
+      } else if (index == 2) {
+        // this.$router.push({ name: 'estate-videoList' })
+      } else if (index == 3) {
+        this.$router.push({ name: 'project' })
+      } else if (index == 4) {
+        this.$router.push({ name: 'estate' })
+      }
+    },
+    toArticle(id) {
+      this.$router.push({
+        name: 'estate-article',
+        query: {
+          id
+        }
+      })
     }
   },
   head() {
     return {
       meta: [
         { charset: 'utf-8' },
-        { hid: 'keywords', name: 'keywords', content: '富力,富力集团,富力地产,房地产开发,商业运营,物业服务' }
+        { hid: 'keywords', name: 'keywords', content: '澳洲好房官网,澳洲房产,澳洲房产网,澳洲房产投资,澳洲买房,澳洲生活,澳洲房价,澳洲购房攻略,澳洲买房移民,澳洲资产配置、0房产税、0遗产税、永久产权' },
+        { hid: 'description', name: 'description', content: '澳洲好房为您精选澳洲优质房源，置业澳洲认准澳洲好房！' }
       ]
     }
   }
@@ -1022,6 +1053,8 @@ export default {
       color:rgba(255,255,255,1);
       position: relative;
       margin-left: 196px;
+      cursor: pointer;
+      transition: all .2s;
     }
     @mixin labelafter {
       content: "";
@@ -1119,6 +1152,7 @@ export default {
       font-family:Microsoft YaHei;
       font-weight:400;
       color:rgba(255,255,255,1);
+      cursor: pointer;
     }
   }
 }
@@ -1130,6 +1164,7 @@ export default {
   background-repeat: no-repeat;
   padding-top: 50px;
   background-color: #FFFFFF;
+  cursor: pointer;
   .news__content {
     width: 1200px;
     height: 505px;

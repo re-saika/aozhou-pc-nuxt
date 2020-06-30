@@ -108,7 +108,8 @@ export default {
     return {
       meta: [
         { charset: 'utf-8' },
-        { hid: 'keywords', name: 'keywords', content: '富力,富力集团,富力地产,房地产开发,商业运营,物业服务' }
+        { hid: 'keywords', name: 'keywords', content: '澳大利亚楼市,澳大利亚新房,澳大利亚新楼盘,澳大利亚新房源,澳大利亚买新房、0房产税、0遗产税、永久产权' },
+        { hid: 'description', name: 'description', content: '澳洲好房为您推荐澳洲优质房源，专属顾问为您解答澳洲购房疑问' }
       ]
     }
   }

@@ -81,13 +81,13 @@
             </div> -->
           </div>
           <!-- 之后要改 -->
-          <!-- <div class="left-footer__navs">
+          <div class="left-footer__navs">
             友情链接：
-            <a class="navs__nav navs__nav_boder">富力集团</a>
-            <a class="navs__nav navs__nav_boder">澳洲房产</a>
-            <a class="navs__nav navs__nav_boder">富力英国</a>
-            <a class="navs__nav navs__nav_boder">思为知屋</a>
-          </div> -->
+            <a class="navs__nav navs__nav_boder" href="http://oversea.5i5j.com/">我爱我家</a>
+            <a class="navs__nav navs__nav_boder" href="http://www.jindichan.com.cn/">津地产</a>
+            <a class="navs__nav navs__nav_boder" href="https://www.kbrz.com.au">KBRZ</a>
+            <!-- <a class="navs__nav navs__nav_boder">思为知屋</a> -->
+          </div>
         </div>
         <div class="footer__right">
           <div class="right__item">
