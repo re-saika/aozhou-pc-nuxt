@@ -54,26 +54,6 @@
 <script>
 import { validateForm, debounce } from '@/libs/tools.js'
 export default {
-  // async asyncData({ app }) {
-  //   try {
-  //     const [data1, data2] = await Promise.all([
-  //       app.$api.recommend.recomendVideo().then(({ data }) => {
-  //         return { video: data[0] }
-  //       }),
-  //       app.$api.recommend.recomendArticle().then(({ data }) => {
-  //         return { article: data.slice(0, 4) }
-  //       })
-  //     ])
-  //     const res = {
-  //       video: data1.video,
-  //       article: data2.article
-  //     }
-
-  //     return res
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // },
   data() {
     return {
       video: {},

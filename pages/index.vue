@@ -32,7 +32,9 @@
       >
         <div class="swiper-wrapper">
           <div class="swiper__item swiper-slide">
-            <img class="swiper__img" src="@/static/images/img/banner/lc.png">
+            <div class="swiper__warp">
+              <img class="swiper__img" src="@/static/images/img/banner/lc.png">
+            </div>
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
               <div class="swiper__content">
@@ -58,7 +60,9 @@
             </div>
           </div>
           <div class="swiper__item swiper-slide">
-            <img class="swiper__img" src="@/static/images/img/banner/wl.png">
+            <div class="swiper__warp">
+              <img class="swiper__img" src="@/static/images/img/banner/wl.png">
+            </div>
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
               <div class="swiper__content">
@@ -84,7 +88,9 @@
             </div>
           </div>
           <div class="swiper__item swiper-slide">
-            <img class="swiper__img" src="@/static/images/img/banner/ms.png">
+            <div class="swiper__warp">
+              <img class="swiper__img" src="@/static/images/img/banner/ms.png">
+            </div>
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
               <div class="swiper__content">
@@ -110,7 +116,9 @@
             </div>
           </div>
           <div class="swiper__item swiper-slide">
-            <img class="swiper__img" src="@/static/images/img/banner/ps.png">
+            <div class="swiper__warp">
+              <img class="swiper__img" src="@/static/images/img/banner/ps.png">
+            </div>
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
               <div class="swiper__content">
@@ -472,7 +480,7 @@ export default {
       sethouse: [
         {
           title: '澳房置业理由',
-          label: '置业发达国家首选澳洲'
+          label: '海外资产配置首选澳洲'
         },
         {
           title: '澳房买房政策',
@@ -779,9 +787,16 @@ export default {
     width: 1200px;
     margin: 0 auto;
   }
+  .swiper__warp {
+    width: 100%;
+    // height: 100vh;
+  }
   .swiper__img {
-    width: 1920px;
-    height: auto;
+    // min-width: 1920px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     position: absolute;
     z-index: -1;
   }
@@ -1015,7 +1030,7 @@ export default {
 }
 /* ---------------- 置业澳洲 ------------- */
 .sethouse {
-  min-width: 1200px;
+  min-width: 1920px;
   height: 705px;
   position: relative;
   // .sethouse__label::after {

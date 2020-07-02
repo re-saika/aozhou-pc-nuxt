@@ -68,6 +68,9 @@
             <li class="navs__nav" @click="routeTo('about')">
               联系我们
             </li>
+            <li class="navs__nav" @click="toHref('http://haofang.wkan.cn/fladmin/')">
+              登录中心
+            </li>
           </ul>
           <div class="left-footer__line2">
             <div class="left-footer__boderbox">
@@ -89,14 +92,32 @@
             <!-- <a class="navs__nav navs__nav_boder">思为知屋</a> -->
           </div>
         </div>
-        <div class="footer__right">
-          <div class="right__item">
+        <div class="footer__right platform">
+          <!-- <div class="right__item">
             <img src="@/static/images/icon/Applet_code.jpg" class="right__img">
             <div>澳洲好房小程序</div>
           </div>
           <div class="right__item">
             <img src="@/static/images/icon/gzh.jpg" class="right__img">
             <div>澳洲好房公众号</div>
+          </div> -->
+          <div class="platform__icons">
+            <a v-for="(item, index) in platformList" :key="index" class="platform__icon" @mouseleave="showModal(null)">
+              <img :src="item" @mouseover="showModal(index)">
+              <transition name="fade">
+                <div v-show="modalActive === index" class="platform__modal">
+                  <img src="@/static/images/icon/gzh.jpg">
+                  <div class="platform__triangle" />
+                </div>
+              </transition>
+            </a>
+          </div>
+          <div class="platform__desc">
+            关注我们 各大平台 详情请点击上方图标
+          </div>
+          <div class="platform__info">
+            <p>© 2018 R&F Properties Cambodia. All Rights Reserved</p>
+            <p>Powered by vancheer</p>
           </div>
         </div>
       </div>
@@ -120,7 +141,15 @@ export default {
       curHeight: '', // 当前屏幕高度
       isBottom: false, // 是否触底
       t: null, // 防抖
-      spinShow: false
+      spinShow: false,
+      platformList: [
+        require('@/static/images/icon/nimg50_6.png'),
+        require('@/static/images/icon/nimg50_7.png'),
+        require('@/static/images/icon/nimg50_5.png'),
+        require('@/static/images/icon/nimg50_4.png'),
+        require('@/static/images/icon/nimg50_1.png')
+      ],
+      modalActive: null
     }
   },
   created() {
@@ -133,6 +162,10 @@ export default {
     this.t = debounce(() => { this.submit() }, 2000)
   },
   methods: {
+    // 新增平台列表
+    showModal(index) {
+      this.modalActive = index
+    },
     // 获得列表
     getProjectList() {
       this.$api.app.projectlist().then((res) => {
@@ -221,6 +254,9 @@ export default {
       this.$router.push({
         name: to
       })
+    },
+    toHref(url) {
+      window.location.href = url
     }
   }
 }
@@ -467,5 +503,74 @@ export default {
       margin-right: 16px;
     }
   }
+  .platform {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #FFFFFF;
+    font-size: 14px;
+    .platform__icons {
+      padding: 20px 0;
+      display: flex;
+      .platform__icon {
+        width: 40px;
+        height: 40px;
+        margin-left: 15px;
+        position: relative;
+        transition: all .5s;
+        img {
+          width: 40px;
+          height: 40px;
+        }
+        .platform__modal {
+          position: absolute;
+          background-color: #FFFFFF;
+          width: 160px;
+          height: 160px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          left: -60px;
+          top: -170px;
+          img {
+            width: 150px;
+            height: 150px;
+          }
+          .platform__triangle {
+            position: absolute;
+            bottom: -20px;
+            width: 0;
+            height: 0;
+            margin: auto;
+            border: 10px solid transparent;
+            border-top-color: #FFFFFF;
+          }
+        }
+      }
+      .platform__icon:hover {
+        transform: translateY(-10%);
+        transition: all .5s;
+      }
+    }
+    .platform__desc {
+      margin-bottom: 17px;
+    }
+    .platform__info {
+      text-align: right;
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s;
+}
+.slide-left-enter-to .slide-left-leave {
+  transform: translateY(0);
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(10%);
 }
 </style>>

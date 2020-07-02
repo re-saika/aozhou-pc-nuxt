@@ -68,7 +68,7 @@
               </li>
             </ul>
             <div class="projectbox__phone">
-              <span class="projectbox__phone-title">咨询电话:</span>020-38882777
+              <span class="projectbox__phone-title">咨询电话:</span>{{ detail.phone }}
             </div>
             <div class="projectbox__btn" @click="toDetail">
               查看项目详情

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="gray">
     <subtitle class="bm" sub-title="置业澳洲" sub-title-en="Property Australia" />
     <div class="main">
       <div class="main__auto">

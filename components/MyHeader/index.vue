@@ -128,8 +128,9 @@ export default {
   box-shadow:0px 2px 6px 0px rgba(12,64,149,0.5);
   .header__content {
     height:100px;
-    max-width: 1834px;
-    min-width: 1200px;
+    // max-width: 1834px;
+    // min-width: 1200px;
+    width: 1200px;
     margin: auto;
     display: flex;
     justify-content: space-between;
