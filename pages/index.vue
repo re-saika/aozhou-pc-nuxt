@@ -206,19 +206,22 @@
       <div class="index__nav-banner">
         <img :src="require('@/static/images/img/banner/nav' + navListIndex + '.png')">
       </div>
-      <div class="index__navlist">
+      <div ref="navlist" class="index__navlist">
         <div class="navlist">
           <div
             v-for="(item, index) in navList"
             :key="index"
             class="navlist__item"
-            :class="navListIndex == (index+1)?'navlist__item_active':'navlist__item_gray'"
+            :class="[{'navlist__item_gray':index%2 == 0},{'navlist__item_white':index%2 == 1}, {'navlist__item_active':navListIndex == (index+1)}]"
             @mouseover="changeNavList(index+1)"
             @click="navRouter(index)"
           >
-            <img v-show="navListIndex != (index+1)" :class="'navlist__icon'+(index+1)" :src="require('@/static/images/icon/nav' + (index+1) + '.png')">
-            <img v-show="navListIndex == (index+1)" :class="'navlist__icon'+(index+1)" :src="require('@/static/images/icon/nav' + (index+1) + '_a.png')">
-            {{ item }}
+            <div class="navlist__content">
+              <img v-show="navListIndex != (index+1)" :class="'navlist__icon'+(index+1)" :src="require('@/static/images/icon/nav' + (index+1) + '.png')">
+              <img v-show="navListIndex == (index+1)" :class="'navlist__icon'+(index+1)" :src="require('@/static/images/icon/nav' + (index+1) + '_a.png')">
+              {{ item }}
+            </div>
+            <div class="navlist__bg" :class="navListIndex == (index+1)?'navlist__bg_active':''" />
           </div>
         </div>
       </div>
@@ -247,7 +250,7 @@
       </div>
     </div>
     <!-- 新闻资讯 -->
-    <div class="news">
+    <div ref="news" class="news">
       <div class="news__content">
         <div class="infobox__title">
           <div>新闻资讯</div>
@@ -264,10 +267,10 @@
           </div>
         </div>
         <div class="news__main">
-          <div class="news__img">
+          <div ref="newsimg" class="news__img">
             <img src="@/static/images/img/news_img.png">
           </div>
-          <div class="news__list">
+          <div ref="newslist" class="news__list">
             <div v-for="(item, index) in articleList" :key="index" class="new" @click="toArticle(item.id)">
               <div class="new__time">
                 <div class="new__date">
@@ -291,114 +294,6 @@
       </div>
       <div class="news__btm gray" />
     </div>
-    <!-- 直播 -->
-    <!-- <div class="index__bg">
-      <article class="swiper-box">
-        <div class="swiper-box__box">
-          <div class="infobox__title">
-            <div>直播|视频</div>
-            <div class="swiper-box__nav">
-              <ul class="swiper-box__ul">
-                <li v-for="(item,index) in videoList" :key="'2' + index" class="swiper-box__li" :class="liveActive == index?'swiper-box__li_active':''" @click="changeLive(index)">
-                  {{ item.name }}
-                  <img v-if="liveActive == index" class="swiper-box__lipoint" src="@/static/images/icon/index_point_icon.png">
-                </li>
-              </ul>
-              <div class="swiper-box__more" @click="routeTo('estate-videoList')">
-                更多<img class="more_icon" src="@/static/images/icon/right_gray.png">
-              </div>
-            </div>
-          </div>
-          <div
-            v-swiper:liveSwiper="swiperOption2"
-            :auto-update="true"
-            @slideChangeTransitionStart="liveStart"
-          >
-            <div class="swiper-wrapper">
-              <div v-for="v in videoList" :key="v.id" class="swiper-box__content swiper-slide">
-                <viewbox
-                  v-for="item in v.data"
-                  :key="item.id"
-                  class="viewbox_home"
-                  :is-video="true"
-                  :vid="item.id"
-                  :img="item.aid"
-                  :link="item.link"
-                  :title="item.name"
-                  :content="item.introduction"
-                />
-              </div>
-            </div>
-            <empty v-if="videoList.length === 0" />
-          </div>
-        </div>
-      </article>
-    </div> -->
-    <!-- 文章 -->
-    <!-- <div class="index__bg">
-      <article class="swiper-box">
-        <div class="swiper-box__box">
-          <div class="infobox__title">
-            <div>置业澳洲</div>
-            <div class="swiper-box__nav">
-              <ul class="swiper-box__ul">
-                <li v-for="(item,index) in pageMenu" :key="'3' + index" class="swiper-box__li" :class="pageActive == index?'swiper-box__li_active':''" @click="changePage(index)">
-                  {{ item }}
-                  <img v-if="pageActive == index" class="swiper-box__lipoint" src="@/static/images/icon/index_point_icon.png">
-                </li>
-              </ul>
-              <div class="swiper-box__more" @click="routeTo('estate')">
-                更多<img class="more_icon" src="@/static/images/icon/right_gray.png">
-              </div>
-            </div>
-          </div>
-          <div
-            v-swiper:pageSwiper="swiperOption2"
-            :auto-update="true"
-            @slideChangeTransitionStart="pageStart"
-          >
-            <div class="swiper-wrapper">
-              <div class="swiper-box__content swiper-slide">
-                <viewbox
-                  v-for="item in articleList1"
-                  :key="item.id"
-                  class="viewbox_home"
-                  :vid="item.id"
-                  :img="item.aid"
-                  :title="item.name"
-                  :content="item.introduction"
-                />
-                <empty v-if="articleList1.length === 0" />
-              </div>
-              <div class="swiper-box__content swiper-slide">
-                <viewbox
-                  v-for="item in articleList2"
-                  :key="item.id"
-                  class="viewbox_home"
-                  :vid="item.id"
-                  :img="item.aid"
-                  :title="item.name"
-                  :content="item.introduction"
-                />
-                <empty v-if="articleList2.length === 0" />
-              </div>
-              <div class="swiper-box__content swiper-slide">
-                <viewbox
-                  v-for="item in articleList3"
-                  :key="item.id"
-                  class="viewbox_home"
-                  :vid="item.id"
-                  :img="item.aid"
-                  :title="item.name"
-                  :content="item.introduction"
-                />
-                <empty v-if="articleList3.length === 0" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-    </div> -->
   </div>
 </template>
 
@@ -530,8 +425,18 @@ export default {
     // 监听滚动并执行数字增加
     handleScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      const clientHeight = document.documentElement.clientHeight - 250
       if (scrollTop > 0 && !this.isNum) {
         this.addNum()
+      }
+      // 导航栏动画
+      if (this.$refs.navlist && this.$refs.navlist.getBoundingClientRect().top < clientHeight) {
+        this.$refs.navlist.className = 'index__navlist topmove'
+      }
+      // 新闻动画
+      if (this.$refs.news && this.$refs.news.getBoundingClientRect().top < clientHeight) {
+        this.$refs.newsimg.className = 'news__img leftmove'
+        this.$refs.newslist.className = 'news__list rightmove'
       }
     },
     // -----------------------------------------------------
@@ -962,11 +867,13 @@ export default {
     position:absolute;
     top: 632px;
     width: 100%;
+    opacity: 0;
     .navlist {
       margin: auto;
       width: 1200px;
       display: flex;
       .navlist__item {
+        position: relative;
         width:240px;
         height:140px;
         font-size:26px;
@@ -974,9 +881,6 @@ export default {
         font-weight:bold;
         color:rgba(51,51,51,1);
         transition: all .2s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         cursor: pointer;
         .navlist__icon1 {
           width: 46px;
@@ -1004,33 +908,62 @@ export default {
           margin-right: 14px;
         }
       }
-      .navlist__item::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 0;
-        z-index: 1;
-        background: #2E6CB1;
-      }
+      // .navlist__item::after {
+      //   content: '';
+      //   position: absolute;
+      //   left: 0;
+      //   bottom: 0;
+      //   width: 100%;
+      //   height: 0;
+      //   z-index: 1;
+      //   background: #2E6CB1;
+      // }
       .navlist__item_gray {
         background: #ECECEC;
       }
       .navlist__item_white {
         background: #FBFBFB;
       }
+      .navlist__content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       .navlist__item_active {
-        background: #2E6CB1;
+        // background: #2E6CB1;
+        // background: #ECECEC;
         color: white;
-        transition: all .2s;
+        transition: all .5s;
+        transition-timing-function: ease;
+      }
+      .navlist__bg {
+        height: 0;
+        position:absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: #2E6CB1;
+        z-index: 1;
+        transition: all .5s;
+        transition-timing-function: ease;
+      }
+      .navlist__bg_active {
+        height: 100%;
+        transition: all .5s;
+        transition-timing-function: ease;
       }
     }
   }
 }
 /* ---------------- 置业澳洲 ------------- */
 .sethouse {
-  min-width: 1920px;
+  min-width: 100%;
   height: 705px;
   position: relative;
   // .sethouse__label::after {
@@ -1243,6 +1176,7 @@ export default {
       .news__img {
         width:600px;
         height:438px;
+        opacity: 0;
         img {
           width: 100%;
           height: 100%;
@@ -1251,6 +1185,7 @@ export default {
         }
       }
       .news__list {
+        opacity: 0;
         width: auto;
         background: #FFFFFF;
         display: flex;
@@ -1435,6 +1370,66 @@ export default {
     .swiper-button-next::after {
       content: '';
     }
+  }
+}
+/* 动画 */
+.leftmove {
+  animation:leftmove 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+.rightmove {
+  animation:rightmove 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+.topmove {
+  animation:topmove 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes leftmove {
+  0% {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(-5%);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes rightmove {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(5%);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes topmove {
+  0% {
+    opacity: 0;
+    transform: translateY(20%)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

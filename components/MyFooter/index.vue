@@ -1,57 +1,59 @@
 <template>
   <footer class="footer-all">
     <div v-if="!isClose && !isBottom" class="footer-block" />
-    <div v-if="!isClose && isAlive" :class="isBottom?'contact-warp_bottom':'contact-warp'">
-      <div class="contact">
-        <div class="concat__title">
-          免费预约咨询
-        </div>
-        <div>
-          <div class="contact__content">
-            <div class="contact__inputs">
-              <div class="contact__input">
-                <div class="input__left">
-                  <img src="@/static/images/icon/footer_user.png" class="inputs__img1">
+    <transition name="pointtwo">
+      <div v-if="!isClose && isAlive" :class="isBottom?'contact-warp_bottom':'contact-warp'">
+        <div class="contact">
+          <div class="concat__title">
+            免费预约咨询
+          </div>
+          <div>
+            <div class="contact__content">
+              <div class="contact__inputs">
+                <div class="contact__input">
+                  <div class="input__left">
+                    <img src="@/static/images/icon/footer_user.png" class="inputs__img1">
+                  </div>
+                  <input v-model="name" class="input__in" placeholder="请输入您的姓名">
                 </div>
-                <input v-model="name" class="input__in" placeholder="请输入您的姓名">
-              </div>
-              <div class="contact__input">
-                <div class="input__left">
-                  <img src="@/static/images/icon/footer_phone.png" class="inputs__img1">
+                <div class="contact__input">
+                  <div class="input__left">
+                    <img src="@/static/images/icon/footer_phone.png" class="inputs__img1">
+                  </div>
+                  <input v-model="mobile" class="input__in" placeholder="请输入联系方式">
                 </div>
-                <input v-model="mobile" class="input__in" placeholder="请输入联系方式">
-              </div>
-              <div class="contact__input">
-                <div class="input__left">
-                  <img src="@/static/images/icon/footer_build.png" class="inputs__img1">
-                </div>
-                <div class="input___select selecter" @click="showSelecter">
-                  <div>{{ consulting || '请选择咨询项目' }}</div>
-                  <transition name="options">
-                    <div v-show="isShow" class="selecter__options input___options">
-                      <div v-for="(item, index) in list" :key="index" class="selecter__option">
-                        <div class="selecter__item" :class="index+1 == list.length?'selecter__item_last':index == 0?'selecter__item_first':''" @click="changeSelect(item.name)">
-                          {{ item.name }}
+                <div class="contact__input">
+                  <div class="input__left">
+                    <img src="@/static/images/icon/footer_build.png" class="inputs__img1">
+                  </div>
+                  <div class="input___select selecter" @click="showSelecter">
+                    <div>{{ consulting || '请选择咨询项目' }}</div>
+                    <transition name="options">
+                      <div v-show="isShow" class="selecter__options input___options">
+                        <div v-for="(item, index) in list" :key="index" class="selecter__option">
+                          <div class="selecter__item" :class="index+1 == list.length?'selecter__item_last':index == 0?'selecter__item_first':''" @click="changeSelect(item.name)">
+                            {{ item.name }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </transition>
+                    </transition>
+                  </div>
+                  <!-- <img src="@/static/images/icon/dropdown.png"> -->
                 </div>
-                <!-- <img src="@/static/images/icon/dropdown.png"> -->
+              </div>
+              <div class="contact__btn" @click="sub">
+                <Spin v-if="spinShow" fix />
+                提交免费获取置业方案
               </div>
             </div>
-            <div class="contact__btn" @click="sub">
-              <Spin v-if="spinShow" fix />
-              提交免费获取置业方案
+            <div class="contact__tips">
+              *提交信息后,24小时内将有专业的顾问与您联系！
             </div>
           </div>
-          <div class="contact__tips">
-            *提交信息后,24小时内将有专业的顾问与您联系！
-          </div>
+          <img src="@/static/images/icon/close.png" class="img-close contact__close" @click="close">
         </div>
-        <img src="@/static/images/icon/close.png" class="img-close contact__close" @click="close">
       </div>
-    </div>
+    </transition>
     <div class="footer-warp">
       <div class="footer">
         <div class="left-footer">
@@ -347,6 +349,7 @@ export default {
           cursor: pointer;
           .selecter__options {
             position: absolute;
+            z-index: 1;
             border-radius: 8px;
             background: white;
             .selecter__option {
@@ -354,7 +357,7 @@ export default {
               transition: all .2s;
               .selecter__item {
                 border-bottom: 1px solid #2E6CB1;
-                height: 30px;
+                height: 35px;
                 padding: 10px;
               }
               .selecter__item_first {

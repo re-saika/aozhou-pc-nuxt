@@ -1,46 +1,56 @@
 <template>
-  <div v-show="isShow" class="floatbox" @mouseleave="boxhover(0)">
-    <div class="floatbox__item" @mouseover="boxhover(1)">
-      <img src="@/static/images/icon/Applet.png" class="floatbox__icon1">
-      <div v-show="boxActive == 1" class="floatbox__hover">
-        小程序
+  <transition name="pointtwo">
+    <div v-show="isShow" class="floatbox" @mouseleave="boxhover(0)">
+      <div class="floatbox__item" @mouseover="boxhover(1)">
+        <img src="@/static/images/icon/Applet.png" class="floatbox__icon1">
+        <transition name="pointtwo">
+          <div v-show="boxActive == 1" class="floatbox__hover">
+            小程序
+          </div>
+        </transition>
       </div>
-    </div>
-    <div class="floatbox__item" @mouseover="boxhover(2)">
-      <img src="@/static/images/icon/weixin.png" class="floatbox__icon2">
-      <div v-show="boxActive == 2" class="floatbox__hover">
-        公众号
+      <div class="floatbox__item" @mouseover="boxhover(2)">
+        <img src="@/static/images/icon/weixin.png" class="floatbox__icon2">
+        <transition name="pointtwo">
+          <div v-show="boxActive == 2" class="floatbox__hover">
+            公众号
+          </div>
+        </transition>
       </div>
-    </div>
-    <div class="floatbox__item" @mouseover="boxhover(3)">
-      <img src="@/static/images/icon/service.png" class="floatbox__icon3">
-      <div v-show="boxActive == 3" class="floatbox__hover">
-        客服
+      <div class="floatbox__item" @mouseover="boxhover(3)">
+        <img src="@/static/images/icon/service.png" class="floatbox__icon3">
+        <transition name="pointtwo">
+          <div v-show="boxActive == 3" class="floatbox__hover">
+            客服
+          </div>
+        </transition>
       </div>
-    </div>
-    <div class="floatbox__item floatbox__item_last" @mouseover="boxhover(4)" @click="backTop">
-      <img src="@/static/images/icon/top.png" class="floatbox__icon4">
-      <div v-show="boxActive == 4" class="floatbox__hover">
-        顶部
+      <div class="floatbox__item floatbox__item_last" @mouseover="boxhover(4)" @click="backTop">
+        <img src="@/static/images/icon/top.png" class="floatbox__icon4">
+        <transition name="pointtwo">
+          <div v-show="boxActive == 4" class="floatbox__hover">
+            顶部
+          </div>
+        </transition>
       </div>
-    </div>
 
-    <transition name="pointtwo">
-      <div v-show="boxActive == 1" class="floatbox__msg">
-        <img class="floatbox__img" src="@/static/images/icon/Applet_code.jpg">
-      </div>
-    </transition>
-    <transition name="pointtwo">
-      <div v-show="boxActive == 2" class="floatbox__msg">
-        <img class="floatbox__img" src="@/static/images/icon/gzh.jpg">
-      </div>
-    </transition>
-    <transition name="pointtwo">
-      <div v-show="boxActive == 3" class="floatbox__msg2">
-        020-38882777
-      </div>
-    </transition>
-  </div>
+      <transition name="pointtwo">
+        <div v-show="boxActive == 1" class="floatbox__msg">
+          <img class="floatbox__img" src="@/static/images/icon/Applet_code.jpg">
+        </div>
+      </transition>
+      <transition name="pointtwo">
+        <div v-show="boxActive == 2" class="floatbox__msg">
+          <img class="floatbox__img" src="@/static/images/icon/gzh.jpg">
+        </div>
+      </transition>
+      <transition name="pointtwo">
+        <div v-show="boxActive == 3" class="floatbox__msg2">
+          020-38882777
+        </div>
+      </transition>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -64,7 +74,11 @@ export default {
       }
     },
     backTop() {
-      document.documentElement.scrollTop = 0
+      // document.documentElement.scrollTop = 0
+      window.scroll({
+        top: 0,
+        behavior: 'smooth'
+      })
     },
     boxhover(index) {
       this.boxActive = index

@@ -27,16 +27,16 @@
             <img src="@/static/images/icon/header_phone.png" class="white-phone__icon">
             <span>020-38882777</span>
           </div>
-          <div class="dropdown" @mouseleave="showThePic(0)">
+          <div class="dropdown">
             <div @click="showTheLang()">
               中/EN
               <img src="@/static/images/icon/dropdown.png">
             </div>
-            <div @mouseover="showThePic(2)">
+            <div @mouseover="showThePic(2)" @mouseleave="showThePic(0)">
               小程序
               <img src="@/static/images/icon/dropdown.png">
             </div>
-            <div @mouseover="showThePic(3)">
+            <div @mouseover="showThePic(3)" @mouseleave="showThePic(0)">
               公众号
               <img src="@/static/images/icon/dropdown.png">
             </div>
@@ -197,7 +197,7 @@ export default {
             color: #FFFFFF;
         }
         .white-search__input:focus {
-          width: 150px;
+          width: 100px;
           transition: all .5s;
         }
       }
