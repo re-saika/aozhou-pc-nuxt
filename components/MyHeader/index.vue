@@ -124,7 +124,7 @@ export default {
 <style scoped lang='scss'>
 .header {
   width: 100%;
-  background:rgba(46,108,177,1);
+  background:#062A5A;
   box-shadow:0px 2px 6px 0px rgba(12,64,149,0.5);
   .header__content {
     height:100px;

@@ -37,6 +37,7 @@ module.exports = {
     '@/plugins/iview',
     '@/plugins/axios',
     '@/plugins/vue-swiper',
+    '@/plugins/rem',
     '@/plugins/i-viewer',
     '@/plugins/v-clipboard'
   ],
@@ -83,7 +84,11 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
-    }
+    postcss: [
+      require('postcss-px2rem-exclude')({
+        remUnit: 100,
+        exclude: /node_modules/i
+      })
+    ]
   }
 }
