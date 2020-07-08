@@ -1,8 +1,13 @@
 <template>
   <header>
-    <div class="header">
+    <div :class="home?'header_home':''" class="header" @mouseover="showColor(true)" @mouseleave="showColor(false)">
       <div class="header__content">
-        <img class="logo" src="@/static/images/icon/logo.png" @click="routeTo('index')">
+        <transition name="pointfive">
+          <div>
+            <img v-show="isColor" class="logo" src="@/static/images/icon/logo_header.png" @click="routeTo('index')">
+            <img v-show="!isColor" class="logo" src="@/static/images/icon/logo_header_white.png" @click="routeTo('index')">
+          </div>
+        </transition>
         <div class="header__nav wt">
           <ul class="nav">
             <li class="nav__li" :class="isActive == 'index'?'nav__li_active':''" @click="routeTo('index')">
@@ -68,8 +73,15 @@
 
 <script>
 export default {
+  props: {
+    home: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
+      isColor: false,
       isIndex: false,
       visible: false,
       showPic: 0,
@@ -89,6 +101,10 @@ export default {
     this.isActive = this.$route.name
   },
   methods: {
+    // 首页鼠标移入颜色会发生变化
+    showColor(bool) {
+      this.isColor = bool
+    },
     showThePic(index) {
       this.showPic = index
     },
@@ -124,20 +140,20 @@ export default {
 <style scoped lang='scss'>
 .header {
   width: 100%;
-  background:#062A5A;
+  background-color:#062A5A;
   box-shadow:0px 2px 6px 0px rgba(12,64,149,0.5);
   .header__content {
     height:100px;
-    // max-width: 1834px;
+    max-width: 1834px;
     // min-width: 1200px;
-    width: 1200px;
+    // width: 1200px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     .logo {
-      width:223px;
-      height:54px;
+      width:127px;
+      height:92px;
     }
     .header__nav {
       display: flex;
@@ -158,13 +174,13 @@ export default {
         }
         .nav__li:hover {
           background-color: #FFFFFF;
-          color: rgba(46,108,177,1);
+          color: #062A5A;
           transition: all .2s;
         }
-        .nav__li_active {
-          font-weight:bold;
-          border-bottom: 2px solid white;
-        }
+        // .nav__li_active {
+        //   font-weight:bold;
+        //   border-bottom: 2px solid white;
+        // }
       }
       .white-search {
         background:rgba(242,242,242,0.5);
@@ -227,7 +243,7 @@ export default {
           top: 65px;
           left: 0px;
           z-index: 99;
-          background-color: #2E6CB1;
+          background-color: #062A5A;
           width: 140px;
           height: 70px;
         }
@@ -235,7 +251,7 @@ export default {
           position: absolute;
           width: 223px;
           height: 223px;
-          background-color: #2E6CB1;
+          background-color: #062A5A;
           top: 65px;
           left: -37px;
           z-index: 99;
@@ -254,5 +270,16 @@ export default {
       }
     }
   }
+}
+
+.header_home {
+  background-color: transparent;
+  width: 100%;
+  transition: all .5s;
+  box-shadow: none;
+}
+.header_home:hover {
+  background-color: #062A5A;
+  transition: all .5s;
 }
 </style>

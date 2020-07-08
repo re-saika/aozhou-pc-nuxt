@@ -659,7 +659,7 @@ export default {
       width:510px;
       height:548px;
       background:rgba(255,255,255,1);
-      border-top: 10px solid #2E6CB1;
+      border-top: 10px solid #062A5A;
       .projectd__msg1 {
         border-bottom: 1px dashed #E4E4E4;
         padding: 0 35px;
@@ -674,7 +674,7 @@ export default {
               font-size:30px;
               font-family:Microsoft YaHei;
               font-weight:bold;
-              color:rgba(46,108,177,1);
+              color:#062A5A;
               letter-spacing: -1px;
               .number__smallword {
                 font-size:14px;
@@ -692,7 +692,7 @@ export default {
           font-size:12px;
           font-family:Microsoft YaHei;
           font-weight:400;
-          color:rgba(46,108,177,1);
+          color:#062A5A;
           display: flex;
           align-items: center;
           margin-bottom: 23px;
@@ -705,7 +705,7 @@ export default {
             height:18px;
             text-align: center;
             line-height: 18px;
-            background:rgba(46,108,177,1);
+            background:#062A5A;
             border-radius:2px;
             margin-right: 6px;
           }
@@ -719,7 +719,7 @@ export default {
           font-size:14px;
           font-family:Microsoft YaHei;
           font-weight:400;
-          color:rgba(46,108,177,1);
+          color:#062A5A;
         }
       }
       .projectd__msg2 {
@@ -770,11 +770,11 @@ export default {
             width:200px;
             height:44px;
             background:rgba(255,255,255,1);
-            border:1px solid rgba(46,108,177,1);
+            border:1px solid #062A5A;
             font-size:18px;
             font-family:Microsoft YaHei;
             font-weight:400;
-            color:rgba(46,108,177,1);
+            color:#062A5A;
             text-align: center;
             line-height: 44px;
             cursor: pointer;
@@ -782,7 +782,7 @@ export default {
           .project__btn2 {
             width:200px;
             height:44px;
-            background:rgba(46,108,177,1);
+            background:#062A5A;
             font-size:18px;
             font-family:Microsoft YaHei;
             font-weight:400;
@@ -896,7 +896,7 @@ export default {
             cursor: pointer;
             width:130px;
             height:70px;
-            border:1px solid rgba(46,108,177,1);
+            border:1px solid #062A5A;
             font-size:18px;
             font-family:Microsoft YaHei;
             font-weight:400;
@@ -905,12 +905,12 @@ export default {
             justify-content: space-around;
             align-items: center;
             background:rgba(255,255,255,1);
-            color: #2E6CB1;
+            color: #062A5A;
             margin-bottom: 20px;
             transition: all .2s;
           }
           .apart__item_active {
-            background:rgba(46,108,177,1);
+            background:#062A5A;
             transition: all .2s;
             color:rgba(255,255,255,1);
           }

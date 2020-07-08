@@ -508,7 +508,7 @@ export default {
         }
       }
       .bread__li_active {
-        color:rgba(46,108,177,1);
+        color:#062A5A;
       }
     }
   }
@@ -551,7 +551,7 @@ export default {
     padding: 50px 0;
     .contact__boxtitle {
       font-weight:bold;
-      color:rgba(46,108,177,1);
+      color:#062A5A;
     }
     .contact__mybox {
       margin: 22px 0;
@@ -571,7 +571,7 @@ export default {
         border-radius:4px;
         display: flex;
         align-items: center;
-        border: 1px solid #2E6CB1;
+        border: 1px solid #062A5A;
         margin-bottom: 20px;
         transition: all .2s;
         .input__left {
@@ -606,13 +606,13 @@ export default {
             position: absolute;
             border-radius: 4px;
             background: white;
-            border: 1px solid #2E6CB1;
+            border: 1px solid #062A5A;
             .selecter__option {
               width: 580px;
               transition: all .2s;
               padding: 0 10px;
               .selecter__item {
-                border-bottom: 1px solid #2E6CB1;
+                border-bottom: 1px solid #062A5A;
                 height: 40px;
                 padding: 10px;
               }
@@ -625,7 +625,7 @@ export default {
               }
             }
             .selecter__option:hover {
-              background: #2E6CB1;
+              background: #062A5A;
               color: white;
               transition: all .2s;
             }
@@ -645,14 +645,14 @@ export default {
         width:580px;
         height:156px;
         background:rgba(255,255,255,1);
-        border:1px solid rgba(46,108,177,1);
+        border:1px solid #062A5A;
         border-radius:4px;
         padding: 16px;
       }
       .contact__btn {
         width:580px;
         height:60px;
-        background:rgba(46,108,177,1);
+        background:#062A5A;
         border-radius:4px;
         font-size:24px;
         font-family:Source Han Sans CN;
@@ -711,7 +711,7 @@ export default {
         .fold__button {
           width:120px;
           height:45px;
-          background:rgba(46,108,177,1);
+          background:#062A5A;
           border-radius:4px;
           font-size:18px;
           font-family:Microsoft YaHei;
@@ -805,7 +805,7 @@ export default {
             @include input();
             width:332px;
             height:32px;
-            border:1px solid rgba(46,108,177,1);
+            border:1px solid #062A5A;
             border-radius:4px;
             font-size:14px;
             font-family:Microsoft YaHei;
@@ -822,7 +822,7 @@ export default {
       .resume__submit {
         width:200px;
         height:40px;
-        background:rgba(46,108,177,1);
+        background:#062A5A;
         border-radius:4px;
         font-size:18px;
         font-family:Source Han Sans CN;

@@ -131,7 +131,7 @@ export default {
   }
 }
 .viewbox:hover {
-  border: 1px solid #2E6CB1;
+  border: 1px solid #062A5A;
   transition: all .2s;
 }
 .text-overs {

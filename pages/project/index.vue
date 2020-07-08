@@ -153,7 +153,7 @@ export default {
         .boderblock__item {
           padding-right: 16px;
           margin-right: 16px;
-          border-right: 2px solid #2E6CB1;
+          border-right: 2px solid #062A5A;
         }
         .boderblock__item:last-child {
           border: none;
@@ -163,7 +163,7 @@ export default {
         font-size:18px;
         font-family:Source Han Sans CN;
         font-weight:400;
-        color:rgba(46,108,177,1);
+        color:#062A5A;
         padding: 30px 0;
       }
       .project__article {
@@ -213,18 +213,18 @@ export default {
           width:130px;
           height:45px;
           background:rgba(255,255,255,1);
-          border:1px solid rgba(46,108,177,1);
+          border:1px solid #062A5A;
           font-size:18px;
           font-family:Source Han Sans CN;
           font-weight:400;
-          color:rgba(46,108,177,1);
+          color:#062A5A;
           text-align: center;
           line-height: 45px;
           transition: all .2s;
           cursor: pointer;
         }
         .white-btn:hover {
-          background: rgba(46,108,177,1);
+          background: #062A5A;
           color: white;
           transition: all .2s;
         }
@@ -233,7 +233,7 @@ export default {
         }
       }
       .project__a {
-        color: #2e6cb1;
+        color: #062A5A;
       }
       .white-btn:hover a {
         color: white;

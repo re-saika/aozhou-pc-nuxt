@@ -144,7 +144,7 @@ export default {
     margin-right: 44px;
   }
   .navlist__item_active {
-    color: #2E6CB1;
+    color: #062A5A;
     position: relative;
   }
   .bluearrow {
@@ -157,12 +157,12 @@ export default {
       height: 0;
       margin: auto;
       border: 4px solid transparent;
-      border-bottom-color: #2E6CB1;
+      border-bottom-color: #062A5A;
     }
     .bluearrow__rect {
       width: 100%;
       height: 3px;
-      background: #2E6CB1;
+      background: #062A5A;
     }
   }
 }

@@ -2,6 +2,7 @@
   <div class="container gray">
     <!-- 轮播 -->
     <div ref="banner" class="banner-warp">
+      <my-header class="header_banner" :home="true" />
       <div class="banner__menu-warp">
         <div class="banner__menu">
           <ul class="menu">
@@ -298,14 +299,14 @@
 </template>
 
 <script>
-// import empty from '@/components/Empty'
+import MyHeader from '@/components/MyHeader'
 // import viewbox from '@/components/Viewbox'
 
 export default {
-  // components: {
-  //   empty,
-  //   viewbox
-  // },
+  components: {
+    MyHeader
+  },
+  layout: 'home',
   async asyncData({ app }) {
     try {
     // 获得文章列表
@@ -570,8 +571,15 @@ export default {
 <style lang="scss" scoped>
 .banner-warp {
   width: 100%;
-  height: calc(100vh - 100px);
+  // height: calc(100vh - 100px);
+  height: 980px;
   position: relative;
+  .header_banner {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 11;
+  }
   .banner__menu-warp {
     width: 100%;
     position: absolute;
@@ -581,7 +589,8 @@ export default {
     transform: translateY(-50%);
     .banner__menu {
       display: flex;
-      width: 1200px;
+      max-width: 1834px;
+      // width: 1200px;
       margin: auto;
       // height: 100%;
       .menu__btns {
@@ -652,21 +661,21 @@ export default {
           transform: translateY(-50%);
         }
         .menu__item:hover a {
-          background-color: #2e6cb1;
+          background-color: #062A5A;
           // border-radius: 10px;
           transition: all .2s;
         }
         .menu__item_active {
-          background-color: #2e6cb1;
+          background-color: #062A5A;
           transition: all .2s;
         }
         .menu__item_activef {
-          background-color: #2e6cb1;
+          background-color: #062A5A;
           border-radius: 10px 10px 0 0;
           transition: all .2s;
         }
         .menu__item_activel {
-          background-color: #2e6cb1;
+          background-color: #062A5A;
           border-radius: 0 0 10px 10px;
           transition: all .2s;
         }
@@ -676,7 +685,8 @@ export default {
 }
 .banner {
   // height: 500px;
-  height: calc(100vh - 100px);
+  // height: calc(100vh - 100px);
+  height: 980px;
   position: relative;
   color: white;
   .rotation__mask {
@@ -686,6 +696,8 @@ export default {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 0 100px rgba(10, 10, 10, .8) inset;
+   box-shadow: 0 20px 70px -15px rgba(10, 10, 10, .8) inset;
   }
   .w1200 {
     z-index: 10;
@@ -725,10 +737,12 @@ export default {
     display: flex;
   }
   .swiper__content .swiper__row button {
+    border: none;
     background: none;
     outline: none;
-    border: solid 1px #2e6cb1;
-    background-color: #2e6cb1;
+    // border: solid 1px #062A5A;
+    // background-color: #062A5A;
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 6px;
     width: 130px;
     height: 40px;
@@ -811,28 +825,28 @@ export default {
   }
   .statistics_list li:nth-child(1) .list_img:hover {
     background-image: url("~@/static/images/icon/house01.png");
-    background-color: #2e6cb1;
+    background-color: #062A5A;
   }
   .statistics_list li:nth-child(2) .list_img {
     background-image: url("~@/static/images/icon/business.png");
   }
   .statistics_list li:nth-child(2) .list_img:hover {
     background-image: url("~@/static/images/icon/business01.png");
-    background-color: #2e6cb1;
+    background-color: #062A5A;
   }
   .statistics_list li:nth-child(3) .list_img {
     background-image: url("~@/static/images/icon/year.png");
   }
   .statistics_list li:nth-child(3) .list_img:hover {
     background-image: url("~@/static/images/icon/year01.png");
-    background-color: #2e6cb1;
+    background-color: #062A5A;
   }
   .statistics_list li:nth-child(4) .list_img {
     background-image: url("~@/static/images/icon/city.png");
   }
   .statistics_list li:nth-child(4) .list_img:hover {
     background-image: url("~@/static/images/icon/city01.png");
-    background-color: #2e6cb1;
+    background-color: #062A5A;
   }
   .statistics_list li .list_content {
     margin-left: 30px;
@@ -916,7 +930,7 @@ export default {
       //   width: 100%;
       //   height: 0;
       //   z-index: 1;
-      //   background: #2E6CB1;
+      //   background: #062A5A;
       // }
       .navlist__item_gray {
         background: #ECECEC;
@@ -936,7 +950,7 @@ export default {
         justify-content: center;
       }
       .navlist__item_active {
-        // background: #2E6CB1;
+        // background: #062A5A;
         // background: #ECECEC;
         color: white;
         transition: all .5s;
@@ -948,7 +962,7 @@ export default {
         left: 0;
         bottom: 0;
         width: 100%;
-        background: #2E6CB1;
+        background: #062A5A;
         z-index: 1;
         transition: all .5s;
         transition-timing-function: ease;
@@ -1031,7 +1045,7 @@ export default {
       width: 710px;
       padding-left:5px;
       border-width: 0px 39px 187px 0px;
-      border-color: transparent transparent #2E6CB1;
+      border-color: transparent transparent #062A5A;
     }
     .label2, .label2__active {
       @include label;
@@ -1048,7 +1062,7 @@ export default {
       width: 660px;
       padding-left:5px;
       border-width: 0px 39px 187px 0px;
-      border-color: transparent transparent #2E6CB1;
+      border-color: transparent transparent #062A5A;
     }
     .label3, .label3__active {
       @include label;
@@ -1065,7 +1079,7 @@ export default {
       width: 612px;
       padding-left:5px;
       border-width: 0px 39px 187px 0px;
-      border-color: transparent transparent #2E6CB1;
+      border-color: transparent transparent #062A5A;
     }
   }
   .sbanner {
@@ -1095,7 +1109,7 @@ export default {
       height:62px;
       line-height: 62px;
       text-align: center;
-      background:rgba(46,108,177,1);
+      background:#062A5A;
       font-size:24px;
       font-family:Microsoft YaHei;
       font-weight:400;
@@ -1151,7 +1165,7 @@ export default {
             }
           }
           .swiper-box__li_active {
-            color:rgba(46,108,177,1);
+            color:#062A5A;
           }
         }
       }
@@ -1286,7 +1300,7 @@ export default {
             }
           }
           .swiper-box__li_active {
-            color:rgba(46,108,177,1);
+            color:#062A5A;
           }
         }
       }
@@ -1337,7 +1351,7 @@ export default {
         font-size:18px;
         font-family:Source Han Sans CN;
         font-weight:400;
-        color:rgba(46,108,177,1);
+        color:#062A5A;
         display: flex;
         .more__icon {
           width:10px;

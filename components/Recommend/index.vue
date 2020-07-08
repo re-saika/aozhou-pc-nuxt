@@ -129,7 +129,7 @@ export default {
   font-size:18px;
   font-family:Microsoft YaHei;
   font-weight:400;
-  color:rgba(46,108,177,1);
+  color:#062A5A;
   margin-bottom: 20px;
 }
 .recommend {
@@ -156,7 +156,7 @@ export default {
       cursor: pointer;
       width:270px;
       height:40px;
-      background:rgba(46,108,177,1);
+      background:#062A5A;
       border-radius:4px;
       font-size:18px;
       font-family:Microsoft YaHei;

@@ -257,7 +257,7 @@ export default {
         transform:rotateY(180deg);
         background-position: center;
         background-repeat: no-repeat;;
-        background-color: #2E6CB1;
+        background-color: #062A5A;
         left: 0;
         top: 0;
         z-index: 1;
@@ -270,7 +270,7 @@ export default {
         background-size: 14px 26px;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: #2E6CB1;
+        background-color: #062A5A;
         right: 0;
         top: 0;
         z-index: 1;
@@ -353,7 +353,7 @@ export default {
           }
         }
         .navs__li:hover {
-          color: #2E6CB1;
+          color: #062A5A;
           transition: all .2s;
         }
       }
@@ -396,11 +396,11 @@ export default {
           list-style: none;
           margin-right: 10px;
           padding-right: 10px;
-          border-right: 1px solid #2E6CB1;
+          border-right: 1px solid #062A5A;
           font-size:16px;
           font-family:Source Han Sans CN;
           font-weight:400;
-          color:rgba(46,108,177,1);
+          color:#062A5A;
         }
         .projectbox__labe_last {
           margin: 0;
@@ -412,7 +412,7 @@ export default {
         font-size:24px;
         font-family:Microsoft YaHei;
         font-weight:400;
-        color: #2E6CB1;
+        color: #062A5A;
         .projectbox__phone-title {
           color:rgba(102,102,102,1);
         }
@@ -420,7 +420,7 @@ export default {
       .projectbox__btn {
         width:280px;
         height:44px;
-        background:rgba(46,108,177,1);
+        background:#062A5A;
         border-radius:4px;
         font-size:16px;
         font-family:Microsoft YaHei;

@@ -113,7 +113,7 @@ export default {
       top: 0;
       width: 55px;
       height: 55px;
-      background: #2E6CB1;
+      background: #062A5A;
       color: white;
       font-size: 14px;
       line-height: 55px;
@@ -139,7 +139,7 @@ export default {
   .floatbox__msg {
     width: 224px;
     height: 224px;
-    background: #2E6CB1;
+    background: #062A5A;
     position: fixed;
     right: -54px;
     top: 50%;
@@ -155,7 +155,7 @@ export default {
   .floatbox__msg2 {
     width: 224px;
     height: 56px;
-    background: #2E6CB1;
+    background: #062A5A;
     position: fixed;
     right:-54px;
     top: 50%;

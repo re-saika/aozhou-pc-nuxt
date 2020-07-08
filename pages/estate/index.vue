@@ -384,7 +384,7 @@ export default {
         position: absolute;
         left: 0;
         bottom: -10px;
-        background-color: #2e6cb1;
+        background-color: #062A5A;
       }
       &::after{
         content: '';
@@ -396,7 +396,7 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         border: 4px solid transparent;
-        border-bottom-color: #2e6cb1;
+        border-bottom-color: #062A5A;
       }
     }
   }

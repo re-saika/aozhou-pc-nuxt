@@ -282,7 +282,7 @@ export default {
 .contact-warp {
   width: 100%;
   height: 140px;
-  background-color: #2e6cb1;
+  background-color: #062A5A;
   position: fixed;
   bottom: 0;
   z-index: 99;
@@ -290,10 +290,10 @@ export default {
 .contact-warp_bottom {
   width: 100%;
   height: 140px;
-  background-color: #2e6cb1;
+  background-color: #062A5A;
 }
 .contact {
-  background: #2E6CB1;
+  background: #062A5A;
   width: 1200px;
   margin: auto;
   display: flex;
@@ -356,7 +356,7 @@ export default {
               width: 189px;
               transition: all .2s;
               .selecter__item {
-                border-bottom: 1px solid #2E6CB1;
+                border-bottom: 1px solid #062A5A;
                 height: 35px;
                 padding: 10px;
               }
@@ -370,7 +370,7 @@ export default {
               }
             }
             .selecter__option:hover {
-              background: #2E6CB1;
+              background: #062A5A;
               color: white;
               transition: all .2s;
             }
@@ -424,7 +424,7 @@ export default {
   }
 }
 .footer-warp {
-  background: #2E6CB1;
+  background: #062A5A;
   height: 200px;
   width: 100%;
   background-image: url('~@/static/images/icon/footer_building.png');

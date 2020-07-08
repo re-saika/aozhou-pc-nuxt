@@ -267,7 +267,7 @@ export default {
     text-align: center;
     cursor: pointer;
     &_active{
-      background-color: #2e6cb1;
+      background-color: #062A5A;
       position: relative;
       color: #fff;
       &::before{
@@ -280,7 +280,7 @@ export default {
         width: 0;
         height: 0;
         border: 10px solid transparent;
-        border-top-color: #2e6cb1;
+        border-top-color: #062A5A;
       }
     }
   }
@@ -372,10 +372,10 @@ export default {
         background: transparent;
         border: none;
         font-size: 18px;
-        color: #2e6cb1;
+        color: #062A5A;
       }
       &:last-child{
-        background-color: #2e6cb1;
+        background-color: #062A5A;
         margin: 0;
         text-align: center;
         color: #fff;
@@ -403,7 +403,7 @@ export default {
       border: solid 1px #999999;
     }
     &__title{
-      color: #2e6cb1;
+      color: #062A5A;
       margin-bottom: 20px;
     }
     &__img{
@@ -428,7 +428,7 @@ export default {
   .new{
     padding: 20px 15px;
     &__title{
-      color: #2e6cb1;
+      color: #062A5A;
       margin-bottom: 5px;
     }
     &__list{
