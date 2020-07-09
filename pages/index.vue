@@ -148,7 +148,10 @@
     <!-- 数据栏 -->
     <div class="index__bg_white">
       <section class="statistics">
-        <div class="w1200">
+        <div class="flex">
+          <div class="statistics__bg">
+            <img src="@/static/images/icon/azpic.png">
+          </div>
           <ul class="statistics_list">
             <li>
               <div class="list_img">
@@ -202,53 +205,191 @@
         </div>
       </section>
     </div>
-    <!-- 导航 -->
-    <div class="index__nav">
-      <div class="index__nav-banner">
-        <img :src="require('@/static/images/img/banner/nav' + navListIndex + '.png')">
+    <!-- 置业理由 -->
+    <div class="reason">
+      <div class="reason__btns">
+        <div class="reason-prev">
+          <img src="@/static/images/icon/r_w_arrow.png">
+        </div>
+        <div class="reason-next">
+          <img src="@/static/images/icon/right_gray.png">
+        </div>
       </div>
-      <div ref="navlist" class="index__navlist">
-        <div class="navlist">
-          <div
-            v-for="(item, index) in navList"
-            :key="index"
-            class="navlist__item"
-            :class="[{'navlist__item_gray':index%2 == 0},{'navlist__item_white':index%2 == 1}, {'navlist__item_active':navListIndex == (index+1)}]"
-            @mouseover="changeNavList(index+1)"
-            @click="navRouter(index)"
-          >
-            <div class="navlist__content">
-              <img v-show="navListIndex != (index+1)" :class="'navlist__icon'+(index+1)" :src="require('@/static/images/icon/nav' + (index+1) + '.png')">
-              <img v-show="navListIndex == (index+1)" :class="'navlist__icon'+(index+1)" :src="require('@/static/images/icon/nav' + (index+1) + '_a.png')">
-              {{ item }}
+      <div
+        v-swiper:reasonSwiper="reasonOption"
+        class="rbanner"
+        :auto-update="true"
+      >
+        <div class="swiper-wrapper">
+          <div class="reason__content swiper-slide">
+            <div class="reason__main">
+              <div class="reason__header">
+                <div class="reason__subtitle">
+                  REASON
+                </div>
+                <div class="reason__title">
+                  澳房置业理由
+                </div>
+                <div class="reason__line" />
+              </div>
+              <div class="r-article">
+                <div class="r-article__title">
+                  海外资产配置首选<span class="article__subtitle">投资澳洲房产详情解析</span>
+                </div>
+                <article class="r-article__p">
+                  近年来，国内房地产投资属性逐渐削弱，投资者们纷纷把眼光转向了海外。据
+                  《澳大利亚金融评论报》报道，中国投资者在过去四年内向澳大利亚经济注入了
+                  404亿美元（约人民币2786亿）。即使置业澳洲已成为国人投资趋势，但仍存在
+                  着许多首次置业澳洲的投资者，对澳洲房产情况还不太了解。今天，就为您详细
+                  讲解澳洲投资情况，带您成为投资澳洲房产的老手
+                </article>
+                <div class="r-article__ptitle">
+                  <span class="r-article__num">01</span>为什么海外房产置业首选澳洲？
+                </div>
+                <article class="r-article__p">
+                  澳洲作为南半球最宜居的发达国家，俨然成为投资者海外配置的第一选择。0遗产
+                  税、0房产税、永久产权、顶尖教育、可贷款以及10%的低首付让绝大多数人都可
+                  负担起，投资风险小，金融杠杆充足。相比于股票，基金等，房产是最为稳定的投
+                  资项目，并且澳洲10%的首付存于信托账户中，受政府监管，还有利息可拿，完
+                  全无风险。
+                </article>
+              </div>
+              <div class="reason__route">
+                查看更多
+              </div>
             </div>
-            <div class="navlist__bg" :class="navListIndex == (index+1)?'navlist__bg_active':''" />
+            <div class="reason__img">
+              <img src="@/static/images/img/banner/nav1.png">
+            </div>
+          </div>
+          <div class="reason__content swiper-slide">
+            <div class="reason__main">
+              <div class="reason__header">
+                <div class="reason__subtitle">
+                  policy
+                </div>
+                <div class="reason__title">
+                  澳房买房政策
+                </div>
+                <div class="reason__line" />
+              </div>
+              <div class="r-article">
+                <div class="r-article__title">
+                  墨尔本置业基础必看
+                </div>
+                <div class="r-article__ptitle">
+                  <span class="r-article__num">01</span>墨尔本城市介绍
+                </div>
+                <article class="r-article__p">
+                  墨尔本（Melbourne），澳洲第二大城市，维多利亚州首府城市，面积8831平方
+                  公里，截至2018年墨尔本人口已突破500万。在过去10年墨尔本为整个澳洲和维
+                  州经济贡献的份额分别为6%和27%，经济增速3.1%，成为澳洲经济发展最迅猛的
+                  城市。
+                </article>
+                <article class="r-article__p">
+                  墨尔本是有“花园之州”之称的维多利亚州的首府，绿化覆盖率高达40%，在全
+                  球140个城市中，墨尔本以97.5的高分卫冕，并连续7年夺得全球宜居城市的称号。
+                </article>
+                <article class="r-article__p">
+                  同时，墨尔本有“澳大利亚文化之都”的美誉，也是国际闻名的时尚之都，其服
+                  饰、艺术、音乐、电视制作、电影、舞蹈等潮流文化均享誉全球。
+                </article>
+              </div>
+              <div class="reason__route">
+                查看更多
+              </div>
+            </div>
+            <div class="reason__img">
+              <img src="@/static/images/img/banner/nav2.png">
+            </div>
+          </div>
+          <div class="reason__content swiper-slide">
+            <div class="reason__main">
+              <div class="reason__header">
+                <div class="reason__subtitle">
+                  procedure
+                </div>
+                <div class="reason__title">
+                  澳房交付流程
+                </div>
+                <div class="reason__line" />
+              </div>
+              <div class="r-article">
+                <div class="r-article__title">
+                  布里斯班房屋交付流程一览
+                </div>
+                <div class="r-article__ptitle">
+                  <span class="r-article__num">01</span>新房交付在即，贷款流程需了解
+                </div>
+                <article class="r-article__p">
+                  在当前澳洲当地房产贷款政策收紧的情况下，为帮助业主们顺利获得贷款批准，
+                  特联合澳洲专业贷款机构为业主们提供专属服务。那问题来了，业主们如何才能
+                  轻松获得满额的贷款呢？小编接下来为您一一讲解：
+                </article>
+                <article class="r-article__p">
+                  1.递交贷款申请<br>
+                  联系贷款机构，选择符合个人情况的贷款产品，准备货款材料（如身份证明文件、
+                  个人征信证明、存款证明、购房文件、收入证明文件及资产证明等），递交贷款
+                  机构。
+                </article>
+                <article class="r-article__p">
+                  2.获得贷款预批 <br>银行/基金公司审贷款材料，提供货款预批。
+                </article>
+              </div>
+              <div class="reason__route">
+                查看更多
+              </div>
+            </div>
+            <div class="reason__img">
+              <img src="@/static/images/img/banner/nav3.png">
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- 置业澳洲 -->
-    <div class="sethouse">
-      <!-- 选择器 -->
-      <div class="sethouse__label">
-        <div v-for="(item, index) in sethouse" :key="index" :class="sethouseIndex == index?'label'+(index+1)+'__active':'label'+(index+1)" @mouseover="sethouseIndex = index">
-          {{ item.title }}
-        </div>
-      </div>
-      <!-- 图片 -->
-      <div v-for="(item, index) in sethouse" :key="index">
-        <transition name="pointtwo">
-          <div v-show="sethouseIndex == index" class="sbanner">
-            <div class="sbanner__label">
-              {{ item.label }}
+    <!-- 直播 -->
+    <div class="index__bg">
+      <article class="swiper-box">
+        <div class="swiper-box__box">
+          <div class="infobox__title">
+            <div>直播|视频</div>
+            <div class="swiper-box__nav">
+              <ul class="swiper-box__ul">
+                <li v-for="(item,index) in videoList" :key="'2' + index" class="swiper-box__li" :class="liveActive == index?'swiper-box__li_active':''" @click="changeLive(index)">
+                  {{ item.name }}
+                  <img v-if="liveActive == index" class="swiper-box__lipoint" src="@/static/images/icon/index_point_icon.png">
+                </li>
+              </ul>
+              <div class="swiper-box__more" @click="routeTo('estate-videoList')">
+                更多<img class="more_icon" src="@/static/images/icon/right_gray.png">
+              </div>
             </div>
-            <div class="sbanner__btn">
-              一键了解澳洲购房 >>
-            </div>
-            <img :src="require('@/static/images/img/banner/sethouse'+(index+1)+'.png')">
           </div>
-        </transition>
-      </div>
+          <div
+            v-swiper:liveSwiper="swiperOption2"
+            :auto-update="true"
+            @slideChangeTransitionStart="liveStart"
+          >
+            <div class="swiper-wrapper">
+              <div v-for="v in videoList" :key="v.id" class="swiper-box__content swiper-slide">
+                <viewbox
+                  v-for="item in v.data"
+                  :key="item.id"
+                  class="viewbox_home"
+                  :is-video="true"
+                  :vid="item.id"
+                  :img="item.aid"
+                  :link="item.link"
+                  :title="item.name"
+                  :content="item.introduction"
+                  :big="true"
+                />
+              </div>
+            </div>
+            <empty v-if="videoList.length === 0" />
+          </div>
+        </div>
+      </article>
     </div>
     <!-- 新闻资讯 -->
     <div ref="news" class="news">
@@ -293,18 +434,19 @@
           </div>
         </div>
       </div>
-      <div class="news__btm gray" />
     </div>
+    <div class="news__btm gray" />
   </div>
 </template>
 
 <script>
 import MyHeader from '@/components/MyHeader'
-// import viewbox from '@/components/Viewbox'
+import viewbox from '@/components/Viewbox'
 
 export default {
   components: {
-    MyHeader
+    MyHeader,
+    viewbox
   },
   layout: 'home',
   async asyncData({ app }) {
@@ -344,11 +486,19 @@ export default {
           hiddenClass: 'my-button-hidden'
         }
       },
+      reasonOption: {
+        speed: 1000,
+        navigation: {
+          nextEl: '.reason-next',
+          prevEl: '.reason-prev',
+          hideOnClick: true
+        }
+      },
       swiperOption2: {
         speed: 1000,
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          // nextEl: '.swiper-button-next',
+          // prevEl: '.swiper-button-prev',
           hideOnClick: true,
           disabledClass: 'my-button-disabled',
           hiddenClass: 'my-button-hidden'
@@ -569,6 +719,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.more_icon {
+  width:13px;
+  height:23px;
+}
 .banner-warp {
   width: 100%;
   // height: calc(100vh - 100px);
@@ -589,9 +743,10 @@ export default {
     transform: translateY(-50%);
     .banner__menu {
       display: flex;
-      max-width: 1834px;
+      // max-width: 1834px;
+      padding: 0 40px;
       // width: 1200px;
-      margin: auto;
+      // margin: auto;
       // height: 100%;
       .menu__btns {
         width: 100%;
@@ -752,17 +907,19 @@ export default {
     // box-shadow:rgba(0, 0, 0, 0.12) 0px 2px 6px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   }
   .swiper__content .swiper__row .swiper__position {
-    width: 147px;
+    // width: 147px;
     height: 36px;
     border-radius: 18px;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    padding: 10px;
     box-sizing: border-box;
   }
   .swiper__content .swiper__row .swiper__position .swiper__position-img {
     padding-right: 5px;
+    width:24px;
+    height:24px;
   }
   .swiper-slide .swiper__label {
     position: absolute;
@@ -777,7 +934,8 @@ export default {
     justify-content: flex-end;
   }
   .swiper-slide .swiper__label .swiper__list li {
-    width: 149px;
+    // width: 149px;
+    padding: 0 10px;
     height: 30px;
     background-color: #000000;
     border-radius: 4px;
@@ -793,13 +951,29 @@ export default {
   width: 100%;
   margin-bottom: 50px;
   background: white;
+  // background-image: url("~@/static/images/icon/data_bg.png");;
 }
 .statistics {
-  width: 1200px;
-  margin: auto;
+  // width: 1200px;
+  // margin-left: 506px;
   box-sizing: border-box;
+  padding-left: 58px;
+  .flex {
+    align-items: center;
+  }
+  .statistics__bg {
+    width:435px;
+    height:140px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit:cover;
+      object-position: top;
+    }
+  }
   .statistics_list {
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 34px 0;
@@ -856,6 +1030,7 @@ export default {
     color: #333333;
     font-weight: bold;
     margin-bottom: 15px;
+    font-family:DINPro;
   }
   .statistics_list li .list_content p {
     font-size: 12px;
@@ -863,6 +1038,267 @@ export default {
     margin-bottom: 10px;
   }
 }
+
+/* --------------- 置业理由轮播 --------------- */
+.reason {
+  background-color: white;
+  background-image: url("~@/static/images/icon/index_bg1.png");
+  background-repeat: no-repeat;
+  background-position-y: 10px;
+  background-size: 1033px 122px;
+  height: 100%;
+  position: relative;
+  .reason__btns {
+    position: absolute;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    bottom: 10px;
+    display: flex;
+    @mixin reasonbtn {
+      width:76px;
+      height:76px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 17px;
+        height: 17px;
+      }
+    }
+    .reason-prev {
+      @include reasonbtn;
+      background:rgba(16,46,106,1);
+      transform: rotate(180deg);
+    }
+    .reason-next {
+      @include reasonbtn;
+      background:rgba(255,255,255,1);
+    }
+  }
+  .reason__content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    .reason__main {
+      width: 50%;
+      height: 900px;
+      padding-bottom: 20px;
+      .reason__header {
+        padding-top: 24px;
+        .reason__subtitle {
+          font-size:18px;
+          margin-bottom: 18px;
+          color: #062A5A;
+          letter-spacing: 5px;
+        }
+        .reason__title {
+          font-size:40px;
+          margin-bottom: 40px;
+        }
+        .reason__line {
+          width:78px;
+          height:4px;
+          background:rgba(6,42,90,1);
+        }
+      }
+      .r-article {
+        .r-article__title {
+          font-size:26px;
+          color:rgba(51,51,51,1);
+          padding: 40px 0;
+          .article__subtitle {
+            font-weight: lighter;
+            margin-left: 5px;
+          }
+        }
+        .r-article__p {
+          font-size:18px;
+          color:rgba(153,153,153,1);
+          line-height: 25px;
+          margin-bottom: 45px;
+        }
+        .r-article__ptitle {
+          font-size:18px;
+          color: #333333;
+          margin-bottom: 40px;
+        }
+        .r-article__num {
+          display: inline-block;
+          width:33px;
+          height:33px;
+          text-align: center;
+          line-height: 33px;
+          background:rgba(235,235,235,1);
+          border-radius:5px;
+          font-size:18px;
+          font-family:DINPro;
+          color:rgba(51,51,51,1);
+          margin-right: 15px;
+        }
+      }
+      .reason__route {
+        width:190px;
+        height:57px;
+        background:rgba(16,46,106,1);
+        font-size:24px;
+        color:rgba(255,255,255,1);
+        text-align: center;
+        line-height: 57px;
+      }
+    }
+    .reason__img {
+      width:50%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+/* ---------------- 新闻资讯 ------------- */
+.news {
+  width: 100%;
+  background-image: url("~@/static/images/icon/news.png");
+  background-position-y: 50px;
+  background-repeat: no-repeat;
+  background-color: #FFFFFF;
+  background-size: 100% 100%;
+  cursor: pointer;
+  .news__content {
+    // width: 1200px;
+    // height: 505px;
+    margin: auto;
+    .infobox__title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 4px solid #123467;
+      height: 40px;
+      font-size:30px;
+      font-family:Source Han Sans CN;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+      padding-left: 10px;
+      margin-bottom: 25px;
+      .swiper-box__nav {
+        display: flex;
+        .swiper-box__ul {
+          display: flex;
+          .swiper-box__li {
+            cursor: pointer;
+            margin-right: 46px;
+            list-style: none;
+            font-size:18px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            color:rgba(102,102,102,1);
+            position: relative;
+            .swiper-box__lipoint {
+              position: absolute;
+              bottom: -12px;
+              width:72px;
+              height:7px;
+              left: 0;
+            }
+          }
+          .swiper-box__li_active {
+            color:#062A5A;
+          }
+        }
+      }
+      .swiper-box__more {
+        font-size:18px;
+        font-family:Source Han Sans CN;
+        font-weight:400;
+        color:#999999;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .more__icon {
+          width:18px;
+          height:11px;
+          // transform: rotate(30deg);
+          transform: rotate(30deg);
+        }
+      }
+    }
+    .news__main {
+      display: flex;
+      // width: 1200px;
+      .news__img {
+        width:741px;
+        height:541px;
+        opacity: 0;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      .news__list {
+        opacity: 0;
+        width: auto;
+        background: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px 0;
+        .new {
+          display: flex;
+          .new__time {
+            height: 100px;
+            width: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid rgba(52,52,52,.1);
+            .new__date {
+              font-size:26px;
+              font-weight:500;
+              color:rgba(51,51,51,1);
+              margin-bottom: 10px;
+            }
+            .new__year {
+              font-size:16px;
+              color:#999999;
+            }
+          }
+          .new__msg {
+            padding-left: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .new__name {
+              width: 378px;
+              font-size:20px;
+              font-weight:bold;
+              color:rgba(51,51,51,1);
+            }
+            .new__desc {
+              width: 378px;
+              font-size:14px;
+              font-weight:400;
+              color:rgba(153,153,153,1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.news__btm {
+  height: 50px;
+  width: 100%;
+  background: #F5F8FB;
+}
+
+
 /* ------- 导航图片 ----------*/
 .index__nav {
   position: relative;
@@ -1118,153 +1554,22 @@ export default {
     }
   }
 }
-/* ---------------- 新闻资讯 ------------- */
-.news {
-  width: 100%;
-  background-image: url("~@/static/images/icon/news.png");
-  background-position-y: 50px;
-  background-repeat: no-repeat;
-  padding-top: 50px;
-  background-color: #FFFFFF;
-  cursor: pointer;
-  .news__content {
-    width: 1200px;
-    height: 505px;
-    margin: auto;
-    .infobox__title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-left: 4px solid #123467;
-      height: 40px;
-      font-size:30px;
-      font-family:Source Han Sans CN;
-      font-weight:400;
-      color:rgba(51,51,51,1);
-      padding-left: 10px;
-      margin-bottom: 25px;
-      .swiper-box__nav {
-        display: flex;
-        .swiper-box__ul {
-          display: flex;
-          .swiper-box__li {
-            cursor: pointer;
-            margin-right: 46px;
-            list-style: none;
-            font-size:18px;
-            font-family:Microsoft YaHei;
-            font-weight:400;
-            color:rgba(102,102,102,1);
-            position: relative;
-            .swiper-box__lipoint {
-              position: absolute;
-              bottom: -12px;
-              width:72px;
-              height:7px;
-              left: 0;
-            }
-          }
-          .swiper-box__li_active {
-            color:#062A5A;
-          }
-        }
-      }
-      .swiper-box__more {
-        font-size:18px;
-        font-family:Source Han Sans CN;
-        font-weight:400;
-        color:#999999;
-        display: flex;
-        cursor: pointer;
-        .more__icon {
-          width:18px;
-          height:11px;
-          // transform: rotate(30deg);
-          transform: rotate(30deg);
-        }
-      }
-    }
-    .news__main {
-      display: flex;
-      width: 1200px;
-      .news__img {
-        width:600px;
-        height:438px;
-        opacity: 0;
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
-        }
-      }
-      .news__list {
-        opacity: 0;
-        width: auto;
-        background: #FFFFFF;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 30px 0;
-        .new {
-          display: flex;
-          .new__time {
-            height: 100px;
-            width: 160px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-right: 1px solid rgba(52,52,52,.1);
-            .new__date {
-              font-size:26px;
-              font-weight:500;
-              color:rgba(51,51,51,1);
-              margin-bottom: 10px;
-            }
-            .new__year {
-              font-size:16px;
-              color:#999999;
-            }
-          }
-          .new__msg {
-            padding-left: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            .new__name {
-              width: 378px;
-              font-size:20px;
-              font-weight:bold;
-              color:rgba(51,51,51,1);
-            }
-            .new__desc {
-              width: 378px;
-              font-size:14px;
-              font-weight:400;
-              color:rgba(153,153,153,1);
-            }
-          }
-        }
-      }
-    }
-  }
-  .news__btm {
-    height: 50px;
-    width: 100%;
-    background: #F5F8FB;
-  }
-}
+
 
 /* 直播视频 */
 .index__bg {
   background: #F5F8FB;
   width: 100%;
-  padding-bottom: 50px;
+  background-image: url("~@/static/images/icon/index_bg2.png");
+  background-size: 460px 113px;
+  background-repeat: no-repeat;
+  background-position-y: 50px;
+  background-position-x: 18px;
 }
 .swiper-box {
   margin: auto;
-  width: 1200px;
+  // width: 1200px;
+  max-width: 1510px;
   .swiper-box__box {
     .infobox__title {
       display: flex;
@@ -1310,6 +1615,7 @@ export default {
         font-weight:400;
         color:#999999;
         display: flex;
+        align-items: center;
         cursor: pointer;
         .more__icon {
           width:18px;
@@ -1324,7 +1630,7 @@ export default {
       // justify-content: space-between;
     }
     .viewbox_home {
-      margin-right: 27px;
+      // margin-right: 25px;
     }
   }
 }
@@ -1444,6 +1750,43 @@ export default {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (min-width: 1200px) {
+  .reason__main {
+    padding-left: 204px;
+    padding-right: 147px;
+  }
+  .index__bg {
+    padding: 50px 0;
+    margin: auto;
+  }
+  .news {
+    padding: 50px 205px 0 205px;
+  }
+  .viewbox_home {
+    margin-right: 25px;
+  }
+}
+
+@media (max-width: 1510px) {
+  .swiper-box__content div:nth-child(3) {
+    display: none;
+  }
+  .viewbox_home {
+    margin-right: 125px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .banner__menu, .reason__main {
+    padding: 0 50px;
+  }
+  .index__bg {
+    padding: 50px;
+  }
+  .news {
+    padding: 50px 50px 0 50px;
   }
 }
 </style>

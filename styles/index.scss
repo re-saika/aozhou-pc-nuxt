@@ -17,6 +17,9 @@ a {
 .rf{
   float:right
 }
+.flex {
+  display: flex;
+}
 .clear:after{
   content: '\20';
   display: block;

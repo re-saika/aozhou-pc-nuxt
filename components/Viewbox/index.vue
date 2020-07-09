@@ -1,6 +1,6 @@
 <template>
-  <div class="viewbox" @click="toDetail()">
-    <div class="viewbox__vbox">
+  <div class="viewbox" :class="big?'viewbox_big':''" @click="toDetail()">
+    <div class="viewbox__vbox" :class="big?'viewbox__vbox_big':''">
       <img :src="img || require('@/static/images/icon/default.png')" class="viewbox__view">
       <img v-if="isVideo" src="@/static/images/icon/bigplay_icon.png" class="viewbox__play">
     </div>
@@ -49,6 +49,10 @@ export default {
     link: {
       type: String,
       default: ''
+    },
+    big: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -93,8 +97,14 @@ export default {
       position: absolute;
       left: 50%;
       top: 50%;
+      width: 73px;
+      height: 73px;
       transform: translate(-50%, -50%);
     }
+  }
+  .viewbox__vbox_big {
+    width: 477px;
+    height: 301px;
   }
   .viewbox__view {
     width: 100%;
@@ -129,6 +139,9 @@ export default {
       color:rgba(153,153,153,1);
     }
   }
+}
+.viewbox_big {
+  width:479px;
 }
 .viewbox:hover {
   border: 1px solid #062A5A;

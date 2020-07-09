@@ -18,13 +18,13 @@
                 </div>
                 <div class="contact__input">
                   <div class="input__left">
-                    <img src="@/static/images/icon/footer_phone.png" class="inputs__img1">
+                    <img src="@/static/images/icon/footer_phone.png" class="inputs__img2">
                   </div>
                   <input v-model="mobile" class="input__in" placeholder="请输入联系方式">
                 </div>
                 <div class="contact__input">
                   <div class="input__left">
-                    <img src="@/static/images/icon/footer_build.png" class="inputs__img1">
+                    <img src="@/static/images/icon/footer_build.png" class="inputs__img3">
                   </div>
                   <div class="input___select selecter" @click="showSelecter">
                     <div>{{ consulting || '请选择咨询项目' }}</div>
@@ -281,27 +281,31 @@ export default {
 }
 .contact-warp {
   width: 100%;
-  height: 140px;
-  background-color: #062A5A;
+  height: 110px;
+  // background-color: #062A5A;
   position: fixed;
   bottom: 0;
   z-index: 99;
 }
 .contact-warp_bottom {
-  width: 100%;
-  height: 140px;
-  background-color: #062A5A;
+  // width: 100%;
+  height: 110px;
+  // background-color: #062A5A;
 }
 .contact {
-  background: #062A5A;
+  background-color: #2864D3;
+  background-image: url("~@/static/images/icon/contact_bg.png");
+  background-size: 100% 100%;
   width: 1200px;
+  padding: 0 63px;
+  border-radius: 18px;
   margin: auto;
   display: flex;
   align-items: center;
-  height: 140px;
+  height: 110px;
   position: relative;
   .concat__title {
-    font-size:24px;
+    font-size:22px;
     font-family:Microsoft YaHei;
     font-weight:400;
     color:rgba(254,254,254,1);
@@ -310,6 +314,7 @@ export default {
   .contact__content {
     display: flex;
     margin-top: 22px;
+    border-radius:8px;
     .contact__inputs {
       display: flex;
 
@@ -331,6 +336,18 @@ export default {
           .inputs__img {
             width: 24px;
             height: 26px;
+          }
+          .inputs__img1 {
+            width:24px;
+            height:26px;
+          }
+          .inputs__img2 {
+            width:17px;
+            height:27px;
+          }
+          .inputs__img3 {
+            width:25px;
+            height:25px;
           }
         }
         .input__in {
@@ -419,7 +436,7 @@ export default {
   .contact__close {
     opacity:0.5;
     position: absolute;
-    right: 0;
+    right: 40px;
     top: 16px;
   }
 }
@@ -428,6 +445,7 @@ export default {
   height: 200px;
   width: 100%;
   background-image: url('~@/static/images/icon/footer_building.png');
+  background-size: 100% 100%;
   display: flex;
   align-items: center;
 }

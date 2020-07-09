@@ -35,15 +35,15 @@
           <div class="dropdown">
             <div @click="showTheLang()">
               中/EN
-              <img src="@/static/images/icon/dropdown.png">
+              <img class="dropdown__icon" src="@/static/images/icon/dropdown.png">
             </div>
             <div @mouseover="showThePic(2)" @mouseleave="showThePic(0)">
               小程序
-              <img src="@/static/images/icon/dropdown.png">
+              <img class="dropdown__icon" src="@/static/images/icon/dropdown.png">
             </div>
             <div @mouseover="showThePic(3)" @mouseleave="showThePic(0)">
               公众号
-              <img src="@/static/images/icon/dropdown.png">
+              <img class="dropdown__icon" src="@/static/images/icon/dropdown.png">
             </div>
             <!-- 弹出窗 -->
             <transition name="pointtwo">
@@ -144,7 +144,8 @@ export default {
   box-shadow:0px 2px 6px 0px rgba(12,64,149,0.5);
   .header__content {
     height:100px;
-    max-width: 1834px;
+    // max-width: 1834px;
+    padding: 0 42px;
     // min-width: 1200px;
     // width: 1200px;
     margin: auto;
@@ -281,5 +282,20 @@ export default {
 .header_home:hover {
   background-color: #062A5A;
   transition: all .5s;
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (max-width: 1200px) {
+  .nav__li {
+    width: 60px;
+  }
+  .header__content {
+    padding: 0 50px;
+  }
+  .dropdown__icon {
+    display: none;
+  }
 }
 </style>

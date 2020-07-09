@@ -124,6 +124,10 @@ export default {
       width: 30px;
       height: 30px;
     }
+    .floatbox__icon2 {
+      width: 31px;
+      height: 25px;
+    }
     .floatbox__icon3 {
       width: 28px;
       height: 22px;
