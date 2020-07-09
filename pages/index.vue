@@ -254,7 +254,7 @@
                   全无风险。
                 </article>
               </div>
-              <div class="reason__route">
+              <div class="reason__route" @click="toArticle(84)">
                 查看更多
               </div>
             </div>
@@ -295,7 +295,7 @@
                   饰、艺术、音乐、电视制作、电影、舞蹈等潮流文化均享誉全球。
                 </article>
               </div>
-              <div class="reason__route">
+              <div class="reason__route" @click="toArticle(85)">
                 查看更多
               </div>
             </div>
@@ -336,7 +336,7 @@
                   2.获得贷款预批 <br>银行/基金公司审贷款材料，提供货款预批。
                 </article>
               </div>
-              <div class="reason__route">
+              <div class="reason__route" @click="toArticle(86)">
                 查看更多
               </div>
             </div>
@@ -750,14 +750,13 @@ export default {
       // height: 100%;
       .menu__btns {
         width: 100%;
+        height: 200px;
         position: relative;
+        // background-color: rgba(0, 0, 0, 0.5);
         .menu__bannerbtn {
           position: absolute;
-          top: 49px;
-          left: 127px;
-          width: 130px;
-          height: 40px;
           cursor: pointer;
+          // background-color: yellow;
         }
         .rotation__prev {
           top: 0;
@@ -1145,6 +1144,7 @@ export default {
         color:rgba(255,255,255,1);
         text-align: center;
         line-height: 57px;
+        cursor: pointer;
       }
     }
     .reason__img {
@@ -1767,6 +1767,12 @@ export default {
   .viewbox_home {
     margin-right: 25px;
   }
+  .menu__bannerbtn {
+    top: 15px;
+    right: 63%;
+    width: 230px;
+    height: 50px;
+  }
 }
 
 @media (max-width: 1510px) {
@@ -1787,6 +1793,12 @@ export default {
   }
   .news {
     padding: 50px 50px 0 50px;
+  }
+  .menu__bannerbtn {
+    top: 10px;
+    left: 50px;
+    width: 230px;
+    height: 50px;
   }
 }
 </style>
