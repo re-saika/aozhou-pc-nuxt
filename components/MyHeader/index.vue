@@ -8,7 +8,7 @@
             <img v-show="!isColor" class="logo" src="@/static/images/icon/logo_header_white.png" @click="routeTo('index')">
           </div>
         </transition>
-        <div class="header__nav wt">
+        <div class="header__nav wt" @mouseleave="showThePic(0)">
           <ul class="nav">
             <li class="nav__li" :class="isActive == 'index'?'nav__li_active':''" @click="routeTo('index')">
               首页
@@ -33,7 +33,7 @@
             <span>020-38882777</span>
           </div>
           <div class="dropdown">
-            <div @click="showTheLang()">
+            <div @mouseover="showThePic(1)">
               中/EN
               <img class="dropdown__icon" src="@/static/images/icon/dropdown.png">
             </div>
@@ -47,7 +47,7 @@
             </div>
             <!-- 弹出窗 -->
             <transition name="pointtwo">
-              <div v-show="showLang" class="nav__lang">
+              <div v-show="showPic == 1" class="nav__lang">
                 <div>中</div>
                 <div @click="changeLang">
                   EN
@@ -241,7 +241,7 @@ export default {
           position: absolute;
           justify-content: space-around;
           align-items: center;
-          top: 65px;
+          top: 50px;
           left: 0px;
           z-index: 99;
           background-color: #062A5A;

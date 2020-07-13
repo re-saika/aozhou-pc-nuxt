@@ -1,6 +1,6 @@
 const isDev = process.env.NODE_ENV === 'development'
 // const target = isDev ? 'http://192.168.1.4:81' : 'http://haofang.wkan.cn'
-const target = isDev ? 'http://haofang.wkan.cn' : 'http://haofang.wkan.cn'
+const target = 'http://admin.azhfang.com'
 
 module.exports = {
   mode: 'universal',
@@ -55,6 +55,9 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios'
   ],
+  router: {
+    middleware: ['device']
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

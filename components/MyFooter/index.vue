@@ -394,7 +394,8 @@ export default {
           }
           .input___options {
             left: -53px;
-            top: 34px;
+            // top: 34px;
+            bottom: 34px;
           }
         }
         /* 过渡 */
@@ -450,7 +451,8 @@ export default {
   align-items: center;
 }
 .footer {
-  width: 1200px;
+  // width: 1200px;
+  width: 1510px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -593,5 +595,11 @@ export default {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
   transform: translateY(10%);
+}
+
+@media (max-width: 1200px) {
+  .footer {
+    padding: 0 60px;
+  }
 }
 </style>>

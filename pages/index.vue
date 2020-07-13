@@ -223,36 +223,38 @@
         <div class="swiper-wrapper">
           <div class="reason__content swiper-slide">
             <div class="reason__main">
-              <div class="reason__header">
-                <div class="reason__subtitle">
-                  REASON
+              <div class="reason__front">
+                <div class="reason__header">
+                  <div class="reason__subtitle">
+                    REASON
+                  </div>
+                  <div class="reason__title">
+                    澳房置业理由
+                  </div>
+                  <div class="reason__line" />
                 </div>
-                <div class="reason__title">
-                  澳房置业理由
+                <div class="r-article">
+                  <div class="r-article__title">
+                    海外资产配置首选<span class="article__subtitle">投资澳洲房产详情解析</span>
+                  </div>
+                  <article class="r-article__p">
+                    近年来，国内房地产投资属性逐渐削弱，投资者们纷纷把眼光转向了海外。据
+                    《澳大利亚金融评论报》报道，中国投资者在过去四年内向澳大利亚经济注入了
+                    404亿美元（约人民币2786亿）。即使置业澳洲已成为国人投资趋势，但仍存在
+                    着许多首次置业澳洲的投资者，对澳洲房产情况还不太了解。今天，就为您详细
+                    讲解澳洲投资情况，带您成为投资澳洲房产的老手
+                  </article>
+                  <div class="r-article__ptitle">
+                    <span class="r-article__num">01</span>为什么海外房产置业首选澳洲？
+                  </div>
+                  <article class="r-article__p">
+                    澳洲作为南半球最宜居的发达国家，俨然成为投资者海外配置的第一选择。0遗产
+                    税、0房产税、永久产权、顶尖教育、可贷款以及10%的低首付让绝大多数人都可
+                    负担起，投资风险小，金融杠杆充足。相比于股票，基金等，房产是最为稳定的投
+                    资项目，并且澳洲10%的首付存于信托账户中，受政府监管，还有利息可拿，完
+                    全无风险。
+                  </article>
                 </div>
-                <div class="reason__line" />
-              </div>
-              <div class="r-article">
-                <div class="r-article__title">
-                  海外资产配置首选<span class="article__subtitle">投资澳洲房产详情解析</span>
-                </div>
-                <article class="r-article__p">
-                  近年来，国内房地产投资属性逐渐削弱，投资者们纷纷把眼光转向了海外。据
-                  《澳大利亚金融评论报》报道，中国投资者在过去四年内向澳大利亚经济注入了
-                  404亿美元（约人民币2786亿）。即使置业澳洲已成为国人投资趋势，但仍存在
-                  着许多首次置业澳洲的投资者，对澳洲房产情况还不太了解。今天，就为您详细
-                  讲解澳洲投资情况，带您成为投资澳洲房产的老手
-                </article>
-                <div class="r-article__ptitle">
-                  <span class="r-article__num">01</span>为什么海外房产置业首选澳洲？
-                </div>
-                <article class="r-article__p">
-                  澳洲作为南半球最宜居的发达国家，俨然成为投资者海外配置的第一选择。0遗产
-                  税、0房产税、永久产权、顶尖教育、可贷款以及10%的低首付让绝大多数人都可
-                  负担起，投资风险小，金融杠杆充足。相比于股票，基金等，房产是最为稳定的投
-                  资项目，并且澳洲10%的首付存于信托账户中，受政府监管，还有利息可拿，完
-                  全无风险。
-                </article>
               </div>
               <div class="reason__route" @click="toArticle(84)">
                 查看更多
@@ -264,36 +266,38 @@
           </div>
           <div class="reason__content swiper-slide">
             <div class="reason__main">
-              <div class="reason__header">
-                <div class="reason__subtitle">
-                  policy
+              <div class="reason__front">
+                <div class="reason__header">
+                  <div class="reason__subtitle">
+                    policy
+                  </div>
+                  <div class="reason__title">
+                    澳房买房政策
+                  </div>
+                  <div class="reason__line" />
                 </div>
-                <div class="reason__title">
-                  澳房买房政策
+                <div class="r-article">
+                  <div class="r-article__title">
+                    墨尔本置业基础必看
+                  </div>
+                  <div class="r-article__ptitle">
+                    <span class="r-article__num">01</span>墨尔本城市介绍
+                  </div>
+                  <article class="r-article__p">
+                    墨尔本（Melbourne），澳洲第二大城市，维多利亚州首府城市，面积8831平方
+                    公里，截至2018年墨尔本人口已突破500万。在过去10年墨尔本为整个澳洲和维
+                    州经济贡献的份额分别为6%和27%，经济增速3.1%，成为澳洲经济发展最迅猛的
+                    城市。
+                  </article>
+                  <article class="r-article__p">
+                    墨尔本是有“花园之州”之称的维多利亚州的首府，绿化覆盖率高达40%，在全
+                    球140个城市中，墨尔本以97.5的高分卫冕，并连续7年夺得全球宜居城市的称号。
+                  </article>
+                  <article class="r-article__p">
+                    同时，墨尔本有“澳大利亚文化之都”的美誉，也是国际闻名的时尚之都，其服
+                    饰、艺术、音乐、电视制作、电影、舞蹈等潮流文化均享誉全球。
+                  </article>
                 </div>
-                <div class="reason__line" />
-              </div>
-              <div class="r-article">
-                <div class="r-article__title">
-                  墨尔本置业基础必看
-                </div>
-                <div class="r-article__ptitle">
-                  <span class="r-article__num">01</span>墨尔本城市介绍
-                </div>
-                <article class="r-article__p">
-                  墨尔本（Melbourne），澳洲第二大城市，维多利亚州首府城市，面积8831平方
-                  公里，截至2018年墨尔本人口已突破500万。在过去10年墨尔本为整个澳洲和维
-                  州经济贡献的份额分别为6%和27%，经济增速3.1%，成为澳洲经济发展最迅猛的
-                  城市。
-                </article>
-                <article class="r-article__p">
-                  墨尔本是有“花园之州”之称的维多利亚州的首府，绿化覆盖率高达40%，在全
-                  球140个城市中，墨尔本以97.5的高分卫冕，并连续7年夺得全球宜居城市的称号。
-                </article>
-                <article class="r-article__p">
-                  同时，墨尔本有“澳大利亚文化之都”的美誉，也是国际闻名的时尚之都，其服
-                  饰、艺术、音乐、电视制作、电影、舞蹈等潮流文化均享誉全球。
-                </article>
               </div>
               <div class="reason__route" @click="toArticle(85)">
                 查看更多
@@ -305,36 +309,38 @@
           </div>
           <div class="reason__content swiper-slide">
             <div class="reason__main">
-              <div class="reason__header">
-                <div class="reason__subtitle">
-                  procedure
+              <div class="reason__front">
+                <div class="reason__header">
+                  <div class="reason__subtitle">
+                    procedure
+                  </div>
+                  <div class="reason__title">
+                    澳房交付流程
+                  </div>
+                  <div class="reason__line" />
                 </div>
-                <div class="reason__title">
-                  澳房交付流程
+                <div class="r-article">
+                  <div class="r-article__title">
+                    布里斯班房屋交付流程一览
+                  </div>
+                  <div class="r-article__ptitle">
+                    <span class="r-article__num">01</span>新房交付在即，贷款流程需了解
+                  </div>
+                  <article class="r-article__p">
+                    在当前澳洲当地房产贷款政策收紧的情况下，为帮助业主们顺利获得贷款批准，
+                    特联合澳洲专业贷款机构为业主们提供专属服务。那问题来了，业主们如何才能
+                    轻松获得满额的贷款呢？小编接下来为您一一讲解：
+                  </article>
+                  <article class="r-article__p">
+                    1.递交贷款申请<br>
+                    联系贷款机构，选择符合个人情况的贷款产品，准备货款材料（如身份证明文件、
+                    个人征信证明、存款证明、购房文件、收入证明文件及资产证明等），递交贷款
+                    机构。
+                  </article>
+                  <article class="r-article__p">
+                    2.获得贷款预批 <br>银行/基金公司审贷款材料，提供货款预批。
+                  </article>
                 </div>
-                <div class="reason__line" />
-              </div>
-              <div class="r-article">
-                <div class="r-article__title">
-                  布里斯班房屋交付流程一览
-                </div>
-                <div class="r-article__ptitle">
-                  <span class="r-article__num">01</span>新房交付在即，贷款流程需了解
-                </div>
-                <article class="r-article__p">
-                  在当前澳洲当地房产贷款政策收紧的情况下，为帮助业主们顺利获得贷款批准，
-                  特联合澳洲专业贷款机构为业主们提供专属服务。那问题来了，业主们如何才能
-                  轻松获得满额的贷款呢？小编接下来为您一一讲解：
-                </article>
-                <article class="r-article__p">
-                  1.递交贷款申请<br>
-                  联系贷款机构，选择符合个人情况的贷款产品，准备货款材料（如身份证明文件、
-                  个人征信证明、存款证明、购房文件、收入证明文件及资产证明等），递交贷款
-                  机构。
-                </article>
-                <article class="r-article__p">
-                  2.获得贷款预批 <br>银行/基金公司审贷款材料，提供货款预批。
-                </article>
               </div>
               <div class="reason__route" @click="toArticle(86)">
                 查看更多
@@ -594,19 +600,19 @@ export default {
     // 数字增加效果
     addNum() {
       this.isNum = true // 已执行，不再执行
-      const num = [188, 500, 6, 2]
+      const num = [10000, 500, 6, 2]
       const timer1 = window.setInterval(() => {
         if (num[0] > 0) {
-          this.num1++
-          num[0]--
+          this.num1+=100
+          num[0]-=100
         } else {
           window.clearInterval(timer1)
         }
       }, 1000 / num[0])
       const timer2 = window.setInterval(() => {
         if (num[1] > 0) {
-          this.num2++
-          num[1]--
+          this.num2+=10
+          num[1]-=10
         } else {
           window.clearInterval(timer2)
         }
@@ -726,7 +732,7 @@ export default {
 .banner-warp {
   width: 100%;
   // height: calc(100vh - 100px);
-  height: 980px;
+  height: 900px;
   position: relative;
   .header_banner {
     position: absolute;
@@ -766,6 +772,25 @@ export default {
           top: 0;
           transform: translateY(-50%);
           color: #fff;
+        }
+        .swiper-button-prev {
+          width: 20px;
+          height: 36px;
+          background-image: url("~@/static/images/icon/index_prev.png");
+          background-size: 20px 36px;
+        }
+        .swiper-button-prev::after {
+          content: '';
+        }
+        .swiper-button-next {
+          width: 20px;
+          height: 36px;
+          background-image: url("~@/static/images/icon/index_prev.png");
+          background-size: 20px 36px;
+          transform: rotate(180deg);
+        }
+        .swiper-button-next::after {
+          content: '';
         }
       }
       /* banner菜单 */
@@ -812,6 +837,8 @@ export default {
           position: absolute;
           right: 10px;
           top: 50%;
+          width: 10px;
+          height: 18px;
           transform: translateY(-50%);
         }
         .menu__item:hover a {
@@ -840,7 +867,7 @@ export default {
 .banner {
   // height: 500px;
   // height: calc(100vh - 100px);
-  height: 980px;
+  height: 900px;
   position: relative;
   color: white;
   .rotation__mask {
@@ -1081,8 +1108,11 @@ export default {
     height: 100%;
     .reason__main {
       width: 50%;
-      height: 900px;
+      height: 850px;
       padding-bottom: 20px;
+      .reason__front {
+        min-height: 720px;
+      }
       .reason__header {
         padding-top: 24px;
         .reason__subtitle {
@@ -1784,8 +1814,14 @@ export default {
   }
 }
 
+@media (max-width: 1630px) {
+  .reason__main {
+    padding: 0 50px;
+  }
+}
+
 @media (max-width: 1200px) {
-  .banner__menu, .reason__main {
+  .banner__menu {
     padding: 0 50px;
   }
   .index__bg {
