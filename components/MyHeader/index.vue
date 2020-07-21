@@ -30,7 +30,7 @@
           </div>
           <div class="white-phone white-phone_header">
             <img src="@/static/images/icon/header_phone.png" class="white-phone__icon">
-            <span>020-38882777</span>
+            <span>400-888-7222</span>
           </div>
           <div class="dropdown">
             <div @mouseover="showThePic(1)">

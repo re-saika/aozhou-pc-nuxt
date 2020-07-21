@@ -4,7 +4,7 @@
     <div class="project">
       <div v-for="(item, index) in list" :key="index" class="project__box">
         <div class="project__left">
-          <img class="project__img" :src="item.img_url" @click="toDetail(item.id)">
+          <img class="project__img" :src="item.img_url+'?imageMogr2/thumbnail/!40p'" @click="toDetail(item.id)">
         </div>
         <div class="project__main">
           <div class="common-title common-title_project" @click="toDetail(item.id)">

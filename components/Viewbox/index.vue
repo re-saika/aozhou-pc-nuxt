@@ -1,7 +1,7 @@
 <template>
   <div class="viewbox" :class="big?'viewbox_big':''" @click="toDetail()">
     <div class="viewbox__vbox" :class="big?'viewbox__vbox_big':''">
-      <img :src="img || require('@/static/images/icon/default.png')" class="viewbox__view">
+      <img :src="img+'?imageMogr2/thumbnail/!40p' || require('@/static/images/icon/default.png')" class="viewbox__view">
       <img v-if="isVideo" src="@/static/images/icon/bigplay_icon.png" class="viewbox__play">
     </div>
     <div class="view__content">

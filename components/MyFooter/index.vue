@@ -70,7 +70,7 @@
             <li class="navs__nav" @click="routeTo('about')">
               联系我们
             </li>
-            <li class="navs__nav" @click="toHref('http://haofang.wkan.cn/fladmin/')">
+            <li class="navs__nav" @click="toHref('http://admin.azhfang.com/fladmin')">
               登录中心
             </li>
           </ul>

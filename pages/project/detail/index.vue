@@ -576,6 +576,7 @@ export default {
         width: 44px;
         height: 44px;
         background-image: url("~@/static/images/icon/index__pre.png");
+        background-size: 44px 44px;
         left: 0;
         bottom: 306px;
         z-index: 1;
@@ -585,6 +586,7 @@ export default {
         width: 44px;
         height: 44px;
         background-image: url("~@/static/images/icon/index__pre.png");
+        background-size: 44px 44px;
         transform:rotateY(180deg);
         right: 0;
         bottom: 306px;

@@ -46,7 +46,7 @@
       </transition>
       <transition name="pointtwo">
         <div v-show="boxActive == 3" class="floatbox__msg2">
-          020-38882777
+          400-888-7222
         </div>
       </transition>
     </div>

@@ -731,8 +731,8 @@ export default {
 }
 .banner-warp {
   width: 100%;
-  // height: calc(100vh - 100px);
-  height: 900px;
+  // height: calc(100vh - 200px);
+  // height: 900px;
   position: relative;
   .header_banner {
     position: absolute;
@@ -866,8 +866,8 @@ export default {
 }
 .banner {
   // height: 500px;
-  // height: calc(100vh - 100px);
-  height: 900px;
+  // height: calc(100vh - 200px);
+  // height: 900px;
   position: relative;
   color: white;
   .rotation__mask {
@@ -1276,10 +1276,12 @@ export default {
         background: #FFFFFF;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+
+        // justify-content: space-between;
         padding: 30px 0;
         .new {
           display: flex;
+          margin-bottom: 60px;
           .new__time {
             height: 100px;
             width: 160px;
@@ -1783,6 +1785,12 @@ export default {
   }
 }
 @media (min-width: 1200px) {
+  .banner-warp {
+    height: calc(100vh - 150px);
+  }
+  .banner {
+    height: calc(100vh - 150px);
+  }
   .reason__main {
     padding-left: 204px;
     padding-right: 147px;
@@ -1821,6 +1829,12 @@ export default {
 }
 
 @media (max-width: 1200px) {
+  .banner-warp {
+    height: 900px;
+  }
+  .banner {
+    height: 900px;
+  }
   .banner__menu {
     padding: 0 50px;
   }
