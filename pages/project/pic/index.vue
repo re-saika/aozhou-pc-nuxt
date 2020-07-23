@@ -24,11 +24,7 @@
             <img v-viewer class="album__bigpic" :src="img" @load="picLoading = true">
           </div>
           <div class="album__swiper-warp">
-            <div
-              v-swiper:albumSwiper="swiperOptionA"
-              class="album__swiper"
-              :auto-update="true"
-            >
+            <div class="album__swiper">
               <div class="swiper-wrapper">
                 <div v-for="(item, index) in newImg" :key="index" class="swiper-slide album__slide">
                   <div v-for="(i, ind) in item" :key="ind" class="album__slide-item" @click="changeShowPic(i)">
@@ -96,7 +92,7 @@
 <script>
 import guesslike from '@/components/Guesslike'
 import { spliceArray } from '@/libs/tools'
-
+import Swiper from '@/libs/swiper.js'
 export default {
   components: {
     guesslike
@@ -137,16 +133,6 @@ export default {
   },
   data() {
     return {
-      swiperOptionA: {
-        // autoplay: true,
-        speed: 1000,
-        navigation: {
-          nextEl: '.album__swiper-next',
-          prevEl: '.album__swiper-prev',
-          disabledClass: 'swiper-disable',
-          hideOnClick: true
-        }
-      },
       id: null,
       detail: {},
       list: [], // 相册列表
@@ -155,6 +141,25 @@ export default {
       newImg: [],
       picLoading: false
     }
+  },
+  mounted() {
+    this.aSwiper = new Swiper(
+      '.album__swiper',
+      {
+        speed: 1000,
+        navigation: {
+          nextEl: '.album__swiper-next',
+          prevEl: '.album__swiper-prev',
+          disabledClass: 'swiper-disable',
+          hideOnClick: true
+        },
+        on: {
+          slideChangeTransitionStart() {
+            that.nextCallback()
+          }
+        }
+      }
+    )
   },
   methods: {
     changeImgs(imgs) {

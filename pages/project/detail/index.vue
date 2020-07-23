@@ -48,11 +48,7 @@
           <div class="projectd__swiper">
             <Spin v-if="!picLoading" fix />
             <!-- 大轮播 -->
-            <div
-              v-swiper:picSwiper="swiperOption"
-              class="swiper-pic"
-              :auto-update="true"
-            >
+            <div class="swiper-pic">
               <div class="swiper-wrapper">
                 <div
                   v-for="(item, index) in imgs"
@@ -66,11 +62,7 @@
             <div class="swiper-pic-prev" />
             <div class="swiper-pic-next" />
             <!-- 小轮播 -->
-            <div
-              v-swiper:spicSwiper="swiperOptionS"
-              class="swiper-list"
-              :auto-update="true"
-            >
+            <div class="swiper-list">
               <div class="swiper-wrapper">
                 <div
                   v-for="(now,index) in images"
@@ -229,9 +221,7 @@
             </div>
             <div class="apart__swiper-warp">
               <div
-                v-swiper:apartSwiper="swiperOptionA"
                 class="apart__swiper"
-                :auto-update="true"
                 @slideChangeTransitionStart="apartSwiperChange"
               >
                 <div class="swiper-wrapper">
@@ -275,6 +265,7 @@
 import MyArticle from '@/components/MyArticle'
 import recommend from '@/components/Recommend'
 import { spliceArray } from '@/libs/tools'
+import Swiper from '@/libs/swiper.js'
 export default {
   components: {
     MyArticle,
@@ -327,33 +318,6 @@ export default {
     return {
       picLoading: false,
       hhh: 123,
-      swiperOption: {
-        // autoplay: true,
-        speed: 1000,
-        navigation: {
-          nextEl: '.swiper-pic-next',
-          prevEl: '.swiper-pic-prev',
-          hideOnClick: true
-        }
-      },
-      swiperOptionS: {
-        // autoplay: true,
-        speed: 1000,
-        navigation: {
-          nextEl: '.swiper-list-next',
-          prevEl: '.swiper-list-prev',
-          hideOnClick: true
-        }
-      },
-      swiperOptionA: {
-        // autoplay: true,
-        speed: 1000,
-        navigation: {
-          nextEl: '.apart__swiper-next',
-          prevEl: '.apart__swiper-prev',
-          hideOnClick: true
-        }
-      },
       // nav
       tabtop: false, // nav是否置顶
       isActive: null,
@@ -375,6 +339,45 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.showTab)
+    const that = this
+    this.swiperPic = new Swiper(
+      '.swiper-pic',
+      {
+        speed: 1000,
+        navigation: {
+          nextEl: '.swiper-pic-next',
+          prevEl: '.swiper-pic-prev',
+          hideOnClick: true
+        }
+      }
+    )
+    this.swiperList = new Swiper(
+      '.swiper-list',
+      {
+        speed: 1000,
+        navigation: {
+          nextEl: '.swiper-list-next',
+          prevEl: '.swiper-list-prev',
+          hideOnClick: true
+        }
+      }
+    )
+    this.swiperApart = new Swiper(
+      '.apart__swiper',
+      {
+        speed: 1000,
+        navigation: {
+          nextEl: '.apart__swiper-next',
+          prevEl: '.apart__swiper-prev',
+          hideOnClick: true
+        },
+        on: {
+          slideChangeTransitionStart() {
+            that.apartSwiperChange()
+          }
+        }
+      }
+    )
   },
   methods: {
     // 5个5个分数组
@@ -443,7 +446,7 @@ export default {
       }
     },
     apartSwiperChange() {
-      this.isApart = this.apartSwiper.realIndex
+      this.isApart = this.swiperApart.realIndex
     },
     // 跳转锚点
     toIntroduce() {
@@ -564,6 +567,7 @@ export default {
         width:670px;
         height:448px;
         margin-bottom: 17px;
+        overflow: hidden;
         .swiper-pic__img {
           width:100%;
           height:100%;
@@ -626,6 +630,7 @@ export default {
       .swiper-list {
         width:670px;
         height:83px;
+        overflow: hidden;
         .swiper-list__content {
           display: flex;
           // justify-content: space-between;
@@ -931,6 +936,7 @@ export default {
           .apart__swiper {
             width:704px;
             height:879px;
+            overflow: hidden;
             .apart__swiper-imgbox {
               width:704px;
               height:879px;

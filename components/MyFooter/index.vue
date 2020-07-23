@@ -88,9 +88,9 @@
           <!-- 之后要改 -->
           <div class="left-footer__navs">
             友情链接：
-            <a class="navs__nav navs__nav_boder" href="http://oversea.5i5j.com/">我爱我家</a>
-            <a class="navs__nav navs__nav_boder" href="http://www.jindichan.com.cn/">津地产</a>
-            <a class="navs__nav navs__nav_boder" href="https://www.kbrz.com.au">KBRZ</a>
+            <a class="navs__nav navs__nav_boder" @click="toHref('http://oversea.5i5j.com/')">我爱我家</a>
+            <a class="navs__nav navs__nav_boder" @click="toHref('http://www.jindichan.com.cn/')">津地产</a>
+            <a class="navs__nav navs__nav_boder" @click="toHref('https://www.kbrz.com.au')">KBRZ</a>
             <!-- <a class="navs__nav navs__nav_boder">思为知屋</a> -->
           </div>
         </div>
@@ -118,8 +118,8 @@
             关注我们 各大平台 详情请点击上方图标
           </div>
           <div class="platform__info">
-            <p>© 2020 R&F Properties Australia. All Rights Reserved Powered by ZhongAI</p>
-            <p>Powered by vancheer</p>
+            <p>© 2020 R&F Properties Australia. All Rights Reserved</p>
+            <p>Powered by ZhongAI</p>
           </div>
         </div>
       </div>
@@ -258,7 +258,8 @@ export default {
       })
     },
     toHref(url) {
-      window.location.href = url
+      window.open(url)
+      // window.location.href = url
     }
   }
 }
@@ -379,7 +380,6 @@ export default {
               }
               .selecter__item_first {
                 border-radius: 8px 8px 0 0;
-                border: none;
               }
               .selecter__item_last {
                 border-radius:  0 0 8px 8px;
@@ -555,6 +555,7 @@ export default {
           align-items: center;
           left: -60px;
           top: -170px;
+          z-index: 999;
           img {
             width: 150px;
             height: 150px;

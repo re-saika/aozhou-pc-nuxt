@@ -35,7 +35,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/iview',
+    { src: '@/plugins/iview', ssr: true },
     '@/plugins/axios',
     '@/plugins/vue-swiper',
     '@/plugins/rem',

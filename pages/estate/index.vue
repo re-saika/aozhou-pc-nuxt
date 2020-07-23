@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="main__content">
-            <div v-swiper:myswiper="swiperOptions" @slideChangeTransitionStart="nextCallback">
+            <div class="swiper0">
               <div class="swiper-wrapper">
                 <div v-for="(item, index) in videoList" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
@@ -58,7 +58,7 @@
             </div>
           </div>
           <div class="main__content">
-            <div v-swiper:swiper1="swiperOptions" @slideChangeTransitionStart="lifeNextCallback">
+            <div class="swiper1">
               <div class="swiper-wrapper">
                 <div v-for="(item, index) in articleList1" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
@@ -97,7 +97,7 @@
             </div>
           </div>
           <div class="main__content">
-            <div v-swiper:swiper2="swiperOptions" @slideChangeTransitionStart="courseNextCallback">
+            <div class="swiper2">
               <div class="swiper-wrapper">
                 <div v-for="(item, index) in articleList2" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
@@ -136,7 +136,7 @@
             </div>
           </div>
           <div class="main__content">
-            <div v-swiper:swiper3="swiperOptions" @slideChangeTransitionStart="infoNextCallback">
+            <div class="swiper3">
               <div class="swiper-wrapper">
                 <div v-for="(item, index) in articleList3" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
@@ -168,6 +168,7 @@
 
 <script>
 import subtitle from '@/components/Subtitle'
+import Swiper from '@/libs/swiper.js'
 export default {
   components: {
     subtitle
@@ -190,6 +191,10 @@ export default {
   },
   data() {
     return {
+      swiper0: null,
+      swiper1: null,
+      swiper2: null,
+      swiper3: null,
       swiperOptions: {
         // pagination: {
         //   el: '.swiper-pagination'
@@ -212,6 +217,49 @@ export default {
       articleList3: []
     }
   },
+  mounted() {
+    const that = this
+    this.swiper0 = new Swiper(
+      '.swiper0',
+      {
+        on: {
+          slideChangeTransitionStart() {
+            that.nextCallback()
+          }
+        }
+      }
+    )
+    this.swiper1 = new Swiper(
+      '.swiper1',
+      {
+        on: {
+          slideChangeTransitionStart() {
+            that.lifeNextCallback()
+          }
+        }
+      }
+    )
+    this.swiper2 = new Swiper(
+      '.swiper2',
+      {
+        on: {
+          slideChangeTransitionStart() {
+            that.courseNextCallback()
+          }
+        }
+      }
+    )
+    this.swiper3 = new Swiper(
+      '.swiper3',
+      {
+        on: {
+          slideChangeTransitionStart() {
+            that.infoNextCallback()
+          }
+        }
+      }
+    )
+  },
   methods: {
     // 好房视频
     changeFun(i) {
@@ -222,10 +270,10 @@ export default {
       if (i === 0) {
         window.open('https://play.yunxi.tv/wechat/liveroom/67407?key=1d5fdb0bcd0510df2d1b183292b3edaf')
       }
-      this.myswiper.slideTo(i, 1000, false)
+      this.swiper0.slideTo(i, 1000, false)
     },
     nextCallback() {
-      const id = this.myswiper.realIndex
+      const id = this.swiper0.realIndex
       if (!this.isActive.includes(id)) {
         this.isActive = []
         this.isActive.push(id)
@@ -402,6 +450,7 @@ export default {
   }
   &__content{
     width: 100%;
+    overflow: hidden;
   }
   &__row{
     // display: flex;
