@@ -12,6 +12,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1s' },
+      { name: 'baidu-site-verification', content: 'CwKheW3kK9' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
