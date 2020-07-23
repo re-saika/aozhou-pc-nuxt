@@ -4,7 +4,7 @@
     <div class="project">
       <div v-for="(item, index) in list" :key="index" class="project__box">
         <div class="project__left">
-          <img class="project__img" :src="item.img_url+'?imageMogr2/thumbnail/!40p'" @click="toDetail(item.id)">
+          <img class="project__img" :src="item.img_url" @click="toDetail(item.id)">
         </div>
         <div class="project__main">
           <div class="common-title common-title_project" @click="toDetail(item.id)">
@@ -48,9 +48,9 @@
             <div class="white-btn white-btn_project" @click="toDetail(item.id)">
               查看项目
             </div>
-            <!-- <div class="white-btn" @click="toSee(item.vr_url)">
+            <div class="white-btn" @click="toSee(item.vr_url)">
               在线看房
-            </div> -->
+            </div>
           </div>
         </div>
       </div>

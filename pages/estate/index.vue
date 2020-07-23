@@ -23,7 +23,7 @@
                 <div v-for="(item, index) in videoList" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
                     <div class="main__picbox">
-                      <img :src="element.aid+'?imageMogr2/thumbnail/!40p'" class="main__pic" alt="">
+                      <img :src="element.aid" class="main__pic" alt="">
                     </div>
                     <img class="main__active" src="@/static/images/img/action.png" alt="">
                     <div class="main__info">
@@ -63,7 +63,7 @@
                 <div v-for="(item, index) in articleList1" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
                     <div class="main__picbox">
-                      <img :src="element.aid+'?imageMogr2/thumbnail/!40p'" alt="" class="main__pic">
+                      <img :src="element.aid" alt="" class="main__pic">
                     </div>
                     <div class="main__info">
                       <div class="text-overs main__info-title text-overs_viewbox">
@@ -102,7 +102,7 @@
                 <div v-for="(item, index) in articleList2" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
                     <div class="main__picbox">
-                      <img :src="element.aid+'?imageMogr2/thumbnail/!40p'" alt="" class="main__pic">
+                      <img :src="element.aid" alt="" class="main__pic">
                     </div>
                     <div class="main__info">
                       <div class="text-overs main__info-title text-overs_viewbox">
@@ -141,7 +141,7 @@
                 <div v-for="(item, index) in articleList3" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
                     <div class="main__picbox">
-                      <img :src="element.aid+'?imageMogr2/thumbnail/!40p'" alt="" class="main__pic">
+                      <img :src="element.aid" alt="" class="main__pic">
                     </div>
                     <div class="main__info">
                       <div class="text-overs main__info-title text-overs_viewbox">

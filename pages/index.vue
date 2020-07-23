@@ -20,130 +20,130 @@
           </ul>
           <div class="menu__btns">
             <div class="menu__bannerbtn" @click="toDetail()" />
-            <div class="rotation__prev swiper-button-prev" />
-            <div class="rotation__next swiper-button-next" />
+            <div class="rotation__prev swiper-button-prev" @click="bannerPre()" />
+            <div class="rotation__next swiper-button-next" @click="bannerNext()" />
           </div>
         </div>
       </div>
-      <div
-        v-swiper:mySwiper="swiperOption"
+      <Carousel
+        v-model="bannerActive"
         class="banner"
-        :auto-update="true"
-        @slideChangeTransitionStart="bannerStart"
+        autoplay
+        loop
+        arrow="never"
+        dots="none"
       >
-        <div class="swiper-wrapper">
-          <div class="swiper__item swiper-slide">
-            <div class="swiper__warp">
-              <img class="swiper__img" src="@/static/images/img/banner/lc.png">
-            </div>
-            <div class="rotation__mask" />
-            <div class="w1200 swiper__flexbox">
-              <div class="swiper__content">
-                <h3>墨尔本CBD西综合体现房</h3>
-                <h3>房源托管服务 3年15%高收益</h3>
-                <div class="swiper__row">
-                  <button @click="toDetail(6)">
-                    查看详情
-                  </button>
-                  <div class="swiper__position">
-                    <img class="swiper__position-img" src="@/static/images/icon/position.png" alt>
-                    <span>澳洲·墨尔本</span>
-                  </div>
+        <CarouselItem class="swiper-slide" style="height:7.5rem">
+          <div class="swiper__warp">
+            <img class="swiper__img" src="@/static/images/img/banner/lc.png">
+          </div>
+          <div class="rotation__mask" />
+          <div class="swiper__flexbox">
+            <div class="swiper__content">
+              <h3>墨尔本CBD西综合体现房</h3>
+              <h3>房源托管服务 3年15%高收益</h3>
+              <div class="swiper__row">
+                <button @click="toDetail(6)">
+                  查看详情
+                </button>
+                <div class="swiper__position">
+                  <img class="swiper__position-img" src="@/static/images/icon/position.png" alt>
+                  <span>澳洲·墨尔本</span>
                 </div>
-                <div class="swiper__label">
-                  <ul class="swiper__list">
-                    <li>城央综合体</li>
-                    <li>维多利亚大学旁</li>
-                    <li>网红古建</li>
-                  </ul>
-                </div>
+              </div>
+              <div class="swiper__label">
+                <ul class="swiper__list">
+                  <li>城央综合体</li>
+                  <li>维多利亚大学旁</li>
+                  <li>网红古建</li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="swiper__item swiper-slide">
-            <div class="swiper__warp">
-              <img class="swiper__img" src="@/static/images/img/banner/wl.png">
-            </div>
-            <div class="rotation__mask" />
-            <div class="w1200 swiper__flexbox">
-              <div class="swiper__content">
-                <h3>布里斯班新地标 CBD水景学位房</h3>
-                <h3>southbank地铁旁</h3>
-                <div class="swiper__row">
-                  <button @click="toDetail(1)">
-                    查看详情
-                  </button>
-                  <div class="swiper__position">
-                    <img class="swiper__position-img" src="@/static/images/icon/position.png" alt>
-                    <span>澳洲·布里斯班</span>
-                  </div>
+        </CarouselItem>
+        <CarouselItem class="swiper-slide" style="height:7.5rem">
+          <div class="swiper__warp">
+            <img class="swiper__img" src="@/static/images/img/banner/wl.png">
+          </div>
+          <div class="rotation__mask" />
+          <div class="swiper__flexbox">
+            <div class="swiper__content">
+              <h3>布里斯班新地标 CBD水景学位房</h3>
+              <h3>southbank地铁旁</h3>
+              <div class="swiper__row">
+                <button @click="toDetail(1)">
+                  查看详情
+                </button>
+                <div class="swiper__position">
+                  <img class="swiper__position-img" src="@/static/images/icon/position.png" alt>
+                  <span>澳洲·布里斯班</span>
                 </div>
-                <div class="swiper__label">
-                  <ul class="swiper__list">
-                    <li>南布里斯班最高地标</li>
-                    <li>CBD10分钟生活圈</li>
-                    <li>昆士兰州南布里斯班</li>
-                  </ul>
-                </div>
+              </div>
+              <div class="swiper__label">
+                <ul class="swiper__list">
+                  <li>南布里斯班最高地标</li>
+                  <li>CBD10分钟生活圈</li>
+                  <li>昆士兰州南布里斯班</li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="swiper__item swiper-slide">
-            <div class="swiper__warp">
-              <img class="swiper__img" src="@/static/images/img/banner/ms.png">
-            </div>
-            <div class="rotation__mask" />
-            <div class="w1200 swiper__flexbox">
-              <div class="swiper__content">
-                <h3>澳洲永久产权土地</h3>
-                <h3>世世代代做地主</h3>
-                <div class="swiper__row">
-                  <button @click="toDetail(7)">
-                    查看详情
-                  </button>
-                  <div class="swiper__position">
-                    <img class="swiper__position-img" src="@/static/images/icon/position.png" alt>
-                    <span>澳洲·布里斯班</span>
-                  </div>
+        </CarouselItem>
+        <CarouselItem class="swiper-slide" style="height:7.5rem">
+          <div class="swiper__warp">
+            <img class="swiper__img" src="@/static/images/img/banner/ms.png">
+          </div>
+          <div class="rotation__mask" />
+          <div class="swiper__flexbox">
+            <div class="swiper__content">
+              <h3>澳洲永久产权土地</h3>
+              <h3>世世代代做地主</h3>
+              <div class="swiper__row">
+                <button @click="toDetail(7)">
+                  查看详情
+                </button>
+                <div class="swiper__position">
+                  <img class="swiper__position-img" src="@/static/images/icon/position.png" alt>
+                  <span>澳洲·布里斯班</span>
                 </div>
-                <div class="swiper__label">
-                  <ul class="swiper__list">
-                    <li>永久产权土地</li>
-                    <li>澳洲布里斯班南</li>
-                    <li>昆士兰大学旁</li>
-                  </ul>
-                </div>
+              </div>
+              <div class="swiper__label">
+                <ul class="swiper__list">
+                  <li>永久产权土地</li>
+                  <li>澳洲布里斯班南</li>
+                  <li>昆士兰大学旁</li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="swiper__item swiper-slide">
-            <div class="swiper__warp">
-              <img class="swiper__img" src="@/static/images/img/banner/ps.png">
-            </div>
-            <div class="rotation__mask" />
-            <div class="w1200 swiper__flexbox">
-              <div class="swiper__content">
-                <h3>墨尔本Box Hill</h3>
-                <h3>华人新贵之居</h3>
-                <div class="swiper__row">
-                  <button @click="toDetail(8)">
-                    查看详情
-                  </button>
-                  <div class="swiper__position">
-                    <img class="swiper__position-img" src="@/static/images/icon/position.png" alt>
-                    <span>澳洲·墨尔本</span>
-                  </div>
+        </CarouselItem>
+        <CarouselItem class="swiper-slide" style="height:7.5rem">
+          <div class="swiper__warp">
+            <img class="swiper__img" src="@/static/images/img/banner/ps.png">
+          </div>
+          <div class="rotation__mask" />
+          <div class="swiper__flexbox">
+            <div class="swiper__content">
+              <h3>墨尔本Box Hill</h3>
+              <h3>华人新贵之居</h3>
+              <div class="swiper__row">
+                <button @click="toDetail(8)">
+                  查看详情
+                </button>
+                <div class="swiper__position">
+                  <img class="swiper__position-img" src="@/static/images/icon/position.png" alt>
+                  <span>澳洲·墨尔本</span>
                 </div>
-                <div class="swiper__label">
-                  <ul class="swiper__list">
-                    <li>墨尔本富人区</li>
-                  </ul>
-                </div>
+              </div>
+              <div class="swiper__label">
+                <ul class="swiper__list">
+                  <li>墨尔本富人区</li>
+                </ul>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </CarouselItem>
+      </Carousel>
     </div>
     <!-- 数据栏 -->
     <div class="index__bg_white">
@@ -162,7 +162,7 @@
                   {{ num1 }}+
                 </div>
                 <p>澳洲好房</p>
-                <p>现在售房源总数</p>
+                <p>拥有房源总数</p>
               </div>
             </li>
             <li>
@@ -208,150 +208,141 @@
     <!-- 置业理由 -->
     <div class="reason">
       <div class="reason__btns">
-        <div class="reason-prev">
+        <div class="reason-prev" @click="reasonPre">
           <img src="@/static/images/icon/r_w_arrow.png">
         </div>
-        <div class="reason-next">
+        <div class="reason-next" @click="reasonNext">
           <img src="@/static/images/icon/right_gray.png">
         </div>
       </div>
-      <div
-        v-swiper:reasonSwiper="reasonOption"
-        class="rbanner"
-        :auto-update="true"
+      <Carousel
+        v-model="reasonActive"
+        loop
+        arrow="never"
+        dots="none"
       >
-        <div class="swiper-wrapper">
-          <div class="reason__content swiper-slide">
-            <div class="reason__main">
-              <div class="reason__front">
-                <div class="reason__header">
-                  <div class="reason__subtitle">
-                    REASON
-                  </div>
-                  <div class="reason__title">
-                    澳房置业理由
-                  </div>
-                  <div class="reason__line" />
+        <CarouselItem class="reason__content swiper-slide">
+          <div class="reason__main">
+            <div class="reason__front">
+              <div class="reason__header">
+                <div class="reason__subtitle">
+                  REASON
                 </div>
-                <div class="r-article">
-                  <div class="r-article__title">
-                    海外资产配置首选<span class="article__subtitle">投资澳洲房产详情解析</span>
-                  </div>
-                  <article class="r-article__p">
-                    近年来，国内房地产投资属性逐渐削弱，投资者们纷纷把眼光转向了海外。据
-                    《澳大利亚金融评论报》报道，中国投资者在过去四年内向澳大利亚经济注入了
-                    404亿美元（约人民币2786亿）。即使置业澳洲已成为国人投资趋势，但仍存在
-                    着许多首次置业澳洲的投资者，对澳洲房产情况还不太了解。今天，就为您详细
-                    讲解澳洲投资情况，带您成为投资澳洲房产的老手
-                  </article>
-                  <div class="r-article__ptitle">
-                    <span class="r-article__num">01</span>为什么海外房产置业首选澳洲？
-                  </div>
-                  <article class="r-article__p">
-                    澳洲作为南半球最宜居的发达国家，俨然成为投资者海外配置的第一选择。0遗产
-                    税、0房产税、永久产权、顶尖教育、可贷款以及10%的低首付让绝大多数人都可
-                    负担起，投资风险小，金融杠杆充足。相比于股票，基金等，房产是最为稳定的投
-                    资项目，并且澳洲10%的首付存于信托账户中，受政府监管，还有利息可拿，完
-                    全无风险。
-                  </article>
+                <div class="reason__title">
+                  澳房置业理由
                 </div>
+                <div class="reason__line" />
               </div>
-              <div class="reason__route" @click="toArticle(84)">
-                查看更多
+              <div class="r-article">
+                <div class="r-article__title">
+                  海外资产配置首选<span class="article__subtitle">投资澳洲房产详情解析</span>
+                </div>
+                <article class="r-article__p">
+                  近年来，国内房地产投资属性逐渐削弱，投资者们纷纷把眼光转向了海外。据《澳大利亚金融评论报》报道，中国投资者在过去四年内向澳大利亚经济注入了404亿美元（约人民币2786亿）。即使置业澳洲已成为国人投资趋势，但仍存在着许多首次置业澳洲的投资者，对澳洲房产情况还不太了解。今天，就为您详细讲解澳洲投资情况，带您成为投资澳洲房产的老手
+                </article>
+                <div class="r-article__ptitle">
+                  <span class="r-article__num">01</span>为什么海外房产置业首选澳洲？
+                </div>
+                <article class="r-article__p">
+                  澳洲作为南半球最宜居的发达国家，俨然成为投资者海外配置的第一选择。0遗产税、0房产税、永久产权、顶尖教育、可贷款以及10%的低首付让绝大多数人都可负担起，投资风险小，金融杠杆充足。相比于股票，基金等，房产是最为稳定的投资项目，并且澳洲10%的首付存于信托账户中，受政府监管，还有利息可拿，完全无风险。
+                </article>
               </div>
             </div>
-            <div class="reason__img">
-              <img src="@/static/images/img/banner/nav1.png">
+            <div class="reason__route" @click="toArticle(84)">
+              查看更多
             </div>
           </div>
-          <div class="reason__content swiper-slide">
-            <div class="reason__main">
-              <div class="reason__front">
-                <div class="reason__header">
-                  <div class="reason__subtitle">
-                    policy
-                  </div>
-                  <div class="reason__title">
-                    澳房买房政策
-                  </div>
-                  <div class="reason__line" />
+          <div class="reason__img">
+            <img src="@/static/images/img/banner/nav1.png">
+          </div>
+        </CarouselItem>
+        <CarouselItem class="reason__content swiper-slide">
+          <div class="reason__main">
+            <div class="reason__front">
+              <div class="reason__header">
+                <div class="reason__subtitle">
+                  policy
                 </div>
-                <div class="r-article">
-                  <div class="r-article__title">
-                    墨尔本置业基础必看
-                  </div>
-                  <div class="r-article__ptitle">
-                    <span class="r-article__num">01</span>墨尔本城市介绍
-                  </div>
-                  <article class="r-article__p">
-                    墨尔本（Melbourne），澳洲第二大城市，维多利亚州首府城市，面积8831平方
-                    公里，截至2018年墨尔本人口已突破500万。在过去10年墨尔本为整个澳洲和维
-                    州经济贡献的份额分别为6%和27%，经济增速3.1%，成为澳洲经济发展最迅猛的
-                    城市。
-                  </article>
-                  <article class="r-article__p">
-                    墨尔本是有“花园之州”之称的维多利亚州的首府，绿化覆盖率高达40%，在全
-                    球140个城市中，墨尔本以97.5的高分卫冕，并连续7年夺得全球宜居城市的称号。
-                  </article>
-                  <article class="r-article__p">
-                    同时，墨尔本有“澳大利亚文化之都”的美誉，也是国际闻名的时尚之都，其服
-                    饰、艺术、音乐、电视制作、电影、舞蹈等潮流文化均享誉全球。
-                  </article>
+                <div class="reason__title">
+                  澳房买房政策
                 </div>
+                <div class="reason__line" />
               </div>
-              <div class="reason__route" @click="toArticle(85)">
-                查看更多
+              <div class="r-article">
+                <div class="r-article__title">
+                  墨尔本置业基础必看
+                </div>
+                <div class="r-article__ptitle">
+                  <span class="r-article__num">01</span>墨尔本城市介绍
+                </div>
+                <article class="r-article__p">
+                  墨尔本（Melbourne），澳洲第二大城市，维多利亚州首府城市，面积8831平方
+                  公里，截至2018年墨尔本人口已突破500万。在过去10年墨尔本为整个澳洲和维
+                  州经济贡献的份额分别为6%和27%，经济增速3.1%，成为澳洲经济发展最迅猛的
+                  城市。
+                </article>
+                <article class="r-article__p">
+                  墨尔本是有“花园之州”之称的维多利亚州的首府，绿化覆盖率高达40%，在全
+                  球140个城市中，墨尔本以97.5的高分卫冕，并连续7年夺得全球宜居城市的称号。
+                </article>
+                <article class="r-article__p">
+                  同时，墨尔本有“澳大利亚文化之都”的美誉，也是国际闻名的时尚之都，其服
+                  饰、艺术、音乐、电视制作、电影、舞蹈等潮流文化均享誉全球。
+                </article>
               </div>
             </div>
-            <div class="reason__img">
-              <img src="@/static/images/img/banner/nav2.png">
+            <div class="reason__route" @click="toArticle(85)">
+              查看更多
             </div>
           </div>
-          <div class="reason__content swiper-slide">
-            <div class="reason__main">
-              <div class="reason__front">
-                <div class="reason__header">
-                  <div class="reason__subtitle">
-                    procedure
-                  </div>
-                  <div class="reason__title">
-                    澳房交付流程
-                  </div>
-                  <div class="reason__line" />
+          <div class="reason__img">
+            <img src="@/static/images/img/banner/nav2.png">
+          </div>
+        </CarouselItem>
+        <CarouselItem class="reason__content swiper-slide">
+          <div class="reason__main">
+            <div class="reason__front">
+              <div class="reason__header">
+                <div class="reason__subtitle">
+                  procedure
                 </div>
-                <div class="r-article">
-                  <div class="r-article__title">
-                    布里斯班房屋交付流程一览
-                  </div>
-                  <div class="r-article__ptitle">
-                    <span class="r-article__num">01</span>新房交付在即，贷款流程需了解
-                  </div>
-                  <article class="r-article__p">
-                    在当前澳洲当地房产贷款政策收紧的情况下，为帮助业主们顺利获得贷款批准，
-                    特联合澳洲专业贷款机构为业主们提供专属服务。那问题来了，业主们如何才能
-                    轻松获得满额的贷款呢？小编接下来为您一一讲解：
-                  </article>
-                  <article class="r-article__p">
-                    1.递交贷款申请<br>
-                    联系贷款机构，选择符合个人情况的贷款产品，准备货款材料（如身份证明文件、
-                    个人征信证明、存款证明、购房文件、收入证明文件及资产证明等），递交贷款
-                    机构。
-                  </article>
-                  <article class="r-article__p">
-                    2.获得贷款预批 <br>银行/基金公司审贷款材料，提供货款预批。
-                  </article>
+                <div class="reason__title">
+                  澳房交付流程
                 </div>
+                <div class="reason__line" />
               </div>
-              <div class="reason__route" @click="toArticle(86)">
-                查看更多
+              <div class="r-article">
+                <div class="r-article__title">
+                  布里斯班房屋交付流程一览
+                </div>
+                <div class="r-article__ptitle">
+                  <span class="r-article__num">01</span>新房交付在即，贷款流程需了解
+                </div>
+                <article class="r-article__p">
+                  在当前澳洲当地房产贷款政策收紧的情况下，为帮助业主们顺利获得贷款批准，
+                  特联合澳洲专业贷款机构为业主们提供专属服务。那问题来了，业主们如何才能
+                  轻松获得满额的贷款呢？小编接下来为您一一讲解：
+                </article>
+                <article class="r-article__p">
+                  1.递交贷款申请<br>
+                  联系贷款机构，选择符合个人情况的贷款产品，准备货款材料（如身份证明文件、
+                  个人征信证明、存款证明、购房文件、收入证明文件及资产证明等），递交贷款
+                  机构。
+                </article>
+                <article class="r-article__p">
+                  2.获得贷款预批 <br>银行/基金公司审贷款材料，提供货款预批。
+                </article>
               </div>
             </div>
-            <div class="reason__img">
-              <img src="@/static/images/img/banner/nav3.png">
+            <div class="reason__route" @click="toArticle(86)">
+              查看更多
             </div>
           </div>
-        </div>
-      </div>
+          <div class="reason__img">
+            <img src="@/static/images/img/banner/nav3.png">
+          </div>
+        </CarouselItem>
+      </Carousel>
     </div>
     <!-- 直播 -->
     <div class="index__bg">
@@ -371,29 +362,27 @@
               </div>
             </div>
           </div>
-          <div
-            v-swiper:liveSwiper="swiperOption2"
-            :auto-update="true"
-            @slideChangeTransitionStart="liveStart"
+          <Carousel
+            v-model="liveActive"
+            arrow="never"
+            @change="liveStart"
           >
-            <div class="swiper-wrapper">
-              <div v-for="v in videoList" :key="v.id" class="swiper-box__content swiper-slide">
-                <viewbox
-                  v-for="item in v.data"
-                  :key="item.id"
-                  class="viewbox_home"
-                  :is-video="true"
-                  :vid="item.id"
-                  :img="item.aid"
-                  :link="item.link"
-                  :title="item.name"
-                  :content="item.introduction"
-                  :big="true"
-                />
-              </div>
-            </div>
+            <CarouselItem v-for="v in videoList" :key="v.id" class="swiper-box__content swiper-slide">
+              <viewbox
+                v-for="item in v.data"
+                :key="item.id"
+                class="viewbox_home"
+                :is-video="true"
+                :vid="item.id"
+                :img="item.aid"
+                :link="item.link"
+                :title="item.name"
+                :content="item.introduction"
+                :big="true"
+              />
+            </CarouselItem>
             <empty v-if="videoList.length === 0" />
-          </div>
+          </Carousel>
         </div>
       </article>
     </div>
@@ -459,13 +448,25 @@ export default {
     try {
     // 获得文章列表
       return await app.$api.estate.setHouseAus().then(({ data }) => {
-        console.log(data)
+        // 后端返回的是置业澳洲的格式，这边将每个小主题的资讯合并为一个数组，再截取前三个
+        let alist1 = []
+        let alist2 = []
+        let alist3 = []
+        data[1].children.forEach((item) => {
+          alist1 = alist1.concat(item.data)
+        })
+        data[2].children.forEach((item) => {
+          alist2 = alist2.concat(item.data)
+        })
+        data[3].children.forEach((item) => {
+          alist3 = alist3.concat(item.data)
+        })
         return {
           videoList: data[0].children,
-          articleList: data[1].children[0].data,
-          articleList1: data[1].children[0].data,
-          articleList2: data[2].children[0].data,
-          articleList3: data[3].children[0].data
+          articleList: alist1.slice(0, 3),
+          articleList1: alist1.slice(0, 3),
+          articleList2: alist2.slice(0, 3),
+          articleList3: alist3.slice(0, 3)
         }
       })
     } catch (error) {
@@ -479,40 +480,10 @@ export default {
       num3: 0,
       num4: 0,
       isNum: false, // 为了性能，只执行一次数字增加的定时器
-      swiperOption: {
-        autoplay: true,
-        // loop: true,
-        speed: 1000,
-        noSwiper: false,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-          hideOnClick: true,
-          disabledClass: 'my-button-disabled',
-          hiddenClass: 'my-button-hidden'
-        }
-      },
-      reasonOption: {
-        speed: 1000,
-        navigation: {
-          nextEl: '.reason-next',
-          prevEl: '.reason-prev',
-          hideOnClick: true
-        }
-      },
-      swiperOption2: {
-        speed: 1000,
-        navigation: {
-          // nextEl: '.swiper-button-next',
-          // prevEl: '.swiper-button-prev',
-          hideOnClick: true,
-          disabledClass: 'my-button-disabled',
-          hiddenClass: 'my-button-hidden'
-        }
-      },
       // 首页轮播
       menuData: ['Live City', '布里斯本1号', '美墅', '博士山'],
       bannerActive: 0, // 当前banner
+      reasonActive: 0, // 当前reason
       // 直播
       // liveMenu: ['直播视频', '项目视频'],
       liveActive: 0,
@@ -637,13 +608,13 @@ export default {
     toDetail() {
       // 写死的，需要知道id多少才能跳转 6 1 7 8
       let id = 1
-      if (this.mySwiper.realIndex === 0) {
+      if (this.bannerActive === 0) {
         id = 6
-      } else if (this.mySwiper.realIndex === 1) {
+      } else if (this.bannerActive === 1) {
         id = 1
-      } else if (this.mySwiper.realIndex === 2) {
+      } else if (this.bannerActive === 2) {
         id = 7
-      } else if (this.mySwiper.realIndex === 3) {
+      } else if (this.bannerActive === 3) {
         id = 8
       }
       this.$router.push({
@@ -654,18 +625,45 @@ export default {
       })
     },
     clickFun(index) {
-      this.mySwiper.slideTo(index, 1000, false)
-      this.bannerActive = this.mySwiper.realIndex
+      this.bannerActive = index
+    },
+    bannerPre() {
+      if (this.bannerActive == 0) {
+        this.bannerActive = 3
+      } else {
+        this.bannerActive -= 1
+      }
+    },
+    bannerNext() {
+      if (this.bannerActive == 3) {
+        this.bannerActive = 0
+      } else {
+        this.bannerActive += 1
+      }
+    },
+    reasonPre() {
+      console.log(this.reasonActive)
+      if (this.reasonActive == 0) {
+        this.reasonActive = 2
+      } else {
+        this.reasonActive -= 1
+      }
+    },
+    reasonNext() {
+      if (this.reasonActive == 2) {
+        this.reasonActive = 0
+      } else {
+        this.reasonActive += 1
+      }
     },
     changeLive(index) {
       if (index === 0) {
         window.open('https://play.yunxi.tv/wechat/liveroom/67407?key=1d5fdb0bcd0510df2d1b183292b3edaf')
       }
       this.liveActive = index
-      this.liveSwiper.slideTo(index, 1000, false)
     },
-    liveStart() {
-      this.liveActive = this.liveSwiper.realIndex
+    liveStart(oldValue, value) {
+      this.liveActive = value
     },
     changePage(index) {
       this.pageActive = index
@@ -732,7 +730,7 @@ export default {
 .banner-warp {
   width: 100%;
   // height: calc(100vh - 200px);
-  // height: 900px;
+  height: 750px;
   position: relative;
   .header_banner {
     position: absolute;
@@ -762,6 +760,7 @@ export default {
         .menu__bannerbtn {
           position: absolute;
           cursor: pointer;
+          top: 30px;
           // background-color: yellow;
         }
         .rotation__prev {
@@ -867,7 +866,7 @@ export default {
 .banner {
   // height: 500px;
   // height: calc(100vh - 200px);
-  // height: 900px;
+  height: 750px;
   position: relative;
   color: white;
   .rotation__mask {
@@ -887,7 +886,6 @@ export default {
   }
   .swiper__warp {
     width: 100%;
-    // height: 100vh;
   }
   .swiper__img {
     // min-width: 1920px;
@@ -1785,12 +1783,6 @@ export default {
   }
 }
 @media (min-width: 1200px) {
-  .banner-warp {
-    height: calc(100vh - 150px);
-  }
-  .banner {
-    height: calc(100vh - 150px);
-  }
   .reason__main {
     padding-left: 204px;
     padding-right: 147px;
@@ -1829,12 +1821,6 @@ export default {
 }
 
 @media (max-width: 1200px) {
-  .banner-warp {
-    height: 900px;
-  }
-  .banner {
-    height: 900px;
-  }
   .banner__menu {
     padding: 0 50px;
   }

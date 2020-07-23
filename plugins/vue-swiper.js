@@ -1,6 +1,6 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 
-if (process.browser) {
-  const VueAwesomeSwiper = require('vue-awesome-swiper')
-  Vue.use(VueAwesomeSwiper)
-}
+// if (process.browser) {
+//   const VueAwesomeSwiper = require('vue-awesome-swiper')
+//   Vue.use(VueAwesomeSwiper)
+// }

@@ -168,9 +168,9 @@
                 详细地址：{{ detail.address }}
               </div>
               <div class="project__btns">
-                <!-- <div class="project__btn1" @click="toVR">
+                <div class="project__btn1" @click="toVR">
                   VR看房
-                </div> -->
+                </div>
                 <div class="project__btn2" @click="doCopy">
                   <img class="projectd__btnicon" src="@/static/images/icon/project_phone.png">获取电话号码
                 </div>

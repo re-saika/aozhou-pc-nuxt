@@ -118,7 +118,7 @@
             关注我们 各大平台 详情请点击上方图标
           </div>
           <div class="platform__info">
-            <p>© 2018 R&F Properties Cambodia. All Rights Reserved</p>
+            <p>© 2020 R&F Properties Australia. All Rights Reserved Powered by ZhongAI</p>
             <p>Powered by vancheer</p>
           </div>
         </div>
