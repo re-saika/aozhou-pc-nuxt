@@ -286,9 +286,6 @@ export default {
       spinShow: false
     }
   },
-  created() {
-    // this.getProjectList(this.list)
-  },
   mounted() {
     this.t1 = debounce(() => { this.submit() }, 2000)
     this.t2 = debounce(() => { this.submitForm() }, 2000)
@@ -371,6 +368,8 @@ export default {
     upload() {
       return this.$api.about.upload(this.formData).then((res) => {
         return res.aid
+      }).catch((err) => {
+        console.log(err)
       })
     },
     submitForm() {

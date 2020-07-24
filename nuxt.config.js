@@ -1,7 +1,7 @@
 // const isDev = process.env.NODE_ENV === 'development'
 // const target = isDev ? 'http://192.168.1.4:81' : 'http://haofang.wkan.cn'
-const target = 'http://admin.azhfang.com'
-
+const target = 'http://fuli.wkan.cn'
+// admin.azhfang.com
 module.exports = {
   mode: 'universal',
   /*
@@ -69,6 +69,11 @@ module.exports = {
   proxy: {
     '/flaz': {
       target,
+      // ws: true,
+      changOrigin: true // 接口跨域
+    },
+    '/api/upload': {
+      target: 'http://admin.azhfang.com',
       // ws: true,
       changOrigin: true // 接口跨域
     },

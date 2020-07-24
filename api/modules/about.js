@@ -7,7 +7,7 @@ export default (axios) => {
         data
       })
     },
-    // 上传文件
+    // 上传文件 （要用另外的链接，废用
     upload(data) {
       return axios.post({
         url: '/api/upload/index/index',

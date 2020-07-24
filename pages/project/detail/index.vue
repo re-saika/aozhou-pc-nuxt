@@ -95,9 +95,11 @@
                     <span class="number__smallword" />
                     {{ detail.price }}
                     <span class="number__smallword" />
+                    <span v-if="detail.type == 1">万</span>
                   </div>
                   <div class="number__word">
-                    均价（澳币/平）
+                    <span v-if="detail.type == 1">澳元起</span>
+                    <span v-else>均价（澳币/平）</span>
                   </div>
                 </div>
                 <div class="number__block">
