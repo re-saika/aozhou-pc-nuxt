@@ -6,6 +6,7 @@ export default ({ $axios }, inject) => {
   inject('api', createRequest)
 
   $axios.defaults.timeout = 100000
+  $axios.defaults.baseURL = 'http://fuli.wkan.cn'
 
   $axios.onRequest((config) => {
     return config
