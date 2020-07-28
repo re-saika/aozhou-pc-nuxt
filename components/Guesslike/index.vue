@@ -41,7 +41,8 @@ export default {
   data() {
     return {
       list: [],
-      showList: []
+      showList: [],
+      rand: null // 随机函数
     }
   },
   created() {
@@ -50,6 +51,7 @@ export default {
     } else {
       this.getVideo()
     }
+    this.rand = new Rand()
   },
   methods: {
     getArticle() {
@@ -66,9 +68,8 @@ export default {
     },
     changeList() {
       this.showList = []
-      const rand = new Rand()
       for (let i = 0; i < 3; i++) {
-        this.showList.push(this.list[rand(this.list.length)])
+        this.showList.push(this.list[this.rand(this.list.length)])
       }
     }
   }

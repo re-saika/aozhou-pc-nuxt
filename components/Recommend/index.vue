@@ -54,6 +54,12 @@
 <script>
 import { validateForm, debounce } from '@/libs/tools.js'
 export default {
+  props: {
+    pid: {
+      type: Number,
+      default: null
+    }
+  },
   data() {
     return {
       video: {},
@@ -101,12 +107,12 @@ export default {
       this.getArticle()
     },
     getVideo() {
-      this.$api.recommend.recomendVideo().then((res) => {
+      this.$api.recommend.recomendVideo({ project_id: this.pid }).then((res) => {
         this.video = res.data[0]
       })
     },
     getArticle() {
-      this.$api.recommend.recomendArticle().then((res) => {
+      this.$api.recommend.recomendArticle({ project_id: this.pid }).then((res) => {
         this.article = res.data.slice(0, 4)
       })
     },

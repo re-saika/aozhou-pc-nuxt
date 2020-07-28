@@ -107,8 +107,14 @@
             <a v-for="(item, index) in platformList" :key="index" class="platform__icon" @mouseleave="showModal(null)">
               <img :src="item" @mouseover="showModal(index)">
               <transition name="fade">
-                <div v-show="modalActive === index" class="platform__modal">
-                  <img src="@/static/images/icon/gzh.jpg">
+                <div v-show="modalActive === index && modalActive === 1" class="platform__modal">
+                  <img src="@/static/images/icon/Applet_code.jpg">
+                  <div class="platform__triangle" />
+                </div>
+              </transition>
+              <transition name="fade">
+                <div v-show="modalActive === index && modalActive === 0" class="platform__modal">
+                  <img class="platform__el" src="@/static/images/icon/gzh.jpg">
                   <div class="platform__triangle" />
                 </div>
               </transition>
@@ -118,7 +124,7 @@
             关注我们 各大平台 详情请点击上方图标
           </div>
           <div class="platform__info">
-            <p>© 2020 R&F Properties Australia. All Rights Reserved</p>
+            <p>© 2020 azhfang Australia. All Rights Reserved</p>
             <p>Powered by ZhongAI</p>
           </div>
         </div>

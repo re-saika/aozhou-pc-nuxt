@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .subTitle {
-  background-image: url('~static/images/img/head_title_bg.png');
+  background-image: url('https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az//head_title_bg.png');
   width:100%;
   height:400px;
   display: flex;

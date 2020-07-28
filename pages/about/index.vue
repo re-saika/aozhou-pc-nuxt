@@ -34,16 +34,16 @@
           <div class="aboutus__content">
             <article class="aboutus__article">
               <p class="abouts__p">
-                从广州起步，我司的物业已经拓展至全国及海外，同时在全球拥有约49,500名ntact发及销售住宅物业外，我司业务也涉及以下领域：开发，销售，租赁商业及办公物业；地产上下游产业，包括建筑设计，室内设计和工程设计；工程监理；项目管理及中介服务；商业及酒店地产开发。
+                从广州起步，我司的物业已经拓展至全国及海外，同时在全球拥有约49,500名雇员。除开发及销售住宅物业外，我司业务也涉及以下领域：开发，销售，租赁商业及办公物业；地产上下游产业，包括建筑设计，室内设计和工程设计；工程监理；项目管理及中介服务；商业及酒店地产开发。
               </p>
               <p class="abouts__p">
-                我司于2014年年中进军澳洲地产市场，在墨尔本及布里斯班设有分公司。致力于将其丰富的海内外优质物业的开发经验带到澳洲并打造适合澳洲市场的产品
+                我司于2014年年中进军澳洲地产市场，在墨尔本及布里斯班设有分公司。致力于将其丰富的海内外优质物业的开发经验带到澳洲并打造适合澳洲市场的产品。
               </p>
               <p class="abouts__p">
                 全球国际开发商实力打造，实现多个项目开发并成功交付。自2019年5月30日以来，已有近500名业主顺利收楼入住。
               </p>
             </article>
-            <img src="@/static/images/img/about_simg.png" class="aboutus__img">
+            <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/about_simg.png" class="aboutus__img">
           </div>
         </div>
       </transition>
@@ -183,7 +183,7 @@
           </div>
         </div>
       </transition>
-      <img v-if="isActive == 0" src="@/static/images/img/development.png" class="development">
+      <img v-if="isActive == 0" src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az//development.png" class="development">
     </div>
     <div v-if="isShowModel" class="blackbg">
       <div class="popup">
@@ -459,6 +459,7 @@ export default {
 }
 .about {
   width: 100%;
+  min-height: calc(100vh - 700px);
   .development {
     width:100%;
     height:592px;

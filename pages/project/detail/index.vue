@@ -257,7 +257,7 @@
           </div>
         </div>
         <!-- 推荐 -->
-        <recommend />
+        <recommend :pid="detail.id" />
       </div>
     </div>
   </div>
@@ -939,6 +939,7 @@ export default {
             width:704px;
             height:879px;
             overflow: hidden;
+            margin: auto;
             .apart__swiper-imgbox {
               width:704px;
               height:879px;
@@ -969,6 +970,7 @@ export default {
             width: 44px;
             height: 44px;
             background-image: url("~@/static/images/icon/index__pre.png");
+            background-size: 44px 44px;
             left: 0;
             bottom: 417px;
             z-index: 1;
@@ -978,6 +980,7 @@ export default {
             width: 44px;
             height: 44px;
             background-image: url("~@/static/images/icon/index__pre.png");
+            background-size: 44px 44px;
             transform:rotateY(180deg);
             right: 0;
             bottom: 417px;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <subtitle class="bm" sub-title="置业澳洲" sub-title-en="Property Australia" />
+    <subtitle sub-title="置业澳洲" sub-title-en="Property Australia" />
     <div class="main">
       <div class="main__tab">
         <div class="main__auto">

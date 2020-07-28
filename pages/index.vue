@@ -29,13 +29,13 @@
         <div class="swiper-wrapper">
           <div class="swiper__item swiper-slide">
             <div class="swiper__warp">
-              <img class="swiper__img" src="@/static/images/img/banner/lc.png">
+              <img class="swiper__img" src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/lc.png">
             </div>
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
               <div class="swiper__content">
                 <h3>墨尔本CBD西综合体现房</h3>
-                <h3>房源托管服务 3年15%高收益</h3>
+                <h3>房源托管服务</h3>
                 <div class="swiper__row">
                   <button @click="toDetail(6)">
                     查看详情
@@ -57,7 +57,7 @@
           </div>
           <div class="swiper__item swiper-slide">
             <div class="swiper__warp">
-              <img class="swiper__img" src="@/static/images/img/banner/wl.png">
+              <img class="swiper__img" src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/wl.png">
             </div>
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
@@ -85,7 +85,7 @@
           </div>
           <div class="swiper__item swiper-slide">
             <div class="swiper__warp">
-              <img class="swiper__img" src="@/static/images/img/banner/ms.png">
+              <img class="swiper__img" src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/ms.png">
             </div>
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
@@ -113,7 +113,7 @@
           </div>
           <div class="swiper__item swiper-slide">
             <div class="swiper__warp">
-              <img class="swiper__img" src="@/static/images/img/banner/ps.png">
+              <img class="swiper__img" src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/ps.png">
             </div>
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
@@ -131,7 +131,9 @@
                 </div>
                 <div class="swiper__label">
                   <ul class="swiper__list">
+                    <li>墨尔本大学旁</li>
                     <li>墨尔本富人区</li>
+                    <li>九步生活</li>
                   </ul>
                 </div>
               </div>
@@ -244,7 +246,7 @@
               </div>
             </div>
             <div class="reason__img">
-              <img src="@/static/images/img/banner/nav1.png">
+              <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/nav1.png">
             </div>
           </div>
           <div class="reason__content swiper-slide">
@@ -282,7 +284,7 @@
               </div>
             </div>
             <div class="reason__img">
-              <img src="@/static/images/img/banner/nav2.png">
+              <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/nav2.png">
             </div>
           </div>
           <div class="reason__content swiper-slide">
@@ -321,7 +323,7 @@
               </div>
             </div>
             <div class="reason__img">
-              <img src="@/static/images/img/banner/nav3.png">
+              <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/nav3.png">
             </div>
           </div>
         </div>
@@ -386,7 +388,7 @@
         </div>
         <div class="news__main">
           <div ref="newsimg" class="news__img">
-            <img src="@/static/images/img/news_img.png">
+            <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az//news_img.png">
           </div>
           <div ref="newslist" class="news__list">
             <div v-for="(item, index) in articleList" :key="index" class="new" @click="toArticle(item.id)">
