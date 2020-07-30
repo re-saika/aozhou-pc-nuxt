@@ -366,11 +366,20 @@ export default {
       // e.target.value = null
     },
     upload() {
-      return this.$api.about.upload(this.formData).then((res) => {
+      return this.$axios.post(
+        'http://admin.azhfang.com/api/upload/index/index',
+        this.formData
+      ).then((res) => {
         return res.aid
       }).catch((err) => {
         console.log(err)
       })
+
+      // return this.$api.about.upload(this.formData).then((res) => {
+      //   return res.aid
+      // }).catch((err) => {
+      //   console.log(err)
+      // })
     },
     submitForm() {
       const array = [

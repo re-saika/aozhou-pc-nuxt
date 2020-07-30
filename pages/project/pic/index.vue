@@ -237,9 +237,11 @@ export default {
       width: 100%;
       height: 130px;
       position: relative;
+      overflow: hidden;
       .album__swiper {
         width: 756px;
         height: 100%;
+        margin: auto;
         .album__slide {
           display: flex;
           justify-content: space-between;

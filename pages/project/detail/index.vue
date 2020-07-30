@@ -346,6 +346,7 @@ export default {
       '.swiper-pic',
       {
         speed: 1000,
+        observer: true,
         navigation: {
           nextEl: '.swiper-pic-next',
           prevEl: '.swiper-pic-prev',
@@ -420,14 +421,14 @@ export default {
     // 复制电话
     doCopy() {
       this.$clipboard(this.detail.phone)
-      this.$Message.success('复制成功！')
+      this.$Message.success(`${this.detail.phone}已复制！`)
     },
     showBigPic(item) {
       this.imgs = item.aid
     },
     changeApart(index) {
       this.isApart = index
-      this.apartSwiper.slideTo(index, 1000, false)
+      this.swiperApart.slideTo(index, 1000, false)
     },
     showTab() {
       if (document.documentElement.scrollTop >= 800) {
