@@ -231,10 +231,12 @@
         </div>
       </div>
     </div>
+    <my-footer :cover="isActive == 0" />
   </div>
 </template>
 
 <script>
+import MyFooter from '@/components/MyFooter'
 import subtitle from '@/components/Subtitle'
 // import navigation from '@/components/Navigation'
 import { validateForm, deepCopy, debounce } from '@/libs/tools.js'
@@ -250,9 +252,11 @@ const defaultForm = {
 
 export default {
   components: {
-    subtitle
+    subtitle,
+    MyFooter
     // navigation
   },
+  layout: 'cover',
   async asyncData({ app }) {
     try {
     // 获得项目列表

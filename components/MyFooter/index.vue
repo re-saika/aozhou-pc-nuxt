@@ -1,8 +1,8 @@
 <template>
   <footer class="footer-all">
-    <div v-if="!isClose && !isBottom" class="footer-block" />
+    <div v-if="!isClose && !isBottom && !cover" class="footer-block" />
     <transition name="pointtwo">
-      <div v-if="!isClose && isAlive" :class="isBottom?'contact-warp_bottom':'contact-warp'">
+      <div v-if="!isClose && isAlive" :class="{'contact-warp_cover':cover&&isBottom,'contact-warp_bottom':!cover&&isBottom, 'contact-warp':!isBottom }">
         <div class="contact">
           <div class="concat__title">
             免费预约咨询
@@ -137,6 +137,12 @@
 import { debounce, validateForm } from '@/libs/tools.js'
 
 export default {
+  props: {
+    cover: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       isAlive: false, // 咨询是否显示
@@ -188,7 +194,6 @@ export default {
     },
     // 超过屏幕宽度显示
     showMenu() {
-      // console.log(document.documentElement.scrollTop, this.curHeight)
       if (!!document.documentElement.scrollTop &&
         document.documentElement.scrollTop > 300) {
         this.isAlive = true
@@ -205,16 +210,24 @@ export default {
       // 变量scrollHeight是滚动条的总高度
       const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight
       // 滚动条到底部的条件
-      // console.log(scrollTop + windowHeight + 200, scrollHeight)
-      if (scrollTop + windowHeight + 200 >= scrollHeight) {
-        // 给咨询固定在底部
-        this.isBottom = true
-      } else {
-        this.isBottom = false
+      if (this.cover) {
+        if (scrollTop + windowHeight + 100 >= scrollHeight) {
+          // 给咨询固定在底部
+          this.isBottom = true
+        } else {
+          this.isBottom = false
+        }
+      }
+      if (!this.cover) {
+        if (scrollTop + windowHeight + 200 >= scrollHeight) {
+          // 给咨询固定在底部
+          this.isBottom = true
+        } else {
+          this.isBottom = false
+        }
       }
     },
     showSelecter() {
-      console.log(this.list)
       this.isShow = !this.isShow
     },
     changeSelect(name) {
@@ -282,6 +295,7 @@ export default {
 }
 .footer-all {
   background: #F5F8FB;
+  position: relative;
 }
 .footer-block {
   height: 140px;
@@ -295,9 +309,14 @@ export default {
   z-index: 99;
 }
 .contact-warp_bottom {
-  // width: 100%;
   height: 110px;
   // background-color: #062A5A;
+}
+.contact-warp_cover {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .contact {
   background-color: #2864D3;

@@ -191,6 +191,9 @@
           <div class="nav__item" :class="isActive == 3?'nav__item_active':''" @click="toCharacteristic">
             项目特色
           </div>
+          <div class="nav__item" :class="isActive == 4?'nav__item_active':''" @click="toDownload">
+            资料下载
+          </div>
         </nav>
       </div>
       <!-- 项目详情 -->
@@ -254,6 +257,23 @@
               项目特色
             </div>
             <my-article :content="detail.project_features" />
+          </div>
+          <div ref="download" class="article">
+            <div class="article__header">
+              <img src="@/static/images/icon/project_article5.png" class="article__icon5">
+              资料下载
+            </div>
+            <div class="article__btns">
+              <a class="article__btn" :href="downloadUrl1" target="_blank">
+                单张
+              </a>
+              <a class="article__btn" :href="downloadUrl2" target="_blank">
+                折页
+              </a>
+              <a class="article__btn" :href="downloadUrl3" target="_blank">
+                户型图
+              </a>
+            </div>
           </div>
         </div>
         <!-- 推荐 -->
@@ -336,6 +356,53 @@ export default {
     afterIndex() {
       return function(index) {
         return index % 3
+      }
+    },
+    // 又是要写死的，根据写死的项目id，写死对应的COS链接
+    // LC id = 6 布里斯本 id = 1 美塑 id = 7 博士山 id = 8
+    // 单张
+    downloadUrl1() {
+      switch (this.detail.id) {
+      case 6:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5OTZ9'
+      case 1:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5OTd9'
+      case 7:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5OTJ9'
+      case 8:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjoxMDAxfQoo00ooo00o'
+      default:
+        return ''
+      }
+    },
+    // 折页
+    downloadUrl2() {
+      switch (this.detail.id) {
+      case 6:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5OTR9'
+      case 1:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5NTZ9'
+      case 7:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5OTN9'
+      case 8:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjoxMDAwfQoo00ooo00o'
+      default:
+        return ''
+      }
+    },
+    // 户型图
+    downloadUrl3() {
+      switch (this.detail.id) {
+      case 6:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5Njl9'
+      case 1:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5NTl9'
+      case 7:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5ODB9'
+      case 8:
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5OTV9'
+      default:
+        return ''
       }
     }
   },
@@ -437,7 +504,9 @@ export default {
         this.tabtop = false
       }
       if (this.$refs.characteristic) {
-        if (this.$refs.characteristic.getBoundingClientRect().top <= 60) {
+        if (this.$refs.download.getBoundingClientRect().top <= 500) {
+          this.isActive = 4
+        } else if (this.$refs.characteristic.getBoundingClientRect().top <= 60) {
           this.isActive = 3
         } else if (this.$refs.periphery.getBoundingClientRect().top <= 60) {
           this.isActive = 2
@@ -466,6 +535,10 @@ export default {
     },
     toCharacteristic() {
       this.$refs.characteristic.scrollIntoView(true)
+      this.showTab()
+    },
+    toDownload() {
+      this.$refs.download.scrollIntoView(true)
       this.showTab()
     },
     toPic() {
@@ -849,6 +922,7 @@ export default {
     }
     .nav__item_active {
       background-image: url("~@/static/images/icon/project__active.png");
+      background-size: 136px 55px;
       background-repeat: no-repeat;
       color:rgba(255,255,255,1);
     }
@@ -895,6 +969,36 @@ export default {
             margin-right: 9px;
             width: 24px;
             height: 22px;
+          }
+          .article__icon5 {
+            margin-right: 9px;
+            width: 21px;
+            height: 21px;
+          }
+        }
+        .article__btns {
+          margin-bottom: 46px;
+          display: flex;
+          .article__btn {
+            cursor: pointer;
+            width:130px;
+            height:70px;
+            text-align: center;
+            line-height: 70px;
+            border:1px solid #062A5A;
+            font-size:24px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            background:rgba(255,255,255,1);
+            color: #062A5A;
+            margin-bottom: 20px;
+            transition: all .2s;
+            margin-right: 48px;
+          }
+          .article__btn:hover {
+            background:#062A5A;
+            transition: all .2s;
+            color:rgba(255,255,255,1);
           }
         }
         .apart {
