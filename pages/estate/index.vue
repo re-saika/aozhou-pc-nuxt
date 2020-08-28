@@ -4,7 +4,7 @@
     <div class="main">
       <div class="main__auto">
         <!-- 好房视频 -->
-        <div class="main__item">
+        <div v-if="showVideo" class="main__item">
           <div class="main__title">
             <span class="main__title-left">好房视频</span>
             <div class="main__title-right">
@@ -44,23 +44,23 @@
             </div>
           </div>
         </div>
-        <!-- 澳洲生活 -->
+        <!-- 澳洲资讯 -->
         <div class="main__item">
           <div class="main__title">
-            <span class="main__title-left">澳洲生活</span>
+            <span class="main__title-left">澳房资讯</span>
             <div class="main__title-right">
-              <div v-for="(item, index) in articleList1" :key="index" class="main__li main__li_pointer" :class="{'main__li_active': isLife.includes(index)}" @click="lifeChangeFun(index)">
+              <div v-for="(item, index) in articleList3" :key="index" class="main__li main__li_pointer" :class="{'main__li_active': isInfo.includes(index)}" @click="infoChangeFun(index)">
                 {{ item.name }}
               </div>
-              <div class="main__more main__li_pointer" @click="moreFun(9)">
+              <div class="main__more main__li_pointer" @click="moreFun(11)">
                 更多<img class="main__more-icon" src="@/static/images/icon/right_gray.png" alt="">
               </div>
             </div>
           </div>
           <div class="main__content">
-            <div class="swiper1">
+            <div class="swiper3">
               <div class="swiper-wrapper">
-                <div v-for="(item, index) in articleList1" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
+                <div v-for="(item, index) in articleList3" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
                     <div class="main__picbox">
                       <img :src="element.aid" alt="" class="main__pic">
@@ -122,23 +122,23 @@
             </div>
           </div>
         </div>
-        <!-- 澳洲资讯 -->
+        <!-- 澳洲生活 -->
         <div class="main__item">
           <div class="main__title">
-            <span class="main__title-left">澳洲资讯</span>
+            <span class="main__title-left">澳洲生活</span>
             <div class="main__title-right">
-              <div v-for="(item, index) in articleList3" :key="index" class="main__li main__li_pointer" :class="{'main__li_active': isInfo.includes(index)}" @click="infoChangeFun(index)">
+              <div v-for="(item, index) in articleList1" :key="index" class="main__li main__li_pointer" :class="{'main__li_active': isLife.includes(index)}" @click="lifeChangeFun(index)">
                 {{ item.name }}
               </div>
-              <div class="main__more main__li_pointer" @click="moreFun(11)">
+              <div class="main__more main__li_pointer" @click="moreFun(9)">
                 更多<img class="main__more-icon" src="@/static/images/icon/right_gray.png" alt="">
               </div>
             </div>
           </div>
           <div class="main__content">
-            <div class="swiper3">
+            <div class="swiper1">
               <div class="swiper-wrapper">
-                <div v-for="(item, index) in articleList3" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
+                <div v-for="(item, index) in articleList1" :key="index" class="swiper-slide main__row" :class="{'main__flex':item.data.length<3?true:false}">
                   <div v-for="(element, i) in item.data" :key="i" class="main__box" @click="checkFun(element)">
                     <div class="main__picbox">
                       <img :src="element.aid" alt="" class="main__pic">
@@ -191,6 +191,7 @@ export default {
   },
   data() {
     return {
+      showVideo: true,
       swiper0: null,
       swiper1: null,
       swiper2: null,
@@ -218,6 +219,9 @@ export default {
     }
   },
   mounted() {
+    if (this.$route.query.type) {
+      this.showVideo = false
+    }
     const that = this
     this.swiper0 = new Swiper(
       '.swiper0',

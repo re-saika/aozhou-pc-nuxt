@@ -68,6 +68,9 @@
                 <span v-if="detail.type == 0">住宅</span>
                 <span v-if="detail.type == 1">公寓</span>
                 <span v-if="detail.type == 2">别墅</span>
+                <span v-if="detail.type == 3">现房住宅</span>
+                <span v-if="detail.type == 4">产权土地</span>
+                <span v-if="detail.type == 5">期房住宅</span>
               </li>
               <li class="projectbox__label projectbox__labe_last">
                 {{ detail.progress }}
@@ -143,10 +146,12 @@ export default {
     }
   },
   mounted() {
+    // const that = this
     this.aSwiper = new Swiper(
       '.album__swiper',
       {
         speed: 1000,
+        observer: true,
         navigation: {
           nextEl: '.album__swiper-next',
           prevEl: '.album__swiper-prev',
@@ -155,7 +160,7 @@ export default {
         },
         on: {
           slideChangeTransitionStart() {
-            that.nextCallback()
+            // that.nextCallback()
           }
         }
       }

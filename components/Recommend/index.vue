@@ -18,7 +18,7 @@
       <div class="title">
         视频推荐
       </div>
-      <div class="video__box" @click="toSee">
+      <div v-if="video" class="video__box" @click="toSee">
         <div class="video__imgbox">
           <img class="video__img" :src="video.img_url">
         </div>
@@ -38,7 +38,7 @@
             <img class="news__img" :src="item.img_url">
           </div>
           <div class="news__content">
-            <div class="news__word text-over">
+            <div class="news__word text-overs">
               {{ item.name }}
             </div>
             <div class="news__time">
@@ -189,6 +189,7 @@ export default {
     .video__box {
       width: 270px;
       border:1px solid rgba(153,153,153,1);
+      cursor: pointer;
       .video__imgbox {
         width:270px;
         height:163px;
@@ -223,6 +224,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         height: 110px;
+        cursor: pointer;
         .news__imgbox {
           width:120px;
           height:80px;
@@ -245,7 +247,7 @@ export default {
             line-height: 20px;
             margin-bottom: 14px;
             width: 138px;
-            height: 36px;
+            height: 40px;
           }
           .news__time {
             font-size:14px;

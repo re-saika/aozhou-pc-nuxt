@@ -104,8 +104,8 @@
                 </div>
                 <div class="number__block">
                   <div class="number__blueword">
-                    {{ detail.down_pay_percent }}
-                    <span class="number__smallword">%</span>
+                    {{ detail.down_pay_percent | getNumer }}
+                    <span class="number__smallword">{{ detail.down_pay_percent | getNumberOther }}</span>
                   </div>
                   <div class="number__word">
                     首付比例
@@ -113,8 +113,8 @@
                 </div>
                 <div class="number__block">
                   <div class="number__blueword">
-                    {{ detail.annualized_return }}
-                    <span class="number__smallword">%</span>
+                    {{ detail.annualized_return | getNumer }}
+                    <span class="number__smallword">{{ detail.annualized_return | getNumberOther }}</span>
                   </div>
                   <div class="number__word">
                     年回报率
@@ -142,6 +142,9 @@
                 <span v-if="detail.type == 0">住宅</span>
                 <span v-if="detail.type == 1">公寓</span>
                 <span v-if="detail.type == 2">别墅</span>
+                <span v-if="detail.type == 3">现房住宅</span>
+                <span v-if="detail.type == 4">产权土地</span>
+                <span v-if="detail.type == 5">期房住宅</span>
               </div>
               <div class="projectd__msg2block">
                 城市： {{ detail.city }}
@@ -293,12 +296,34 @@ export default {
     MyArticle,
     recommend
   },
+  filters: {
+    // 截取百分号前面的字符串
+    getNumer(val) {
+      if (val.includes('%')) {
+        return val.match(/(\S*)%/)[1]
+      }
+      return val
+      // console.log((val + '%').match(/(\S*)%/)[1])
+      // return val.match(/(\S*)%/)[1]
+    },
+    // 截取百分号后面的字符串
+    getNumberOther(val) {
+      if (val.includes('%')) {
+        return '%' + val.match(/%(\S*)/)[1]
+      }
+      return '%'
+    }
+  },
   async asyncData(context) {
     if (context.route.query.id) {
       try {
         const [data1, data2, data3] = await Promise.all([
           context.app.$api.project.projectDetail({ id: context.route.query.id }).then(({ data }) => {
             // data.boarding_time = standardtoDate(data.boarding_time * 1000) // 后台说由他转换 2020/6/17
+            // lc的交房时间不要日期
+            if (data.id === 6 || data.id === '6') {
+              data.boarding_time = data.boarding_time.substring(0, data.boarding_time.length - 3)
+            }
             return { detail: data }
           }),
           context.app.$api.project.projectPhoto({ project_id: context.route.query.id }).then(({ data }) => {
@@ -759,6 +784,7 @@ export default {
               font-weight:bold;
               color:#062A5A;
               letter-spacing: -1px;
+              margin-bottom: 5px;
               .number__smallword {
                 font-size:14px;
               }

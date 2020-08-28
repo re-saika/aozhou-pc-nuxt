@@ -62,6 +62,9 @@
                 <span v-if="detail.type == 0">住宅</span>
                 <span v-if="detail.type == 1">公寓</span>
                 <span v-if="detail.type == 2">别墅</span>
+                <span v-if="detail.type == 3">现房住宅</span>
+                <span v-if="detail.type == 4">产权土地</span>
+                <span v-if="detail.type == 5">期房住宅</span>
               </li>
               <li class="projectbox__label projectbox__labe_last">
                 {{ detail.progress }}
@@ -95,6 +98,7 @@ export default {
       try {
         // 获得文章列表
         return await context.app.$api.estate.materialDetail({ id: context.route.query.id }).then(({ data }) => {
+          console.log(data)
           return { detail: data }
         })
       } catch (error) {

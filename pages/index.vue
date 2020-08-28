@@ -431,13 +431,13 @@ export default {
     try {
     // 获得文章列表
       return await app.$api.estate.setHouseAus().then(({ data }) => {
-        console.log(data)
+        // 突然说要改1、3顺序，那就不麻烦后端了，直接改一下接的顺序了
         return {
           videoList: data[0].children,
-          articleList: data[1].children[0].data,
-          articleList1: data[1].children[0].data,
+          articleList: data[3].children[0].data,
+          articleList1: data[3].children[0].data,
           articleList2: data[2].children[0].data,
-          articleList3: data[3].children[0].data
+          articleList3: data[1].children[0].data
         }
       })
     } catch (error) {
@@ -462,7 +462,7 @@ export default {
       // liveMenu: ['直播视频', '项目视频'],
       liveActive: 0,
       // 文章
-      pageMenu: ['澳洲生活', '购房攻略', '澳洲资讯'],
+      pageMenu: ['澳房资讯', '购房攻略', '澳洲生活'],
       pageActive: 0,
       // 列表
       videoList: [],
@@ -681,7 +681,7 @@ export default {
       if (name === this.$route.name) {
         history.go(0)
       }
-      this.$router.push({ name })
+      this.$router.push({ name, query: { type: 1 } })
     },
     navRouter(index) {
       if (index == 0) {

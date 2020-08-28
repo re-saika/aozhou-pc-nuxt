@@ -113,7 +113,8 @@ export default {
     },
     routeTo(to) {
       if (to === this.$route.name) {
-        history.go(0)
+        // history.go(0)
+        return
       }
       this.$router.push({
         name: to
