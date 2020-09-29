@@ -36,12 +36,12 @@
 
       <transition name="pointtwo">
         <div v-show="boxActive == 1" class="floatbox__msg">
-          <img class="floatbox__img" src="@/static/images/icon/Applet_code.jpg">
+          <img class="floatbox__img" src="@/static/images/img/xcx.png">
         </div>
       </transition>
       <transition name="pointtwo">
         <div v-show="boxActive == 2" class="floatbox__msg">
-          <img class="floatbox__img" src="@/static/images/icon/gzh.jpg">
+          <img class="floatbox__img" src="@/static/images/img/gzh.png">
         </div>
       </transition>
       <transition name="pointtwo">
@@ -152,8 +152,10 @@ export default {
     align-items: center;
     justify-content: center;
     .floatbox__img {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
+      background-color: #FFFFFF;
+      padding: 10px;
     }
   }
   .floatbox__msg2 {

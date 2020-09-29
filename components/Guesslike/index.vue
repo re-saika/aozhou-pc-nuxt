@@ -36,6 +36,10 @@ export default {
     isv: {
       type: Boolean,
       default: false
+    },
+    pid: {
+      type: Number,
+      default: null
     }
   },
   data() {
@@ -54,14 +58,27 @@ export default {
     this.rand = new Rand()
   },
   methods: {
-    getArticle() {
-      this.$api.recommend.recomendArticle().then((res) => {
+    // getArticle() {
+    //   this.$api.recommend.recomendArticle().then((res) => {
+    //     this.list = res.data
+    //     this.changeList()
+    //   })
+    // },
+    // getVideo() {
+    //   this.$api.recommend.recomendVideo().then((res) => {
+    //     this.list = res.data
+    //     this.changeList()
+    //   })
+    // },
+    getVideo() {
+      this.$api.recommend.recomendVideo({ project_id: this.pid }).then((res) => {
         this.list = res.data
         this.changeList()
       })
     },
-    getVideo() {
-      this.$api.recommend.recomendVideo().then((res) => {
+    getArticle() {
+      console.log(this.pid)
+      this.$api.recommend.recomendArticle({ project_id: this.pid }).then((res) => {
         this.list = res.data
         this.changeList()
       })

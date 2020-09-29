@@ -1,0 +1,15 @@
+{ 
+  "apps": [ 
+    {
+      "name": "aozhou-pc-39000",
+      "script": "npm",
+      "args": "start",
+      "instances": 1,
+      "autorestart": true,
+      "watch": true,
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

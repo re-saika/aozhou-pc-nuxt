@@ -18,7 +18,7 @@
               项目推荐
             </li>
             <li class="nav__li" :class="isActive == 'estate'?'nav__li_active':''" @click="routeTo('estate')">
-              置业澳洲
+              澳洲利好
             </li>
             <li class="nav__li" :class="isActive == 'about'?'nav__li_active':''" @click="routeTo('about')">
               联系我们
@@ -48,7 +48,12 @@
             <!-- 弹出窗 -->
             <transition name="pointtwo">
               <div v-show="showPic == 1" class="nav__lang">
-                <div>中</div>
+                <div @click="changeFont('s')">
+                  简
+                </div>
+                <div @click="changeFont('t')">
+                  繁
+                </div>
                 <div @click="changeLang">
                   EN
                 </div>
@@ -56,12 +61,12 @@
             </transition>
             <transition name="pointtwo">
               <div v-show="showPic == 2" class="nav__imgbg">
-                <img class="img-applet" src="@/static/images/icon/Applet_code.jpg">
+                <img class="img-applet" src="@/static/images/img/xcx.png">
               </div>
             </transition>
             <transition name="pointtwo">
               <div v-show="showPic == 3" class="nav__imgbg">
-                <img class="img-gzh" src="@/static/images/icon/gzh.jpg">
+                <img class="img-applet" src="@/static/images/img/gzh.png">
               </div>
             </transition>
           </div>
@@ -72,6 +77,7 @@
 </template>
 
 <script>
+import { zhTran } from '@/libs/lang.js'
 export default {
   props: {
     home: {
@@ -130,10 +136,15 @@ export default {
     },
     changeLang() {
       window.open('https://www.rfpropertyaustralia.com.au/')
+    },
+    changeFont(f) {
+      zhTran(f)
+      this.$Message.success({
+        content: '更改语言成功!',
+        duration: 3,
+        closable: true
+      })
     }
-    // changeLang() {
-    //   zhTran()
-    // }
   }
 }
 </script>
@@ -163,6 +174,7 @@ export default {
       .nav {
         display: flex;
         margin-right: 3px;
+        font-size: 15px;
         .nav__li {
           font-family:Microsoft YaHei;
           list-style: none;
@@ -264,10 +276,8 @@ export default {
         .img-applet {
           width: 150px;
           height: 150px;
-        }
-        .img-gzh {
-          width: 150px;
-          height: 150px;
+          padding: 10px;
+          background-color: #FFFFFF;
         }
       }
     }

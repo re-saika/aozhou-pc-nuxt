@@ -1,6 +1,6 @@
 <template>
   <div class="gray">
-    <subtitle class="bm" sub-title="项目推荐" sub-title-en="Project Recommendation" />
+    <subtitle class="bm" sub-title="项目推荐" sub-title-en="Projects" />
     <div class="project">
       <div v-for="(item, index) in list" :key="index" class="project__box">
         <div class="project__left">
@@ -62,12 +62,14 @@
 <script>
 import subtitle from '@/components/Subtitle'
 import empty from '@/components/Empty'
+import tran from '@/mixins/tran'
 
 export default {
   components: {
     subtitle,
     empty
   },
+  mixins: [tran],
   async asyncData(context) {
     const hot = context.route.query.value || ''
     try {

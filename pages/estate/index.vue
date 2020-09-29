@@ -1,10 +1,10 @@
 <template>
   <div class="gray">
-    <subtitle sub-title="置业澳洲" sub-title-en="Property Australia" />
+    <subtitle sub-title="澳洲利好" sub-title-en="Property Australia" />
     <div class="main">
       <div class="main__auto">
         <!-- 好房视频 -->
-        <div v-if="showVideo" class="main__item">
+        <!-- <div v-if="showVideo" class="main__item">
           <div class="main__title">
             <span class="main__title-left">好房视频</span>
             <div class="main__title-right">
@@ -40,10 +40,10 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="swiper-pagination" slot="pagination"></div> -->
+              // <div class="swiper-pagination" slot="pagination"></div> //
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- 澳洲资讯 -->
         <div class="main__item">
           <div class="main__title">
@@ -169,10 +169,12 @@
 <script>
 import subtitle from '@/components/Subtitle'
 import Swiper from '@/libs/swiper.js'
+import tran from '@/mixins/tran'
 export default {
   components: {
     subtitle
   },
+  mixins: [tran],
   async asyncData({ app }) {
     try {
       // 获得文章列表

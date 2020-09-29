@@ -7,7 +7,7 @@
         </div>
         <img src="@/static/images/icon/down.png" class="navigation__icon">
         <div class="navigation__item" @click="routeTo('estate')">
-          置业澳洲
+          澳洲利好
         </div>
         <img src="@/static/images/icon/down.png" class="navigation__icon">
         <div class="navigation__item font-blue">
@@ -81,24 +81,24 @@
       </div>
     </div>
     <div class="video__guess">
-      <guesslike :isv="true" />
+      <guesslike :isv="true" :pid="pid" />
     </div>
   </div>
 </template>
 
 <script>
 import guesslike from '@/components/Guesslike'
-
+import tran from '@/mixins/tran'
 export default {
   components: {
     guesslike
   },
+  mixins: [tran],
   async asyncData(context) {
     if (context.route.query.id) {
       try {
         // 获得文章列表
         return await context.app.$api.estate.materialDetail({ id: context.route.query.id }).then(({ data }) => {
-          console.log(data)
           return { detail: data }
         })
       } catch (error) {
@@ -110,6 +110,11 @@ export default {
     return {
       id: null,
       detail: {}
+    }
+  },
+  computed: {
+    pid() {
+      return this.detail.project_id
     }
   },
   watch: {

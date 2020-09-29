@@ -1,6 +1,6 @@
 <template>
   <div>
-    <subtitle sub-title="置业澳洲" sub-title-en="Property Australia" />
+    <subtitle sub-title="澳洲利好" sub-title-en="News of AUS" />
     <div class="main">
       <div class="main__tab">
         <div class="main__auto">
@@ -96,12 +96,14 @@ import subtitle from '@/components/Subtitle'
 // import * as estate from '@/api/estate'
 // import * as recommend from '@/api/recommend'
 import { debounce } from '@/libs/tools'
+import tran from '@/mixins/tran'
 export default {
   components: {
     recommend,
     subtitle,
     tableWrap
   },
+  mixins: [tran],
   data() {
     return {
       spinShow: false,

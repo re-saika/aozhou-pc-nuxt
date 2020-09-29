@@ -87,7 +87,7 @@
       </div>
     </div>
     <div class="album__guess">
-      <guesslike />
+      <guesslike :pid="pid" />
     </div>
   </div>
 </template>
@@ -96,10 +96,12 @@
 import guesslike from '@/components/Guesslike'
 import { spliceArray } from '@/libs/tools'
 import Swiper from '@/libs/swiper.js'
+import tran from '@/mixins/tran'
 export default {
   components: {
     guesslike
   },
+  mixins: [tran],
   async asyncData(context) {
     if (context.route.query.id) {
       try {
@@ -145,6 +147,11 @@ export default {
       picLoading: false
     }
   },
+  computed: {
+    pid() {
+      return this.$route.query.id
+    }
+  },
   mounted() {
     // const that = this
     this.aSwiper = new Swiper(
@@ -179,7 +186,7 @@ export default {
       this.$router.push({
         name: 'project-detail',
         query: {
-          id: this.id
+          id: this.pid
         }
       })
     },

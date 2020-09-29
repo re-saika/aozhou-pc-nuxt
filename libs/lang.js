@@ -38,7 +38,9 @@ export const zhTranBody = function(obj) {
   const o = typeof obj === 'object' ? obj.childNodes : document.body.childNodes
   for (let i = 0; i < o.length; i++) {
     const c = o.item(i)
-    if ('||BR|HR|TEXTAREA|SCRIPT|'.indexOf('|' + c.tagName + '|') > 0) continue
+    if ('||BR|HR|TEXTAREA|SCRIPT|'.indexOf('|' + c.tagName + '|') > 0) {
+      continue
+    }
     if (c.title !== '' && c.title != null) {
       c.title = c.title.tran()
     }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <subtitle sub-title="置业澳洲认准澳洲好房" sub-title-en="Homebuy Australia Recognizes Australian Life" />
+    <subtitle sub-title="澳洲好房" sub-title-en="Australian Life" />
     <div class="about">
       <nav class="about__navigation">
         <nav class="navigation">
@@ -42,8 +42,13 @@
               <p class="abouts__p">
                 全球国际开发商实力打造，实现多个项目开发并成功交付。自2019年5月30日以来，已有近500名业主顺利收楼入住。
               </p>
+              <p class="abouts__p">
+                澳洲的两大城市—布里斯班和墨尔本，其中这两大城市关注度最高的4个项目有：布里斯本1号的CBD水景学位地铁房、布里斯班CBD南的美墅永久产权土地、墨尔本CBD地标社区的Live City精装现房以及华人新贵区的博士山。
+              </p>
             </article>
-            <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/about_simg.png" class="aboutus__img">
+            <div class="aboutus__img">
+              <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/about_simg.png">
+            </div>
           </div>
         </div>
       </transition>
@@ -89,6 +94,12 @@
                 </div>
                 <input v-model="mobile" class="input__in" placeholder="请输入联系方式">
               </div>
+              <div class="contact__input">
+                <div class="input__left">
+                  <img src="@/static/images/icon/building_blue@2x.png" class="inputs__img1">
+                </div>
+                <input v-model="address" class="input__in" placeholder="请输入地址">
+              </div>
               <div class="contact__input" @click="showSelecter">
                 <div class="input__left">
                   <img src="@/static/images/icon/building_blue@2x.png" class="inputs__img1">
@@ -121,19 +132,19 @@
             <div class="fold__head">
               <div class="fold__head-content">
                 <div class="fold__title">
-                  驻场经理（住宅项目）
+                  渠道主管
                 </div>
                 <div>
                   <img class="fold__icon1" src="@/static/images/icon/position_gray.png">
-                  <span class="fold__label">广州</span>
-                  <span class="fold__label">物业事业部</span>
-                  <span class="fold__label">产品/项目类</span>
-                  <span class="fold__label">招聘2人</span>
-                  <span class="fold__label">本科</span>
+                  <span class="fold__label">北京、上海、广州</span>
+                  <!-- <span class="fold__label">物业事业部</span> -->
+                  <!-- <span class="fold__label">产品/项目类</span> -->
+                  <!-- <span class="fold__label">招聘2人</span> -->
+                  <!-- <span class="fold__label">本科</span> -->
                 </div>
                 <div>
                   <img class="fold__icon2" src="@/static/images/icon/time_gray.png">
-                  2020-05-15
+                  2020-09-27
                 </div>
               </div>
               <div class="fold__button" @click="changeModel(true)">
@@ -149,27 +160,16 @@
               <article v-show="isOpen" class="fold__content">
                 工作内容<br>
                 岗位职责：<br>
-                1.履行《物业服务合同》规定的相关义务，维护小区环境、秩序、公共设施设备完好。<br>
-                2.根据公司质量方针和目标，贯彻ISO9000质量体系。<br>
-                3.负责小区物业费的收缴工作，充分调动各岗位人员以提高物业费收缴率。<br>
-                4.根据公司绩效考核制度，按时完成对本小区人员的绩效考核。<br>
-                5.加强小区装修管理，确保装修有序进行。<br>
-                6.负责本服务中心年度及月度财务收支预算和控制。<br>
-                7.组织开展各项节能减耗措施，通过减少各方面的开销实现成本控制。<br>
-                8.开展各种经营活动，丰富盈利渠道，增加小区收入。<br>
-                9.及时妥善处理各类投诉，处理好与业主（使用人）的关系。<br>
-                10.定期对小区业主和住户发放意见征询表，统计、分析、处理和回访。<br>
-                11.维护与房管局、街道、社区、派出所、业主委员会等相关部门的关系。<br>
-                12.定期组织各类社区活动，丰富业主的业余生活。<br>
-                13.加强与公司各职能部门的沟通、协调，做好相关工作。<br>
-                14.负责团队建设，制定团队建设计划，组织开展各项团队活动。<br>
-                15.完成领导安排的其他工作。<br>
-                任职要求：
-                1、大专及以上学历
-                2、五年以上管理工作经验（上海的项目优先考虑）。<br>
-                3、具有良好的沟通、协调、组织、应变等综合能力，能承受较大工作压力。<br>
-                4、具有较强的团队管理能力，有业委会组建、物业费提价经验优先考虑。<br>
-                5、具有较强的服务意识，责任心强。
+                1、根据公司的销售目标，结合澳洲房产业务特点，执行线下渠道开拓、异业合作等渠道拓展和商务谈判；<br>
+                2、联动城市公司客源开拓、渠道合作谈判、执行；<br>
+                3、潜在客群分析，做好市场信息的搜集、整理和反馈，并撰写分析报告；<br>
+                4、具有海外房产销售经验，能够独立销售项目。<br>
+                任职要求：<br>
+                1、3年以上渠道拓展工作经验；
+                2、高端渠道拓展，如国内高端楼盘、金融机构、高端物业、商协会等高净值客户资源者优先；<br>
+                3、较强的谈判意思以及客户公关能力；<br>
+                4、能接受出差，积极主动，抗压能力强；<br>
+                5、有海外房产、移民、投资等同行业经验优先。
               </article>
             </transition>
             <div class="fold__unfold" @click="showFold">
@@ -183,7 +183,7 @@
           </div>
         </div>
       </transition>
-      <img v-if="isActive == 0" src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az//development.png" class="development">
+      <img v-if="isActive == 0" src="@/static/images/img/about_bg.png" class="development">
     </div>
     <div v-if="isShowModel" class="blackbg">
       <div class="popup">
@@ -240,12 +240,12 @@ import MyFooter from '@/components/MyFooter'
 import subtitle from '@/components/Subtitle'
 // import navigation from '@/components/Navigation'
 import { validateForm, deepCopy, debounce } from '@/libs/tools.js'
-
+import tran from '@/mixins/tran'
 const defaultForm = {
   name: '',
   mobile: '',
   gender: '0',
-  career: '驻场经理', // 职位
+  career: '渠道主管', // 职位
   birth: '', // 出生年月
   degree: '' // 学历
 }
@@ -256,6 +256,7 @@ export default {
     MyFooter
     // navigation
   },
+  mixins: [tran],
   layout: 'cover',
   async asyncData({ app }) {
     try {
@@ -279,6 +280,7 @@ export default {
       consulting: '', // 咨询的项目
       name: '',
       mobile: '',
+      address: '',
       remark: '',
       // 招聘
       isShowModel: false,
@@ -334,7 +336,8 @@ export default {
         name: this.name,
         mobile: this.mobile,
         data: this.consulting,
-        remark: this.remark
+        remark: this.remark,
+        address: this.address
       }
       const array = [
         [this.name, '请正确输入姓名'],
@@ -353,6 +356,8 @@ export default {
           this.name = ''
           this.mobile = ''
           this.consulting = ''
+          this.address = ''
+          this.remark = ''
         })
       }
       this.spinShow = false
@@ -549,9 +554,15 @@ export default {
         .abouts__p {
           line-height: 32px;
         }
-        .aboutus__img {
-          width:555px;
-          height:349px;
+      }
+      .aboutus__img {
+        width:1055px;
+        height:449px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
         }
       }
     }

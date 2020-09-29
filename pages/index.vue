@@ -34,8 +34,8 @@
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
               <div class="swiper__content">
-                <h3>墨尔本CBD西综合体现房</h3>
-                <h3>房源托管服务</h3>
+                <h3>墨尔本CBD西精装地标社区</h3>
+                <h3>学区现房 收益无忧</h3>
                 <div class="swiper__row">
                   <button @click="toDetail(6)">
                     查看详情
@@ -47,9 +47,8 @@
                 </div>
                 <div class="swiper__label">
                   <ul class="swiper__list">
-                    <li>城央综合体</li>
                     <li>维多利亚大学旁</li>
-                    <li>网红古建</li>
+                    <li>古建文化中心</li>
                   </ul>
                 </div>
               </div>
@@ -62,8 +61,8 @@
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
               <div class="swiper__content">
-                <h3>布里斯班新地标 CBD水景学位房</h3>
-                <h3>southbank地铁旁</h3>
+                <h3>布里斯班CBD水景学位现房</h3>
+                <h3>优质地段 收租无忧</h3>
                 <div class="swiper__row">
                   <button @click="toDetail(1)">
                     查看详情
@@ -75,9 +74,9 @@
                 </div>
                 <div class="swiper__label">
                   <ul class="swiper__list">
-                    <li>南布里斯班最高地标</li>
-                    <li>CBD10分钟生活圈</li>
-                    <li>昆士兰州南布里斯班</li>
+                    <li>SOUTH BANK地铁旁</li>
+                    <li>州立中学学位房</li>
+                    <li>昆士兰大学旁</li>
                   </ul>
                 </div>
               </div>
@@ -90,7 +89,7 @@
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
               <div class="swiper__content">
-                <h3>澳洲永久产权土地</h3>
+                <h3>布里斯班CDB南 永久产权土地</h3>
                 <h3>世世代代做地主</h3>
                 <div class="swiper__row">
                   <button @click="toDetail(7)">
@@ -103,9 +102,9 @@
                 </div>
                 <div class="swiper__label">
                   <ul class="swiper__list">
-                    <li>永久产权土地</li>
-                    <li>澳洲布里斯班南</li>
-                    <li>昆士兰大学旁</li>
+                    <li>顶级名校园</li>
+                    <li>绝版稀缺资产</li>
+                    <li>尊贵富人区</li>
                   </ul>
                 </div>
               </div>
@@ -219,7 +218,7 @@
               <div class="reason__front">
                 <div class="reason__header">
                   <div class="reason__subtitle">
-                    REASON
+                    Why AUS
                   </div>
                   <div class="reason__title">
                     澳房置业理由
@@ -254,7 +253,7 @@
               <div class="reason__front">
                 <div class="reason__header">
                   <div class="reason__subtitle">
-                    policy
+                    Policy
                   </div>
                   <div class="reason__title">
                     澳房买房政策
@@ -292,7 +291,7 @@
               <div class="reason__front">
                 <div class="reason__header">
                   <div class="reason__subtitle">
-                    procedure
+                    Delivery Process
                   </div>
                   <div class="reason__title">
                     澳房交付流程
@@ -370,42 +369,44 @@
       </article>
     </div>
     <!-- 新闻资讯 -->
-    <div ref="news" class="news">
-      <div class="news__content">
-        <div class="infobox__title">
-          <div>新闻资讯</div>
-          <div class="swiper-box__nav">
-            <ul class="swiper-box__ul">
-              <li v-for="(item,index) in pageMenu" :key="'3' + index" class="swiper-box__li" :class="pageActive == index?'swiper-box__li_active':''" @click="changePage(index)">
-                {{ item }}
-                <img v-if="pageActive == index" class="swiper-box__lipoint" src="@/static/images/icon/index_point_icon.png">
-              </li>
-            </ul>
-            <div class="swiper-box__more" @click="routeTo('estate')">
-              更多<img class="more_icon" src="@/static/images/icon/right_gray.png">
+    <div class="news-warp">
+      <div ref="news" class="news">
+        <div class="news__content">
+          <div class="infobox__title">
+            <div>新闻资讯</div>
+            <div class="swiper-box__nav">
+              <ul class="swiper-box__ul">
+                <li v-for="(item,index) in pageMenu" :key="'3' + index" class="swiper-box__li" :class="pageActive == index?'swiper-box__li_active':''" @click="changePage(index)">
+                  {{ item }}
+                  <img v-if="pageActive == index" class="swiper-box__lipoint" src="@/static/images/icon/index_point_icon.png">
+                </li>
+              </ul>
+              <div class="swiper-box__more" @click="routeTo('estate')">
+                更多<img class="more_icon" src="@/static/images/icon/right_gray.png">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="news__main">
-          <div ref="newsimg" class="news__img">
-            <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az//news_img.png">
-          </div>
-          <div ref="newslist" class="news__list">
-            <div v-for="(item, index) in articleList" :key="index" class="new" @click="toArticle(item.id)">
-              <div class="new__time">
-                <div class="new__date">
-                  {{ item.create_time.substring(5,10) }}
+          <div class="news__main">
+            <div ref="newsimg" class="news__img">
+              <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az//news_img.png">
+            </div>
+            <div ref="newslist" class="news__list">
+              <div v-for="(item, index) in articleList" :key="index" class="new" @click="toArticle(item.id)">
+                <div class="new__time">
+                  <div class="new__date">
+                    {{ item.create_time.substring(5,10) }}
+                  </div>
+                  <div class="new__year">
+                    {{ item.create_time.substring(0,4) }}
+                  </div>
                 </div>
-                <div class="new__year">
-                  {{ item.create_time.substring(0,4) }}
-                </div>
-              </div>
-              <div class="new__msg">
-                <div class="new__name text-overs">
-                  {{ item.name }}
-                </div>
-                <div class="new__desc text-overs">
-                  {{ item.introduction }}
+                <div class="new__msg">
+                  <div class="new__name text-overs">
+                    {{ item.name }}
+                  </div>
+                  <div class="new__desc text-overs">
+                    {{ item.introduction }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -421,23 +422,39 @@
 import MyHeader from '@/components/MyHeader'
 import viewbox from '@/components/Viewbox'
 import Swiper from '@/libs/swiper.js'
+import tran from '@/mixins/tran'
+
 export default {
   components: {
     MyHeader,
     viewbox
   },
+  mixins: [tran],
   layout: 'home',
   async asyncData({ app }) {
     try {
     // 获得文章列表
       return await app.$api.estate.setHouseAus().then(({ data }) => {
+        // 后端返回的是置业澳洲的格式，这边将每个小主题的资讯合并为一个数组，再截取前三个
+        let alist1 = []
+        let alist2 = []
+        let alist3 = []
+        data[1].children.forEach((item) => {
+          alist1 = alist1.concat(item.data)
+        })
+        data[2].children.forEach((item) => {
+          alist2 = alist2.concat(item.data)
+        })
+        data[3].children.forEach((item) => {
+          alist3 = alist3.concat(item.data)
+        })
         // 突然说要改1、3顺序，那就不麻烦后端了，直接改一下接的顺序了
         return {
           videoList: data[0].children,
-          articleList: data[3].children[0].data,
-          articleList1: data[3].children[0].data,
-          articleList2: data[2].children[0].data,
-          articleList3: data[1].children[0].data
+          articleList: alist3.slice(0, 3),
+          articleList1: alist3.slice(0, 3),
+          articleList2: alist2.slice(0, 3),
+          articleList3: alist1.slice(0, 3)
         }
       })
     } catch (error) {
@@ -655,9 +672,9 @@ export default {
       this.bannerActive = this.banner.realIndex
     },
     changeLive(index) {
-      if (index === 0) {
-        window.open('https://play.yunxi.tv/wechat/liveroom/67407?key=1d5fdb0bcd0510df2d1b183292b3edaf')
-      }
+      // if (index === 0) {
+      //   window.open('https://play.yunxi.tv/wechat/liveroom/67407?key=1d5fdb0bcd0510df2d1b183292b3edaf')
+      // }
       this.liveActive = index
       this.lbanner.slideTo(index, 1000, false)
     },
@@ -681,21 +698,7 @@ export default {
       if (name === this.$route.name) {
         history.go(0)
       }
-      this.$router.push({ name, query: { type: 1 } })
-    },
-    navRouter(index) {
-      if (index == 0) {
-        window.location.href = 'https://play.yunxi.tv/wechat/liveroom/67407?key=1d5fdb0bcd0510df2d1b183292b3edaf'
-        // window.open('https://play.yunxi.tv/wechat/liveroom/67407?key=1d5fdb0bcd0510df2d1b183292b3edaf')
-      } else if (index == 1) {
-        this.$router.push({ name: 'estate-videoList' })
-      } else if (index == 2) {
-        // this.$router.push({ name: 'estate-videoList' })
-      } else if (index == 3) {
-        this.$router.push({ name: 'project' })
-      } else if (index == 4) {
-        this.$router.push({ name: 'estate' })
-      }
+      this.$router.push({ name })
     },
     toArticle(id) {
       this.$router.push({
@@ -997,11 +1000,12 @@ export default {
     }
   }
   .statistics_list {
-    max-width: 1200px;
+    // max-width: 1200px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 34px 0;
+    padding-right: 158px;
   }
   .statistics_list li {
     display: flex;
@@ -1107,10 +1111,10 @@ export default {
     height: 100%;
     .reason__main {
       width: 50%;
-      height: 850px;
+      height: 750px;
       padding-bottom: 20px;
       .reason__front {
-        min-height: 720px;
+        min-height: 620px;
       }
       .reason__header {
         padding-top: 24px;
@@ -1144,7 +1148,7 @@ export default {
           font-size:18px;
           color:rgba(153,153,153,1);
           line-height: 25px;
-          margin-bottom: 45px;
+          margin-bottom: 25px;
         }
         .r-article__ptitle {
           font-size:18px;
@@ -1189,13 +1193,17 @@ export default {
 }
 
 /* ---------------- 新闻资讯 ------------- */
-.news {
+.news-warp {
   width: 100%;
   background-image: url("~@/static/images/icon/news.png");
   background-position-y: 50px;
   background-repeat: no-repeat;
   background-color: #FFFFFF;
   background-size: 100% 100%;
+}
+.news {
+  max-width: 15.1rem;
+  margin: auto;
   cursor: pointer;
   .news__content {
     // width: 1200px;
@@ -1308,6 +1316,7 @@ export default {
             .new__name {
               width: 378px;
               font-size:20px;
+              line-height: 26px;
               font-weight:bold;
               color:rgba(51,51,51,1);
             }
@@ -1793,7 +1802,7 @@ export default {
     margin: auto;
   }
   .news {
-    padding: 50px 205px 0 205px;
+    padding-top: 50px;
   }
   .viewbox_home {
     margin-right: 25px;

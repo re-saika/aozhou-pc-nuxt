@@ -219,7 +219,7 @@
             <div class="apart">
               <div v-for="(item,index) in apartments" :key="index" class="apart__item" :class="isApart == index?'apart__item_active':''" @click="changeApart(index)">
                 <div>{{ item.name }}</div>
-                <div>{{ item.area }}㎡</div>
+                <div>{{ item.area }}</div>
               </div>
               <div
                 v-for="(item, index) in (5 - apartments.length%5)"
@@ -291,6 +291,7 @@ import MyArticle from '@/components/MyArticle'
 import recommend from '@/components/Recommend'
 import { spliceArray } from '@/libs/tools'
 import Swiper from '@/libs/swiper.js'
+import tran from '@/mixins/tran'
 export default {
   components: {
     MyArticle,
@@ -314,6 +315,7 @@ export default {
       return '%'
     }
   },
+  mixins: [tran],
   async asyncData(context) {
     if (context.route.query.id) {
       try {

@@ -65,7 +65,7 @@
               项目推荐
             </li>
             <li class="navs__nav" @click="routeTo('estate')">
-              置业澳洲
+              澳洲利好
             </li>
             <li class="navs__nav" @click="routeTo('about')">
               联系我们
@@ -86,13 +86,13 @@
             </div> -->
           </div>
           <!-- 之后要改 -->
-          <div class="left-footer__navs">
+          <!-- <div class="left-footer__navs">
             友情链接：
             <a class="navs__nav navs__nav_boder" @click="toHref('http://oversea.5i5j.com/')">我爱我家</a>
             <a class="navs__nav navs__nav_boder" @click="toHref('http://www.jindichan.com.cn/')">津地产</a>
-            <a class="navs__nav navs__nav_boder" @click="toHref('https://www.kbrz.com.au')">KBRZ</a>
+            <a class="navs__nav navs__nav_boder" @click="toHref('https://www.kbrz.com.au')">KBRZ</a> -->
             <!-- <a class="navs__nav navs__nav_boder">思为知屋</a> -->
-          </div>
+          <!-- </div> -->
         </div>
         <div class="footer__right platform">
           <!-- <div class="right__item">
@@ -105,16 +105,10 @@
           </div> -->
           <div class="platform__icons">
             <a v-for="(item, index) in platformList" :key="index" class="platform__icon" @mouseleave="showModal(null)">
-              <img :src="item" @mouseover="showModal(index)">
+              <img :src="item.icon" @mouseover="showModal(index)">
               <transition name="fade">
-                <div v-show="modalActive === index && modalActive === 1" class="platform__modal">
-                  <img src="@/static/images/icon/Applet_code.jpg">
-                  <div class="platform__triangle" />
-                </div>
-              </transition>
-              <transition name="fade">
-                <div v-show="modalActive === index && modalActive === 0" class="platform__modal">
-                  <img class="platform__el" src="@/static/images/icon/gzh.jpg">
+                <div v-show="modalActive === index" class="platform__modal">
+                  <img class="platform__img" :src="item.img">
                   <div class="platform__triangle" />
                 </div>
               </transition>
@@ -157,11 +151,26 @@ export default {
       t: null, // 防抖
       spinShow: false,
       platformList: [
-        require('@/static/images/icon/nimg50_6.png'),
-        require('@/static/images/icon/nimg50_7.png'),
-        require('@/static/images/icon/nimg50_5.png'),
-        require('@/static/images/icon/nimg50_4.png'),
-        require('@/static/images/icon/nimg50_1.png')
+        {
+          icon: require('@/static/images/icon/nimg50_6.png'),
+          img: require('@/static/images/img/gzh.png')
+        },
+        {
+          icon: require('@/static/images/icon/nimg50_7.png'),
+          img: require('@/static/images/img/xcx.png')
+        },
+        {
+          icon: require('@/static/images/icon/nimg50_5.png'),
+          img: require('@/static/images/img/douyin.png')
+        },
+        {
+          icon: require('@/static/images/icon/nimg50_4.png'),
+          img: require('@/static/images/img/Facebook.png')
+        },
+        {
+          icon: require('@/static/images/icon/nimg50_1.png'),
+          img: require('@/static/images/img/YouTube.png')
+        }
       ],
       modalActive: null
     }
@@ -176,7 +185,7 @@ export default {
     this.t = debounce(() => { this.submit() }, 2000)
   },
   methods: {
-    // 新增平台列表
+    // 展示平台
     showModal(index) {
       this.modalActive = index
     },
@@ -569,6 +578,9 @@ export default {
         img {
           width: 40px;
           height: 40px;
+        }
+        .platform__img {
+          padding: 10px;
         }
         .platform__modal {
           position: absolute;

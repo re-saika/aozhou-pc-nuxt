@@ -7,7 +7,7 @@
         </div>
         <img src="@/static/images/icon/down.png" class="navigation__icon">
         <div @click="routeTo('estate')">
-          置业澳洲
+          澳洲利好
         </div>
         <img src="@/static/images/icon/down.png" class="navigation__icon">
         <div class="font-blue">
@@ -41,11 +41,13 @@
 <script>
 import recommend from '@/components/Recommend'
 import MyArticle from '@/components/MyArticle'
+import tran from '@/mixins/tran'
 export default {
   components: {
     recommend,
     MyArticle
   },
+  mixins: [tran],
   async asyncData(context) {
     if (context.route.query.id) {
       try {

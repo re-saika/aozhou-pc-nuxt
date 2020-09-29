@@ -7,6 +7,7 @@
       </div>
       <input v-model="name" class="appointment__input" placeholder="请输入您的姓名">
       <input v-model="mobile" class="appointment__input" placeholder="请输入您的手机号">
+      <input v-model="address" class="appointment__input" placeholder="请输入您的地址">
       <div class="appointment__btn" @click="sub">
         <Spin v-if="spinShow" fix />
         <img src="@/static/images/icon/project__chat.png" class="appointment__icon">
@@ -66,6 +67,7 @@ export default {
       article: [],
       name: '',
       mobile: '',
+      address: '',
       spinShow: false // iview loading
     }
   },
@@ -81,7 +83,8 @@ export default {
     submit() {
       const obj = {
         name: this.name,
-        mobile: this.mobile
+        mobile: this.mobile,
+        address: this.address
       }
       const array = [
         [this.name, '请正确输入姓名'],
@@ -97,7 +100,7 @@ export default {
           this.spinShow = false
           this.name = ''
           this.mobile = ''
-          this.consulting = ''
+          this.address = ''
         })
       }
       this.spinShow = false

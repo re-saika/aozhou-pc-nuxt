@@ -7,90 +7,148 @@
         </div>
         <img src="@/static/images/icon/down.png" class="navigation__icon">
         <div class="navigation__item" @click="routeTo('estate')">
-          置业澳洲
+          澳洲利好
         </div>
         <img src="@/static/images/icon/down.png" class="navigation__icon">
         <div class="navigation__item font-blue">
-          项目视频
+          视频
         </div>
       </nav>
     </div>
-    <div class="navlist">
-      <div v-for="item in plist" :key="item.id" class="navlist__item" :class="isActive == item.id?'navlist__item_active':''" @click="changeList(item.id)">
-        {{ item.name }}
-        <div v-if="isActive == item.id" class="bluearrow">
-          <div class="bluearrow__triangle" />
-          <div class="bluearrow__rect" />
+    <!-- 直播 -->
+    <div class="index__bg">
+      <article class="swiper-box">
+        <div class="swiper-box__box">
+          <div class="infobox__title">
+            <div>直播视频</div>
+            <div class="swiper-box__nav">
+              <div class="swiper-box__more" @click="toLive">
+                更多<img class="more_icon" src="@/static/images/icon/right_gray.png">
+              </div>
+            </div>
+          </div>
+          <div class="lbanner">
+            <div class="swiper-wrapper">
+              <!-- <div v-for="v in videoList" :key="v.id" class="swiper-box__content swiper-slide"> -->
+              <viewbox
+                v-for="item in videoList[0].data"
+                :key="item.id"
+                class="viewbox_home"
+                :is-video="true"
+                :vid="item.id"
+                :img="item.aid"
+                :link="item.link"
+                :title="item.name"
+                :content="item.introduction"
+              />
+              <!-- </div> -->
+            </div>
+            <empty v-if="videoList.length === 0" />
+          </div>
         </div>
-      </div>
+      </article>
     </div>
-    <table-wrap ref="tableWrap" class="vlist" :limit="9">
-      <template v-slot="{ list }">
-        <div class="vlist__list">
-          <viewbox
-            v-for="item in list"
-            :key="item.id"
-            :is-video="true"
-            class="vlist__item"
-            :vid="item.id"
-            :img="item.aid"
-            :title="item.name"
-            :content="item.introduction"
-          />
-          <div v-for="(item, index) in (3 - list.length%3)" :key="index + Math.random()" :class="list.length%3 != 0?'vlist__empty':'vlist__empty_none'" />
+    <!-- 项目 -->
+    <div class="index__bg">
+      <article class="swiper-box">
+        <div class="swiper-box__box">
+          <div class="infobox__title">
+            <div>{{ videoList[1].name }}</div>
+            <div class="swiper-box__nav">
+              <div class="swiper-box__more" @click="routeTo('estate-videoList-projectVideo')">
+                更多<img class="more_icon" src="@/static/images/icon/right_gray.png">
+              </div>
+            </div>
+          </div>
+          <div class="lbanner">
+            <div class="swiper-wrapper">
+              <!-- <div v-for="v in videoList" :key="v.id" class="swiper-box__content swiper-slide"> -->
+              <viewbox
+                v-for="item in videoList[1].data"
+                :key="item.id"
+                class="viewbox_home"
+                :is-video="true"
+                :vid="item.id"
+                :img="item.aid"
+                :link="item.link"
+                :title="item.name"
+                :content="item.introduction"
+              />
+              <!-- </div> -->
+            </div>
+            <empty v-if="videoList.length === 0" />
+          </div>
         </div>
-        <empty v-if="list.length === 0" class="empty_padding" />
-      </template>
-    </table-wrap>
+      </article>
+    </div>
+    <!-- 澳洲视频 -->
+    <div class="index__bg">
+      <article class="swiper-box">
+        <div class="swiper-box__box">
+          <div class="infobox__title">
+            <div>{{ videoList[2].name }}</div>
+            <!-- <div class="swiper-box__nav">
+              <div class="swiper-box__more" @click="routeTo('estate-videoList-projectVideo')">
+                更多<img class="more_icon" src="@/static/images/icon/right_gray.png">
+              </div>
+            </div> -->
+          </div>
+          <div class="lbanner">
+            <div class="swiper-wrapper">
+              <!-- <div v-for="v in videoList" :key="v.id" class="swiper-box__content swiper-slide"> -->
+              <viewbox
+                v-for="item in videoList[2].data"
+                :key="item.id"
+                class="viewbox_home"
+                :is-video="true"
+                :vid="item.id"
+                :img="item.aid"
+                :link="item.link"
+                :title="item.name"
+                :content="item.introduction"
+              />
+              <!-- </div> -->
+            </div>
+            <empty v-if="videoList.length === 0" />
+          </div>
+        </div>
+      </article>
+    </div>
     <!-- <mfooter ref=foot></mfooter> -->
   </div>
 </template>
 
 <script>
-import tableWrap from '@/components/TableWrap'
 import viewbox from '@/components/Viewbox'
 import empty from '@/components/Empty'
+import tran from '@/mixins/tran'
 
 export default {
   components: {
-    tableWrap,
     viewbox,
     empty
   },
-  data() {
-    return {
-      isActive: null, //
-      plist: [], // 项目列表
-      list: []
+  mixins: [tran],
+  async asyncData({ app }) {
+    try {
+    // 获得文章列表
+      return await app.$api.estate.setHouseAus().then(({ data }) => {
+        return {
+          videoList: data[0].children || []
+        }
+      })
+    } catch (error) {
+      console.error(error)
     }
   },
-  mounted() {
-    this.getData()
+  data() {
+    return {
+      videoList: []
+    }
   },
   methods: {
-    getData() {
-      this.$api.app.projectlist().then((res) => {
-        this.plist = res.data
-        this.isActive = res.data[0].id
-        this.getList(res.data[0].id)
-      })
-    },
-    getList(id) {
-      this.$refs.tableWrap.getData({
-        target: this.$api.estate.videoList,
-        data: {
-          classify_id: 4,
-          project_id: id
-        }
-      }).then((res) => {
-        // this.tableData = res.data
-        this.list = res.data
-      })
-    },
-    changeList(id) {
-      this.isActive = id
-      this.getList(id)
-      // this.$refs.foot.isBottom = true
+    toLive() {
+      window.open('https://play.yunxi.tv/wechat/liveroom/67407?key=1d5fdb0bcd0510df2d1b183292b3edaf')
     },
     routeTo(name) {
       this.$router.push({
@@ -104,9 +162,11 @@ export default {
 <style lang="scss" scoped>
 .whitebg {
   width: 100%;
+  background: #F5F8FB;
 }
 .vlist__nav {
   width: 100%;
+  margin-bottom: 50px;
   .navigation {
     font-size:14px;
     font-family:Microsoft YaHei;
@@ -126,73 +186,78 @@ export default {
     }
   }
 }
-.navlist {
-  width: 1200px;
+/* 直播视频 */
+.index__bg {
+  // background: #F5F8FB;
+  width: 100%;
+  padding-bottom: 50px;
+}
+.swiper-box {
   margin: auto;
-  border-bottom: 1px solid #CCCCCC;
-  display: flex;
-  margin-bottom: 50px;
-  margin-top: 10px;
-  .navlist__item {
-    cursor: pointer;
-    height: 56px;
-    font-size:18px;
-    line-height: 56px;
-    font-family:Microsoft YaHei;
-    font-weight:400;
-    color:rgba(102,102,102,1);
-    margin-right: 44px;
-  }
-  .navlist__item_active {
-    color: #062A5A;
-    position: relative;
-  }
-  .bluearrow {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    .bluearrow__triangle {
-      width: 0;
-      height: 0;
-      margin: auto;
-      border: 4px solid transparent;
-      border-bottom-color: #062A5A;
-    }
-    .bluearrow__rect {
-      width: 100%;
-      height: 3px;
-      background: #062A5A;
-    }
-  }
-}
-.empty_padding {
-  padding: 150px;
-}
-.vlist {
   width: 1200px;
-  margin: auto;
-  margin-bottom: 50px;
-  .vlist__list {
-    display: flex;
-    // min-height: 300px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    .vlist__item {
-      margin-bottom: 50px;
+  // max-width: 1510px;
+  .swiper-box__box {
+    .infobox__title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 4px solid #123467;
+      height: 40px;
+      font-size:30px;
+      font-family:Source Han Sans CN;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+      padding-left: 10px;
+      margin-bottom: 25px;
+      .swiper-box__nav {
+        display: flex;
+        .swiper-box__ul {
+          display: flex;
+          .swiper-box__li {
+            cursor: pointer;
+            margin-right: 46px;
+            list-style: none;
+            font-size:18px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            color:rgba(102,102,102,1);
+            position: relative;
+            .swiper-box__lipoint {
+              position: absolute;
+              bottom: -12px;
+              width:72px;
+              height:7px;
+              left: 0;
+            }
+          }
+          .swiper-box__li_active {
+            color:#062A5A;
+          }
+        }
+      }
+      .swiper-box__more {
+        font-size:18px;
+        font-family:Source Han Sans CN;
+        font-weight:400;
+        color:#999999;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .more__icon {
+          width:18px;
+          height:11px;
+          // transform: rotate(30deg);
+          transform: rotate(30deg);
+        }
+      }
     }
-    .vlist__empty {
-      width:382px;
-      height:325px;
-      margin-bottom: 50px;
+    .swiper-box__content {
+      display: flex;
+      // justify-content: space-between;
     }
-    .vlist__empty_none {
-      display: none;
+    .viewbox_home {
+      margin-right: 25px;
     }
   }
-}
-.mt {
-  display: flex;
-  justify-content: center;
 }
 </style>
