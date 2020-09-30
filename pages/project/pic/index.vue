@@ -46,7 +46,7 @@
             </div>
             <ul class="navs__ul">
               <li v-for="(item , index) in list" :key="index" class="navs__li" @click="changeImgs(item.aid)">
-                <img :src="require('@/static/images/icon/album_icon'+(index+1)+'.png')" :class="'navs__icon'+(index+1)">
+                <!-- <img :src="require('@/static/images/icon/album_icon'+(index+1)+'.png')" :class="'navs__icon'+(index+1)"> -->
                 {{ item.name }}({{ item.num }})
               </li>
             </ul>
@@ -110,9 +110,20 @@ export default {
             return { detail: data }
           }),
           context.app.$api.project.projectPhoto({ project_id: context.route.query.id }).then(({ data }) => {
-            const list = data
-            const imgs = data[0].aid
-            const img = data[0].aid[0] || ''
+            // console.log(data.map((item) => {
+            //   if (item.aid.length !== 0) {
+            //     return item
+            //   }
+            // }))
+            const list = []
+            data.forEach((item) => {
+              console.log(item)
+              if (item.aid.length !== 0) {
+                list.push(item)
+              }
+            })
+            const imgs = list[0].aid
+            const img = list[0].aid[0] || ''
             const newImg = spliceArray(imgs) // 二维数组
             return {
               list,
@@ -149,7 +160,7 @@ export default {
   },
   computed: {
     pid() {
-      return this.$route.query.id
+      return Number(this.$route.query.id)
     }
   },
   mounted() {
