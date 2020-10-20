@@ -89,7 +89,7 @@
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">
               <div class="swiper__content">
-                <h3>布里斯班CDB南 永久产权土地</h3>
+                <h3>布里斯班CBD南 永久产权土地</h3>
                 <h3>世世代代做地主</h3>
                 <div class="swiper__row">
                   <button @click="toDetail(7)">
@@ -185,10 +185,10 @@
                 <p>在澳深耕年数</p>
               </div>
             </li>
-            <li>
-              <div class="list_img">
+            <!-- <li>
+              <div class="list_img"> -->
                 <!-- <img src="@/static/images/s/city.png" alt=""> -->
-              </div>
+              <!-- </div>
               <div class="list_content">
                 <div class="content_number">
                   {{ num4 }}+
@@ -196,7 +196,7 @@
                 <p>澳洲好房</p>
                 <p>已开发澳洲城市总数</p>
               </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </section>
@@ -1145,7 +1145,7 @@ export default {
           }
         }
         .r-article__p {
-          font-size:18px;
+          font-size:16px;
           color:rgba(153,153,153,1);
           line-height: 25px;
           margin-bottom: 25px;

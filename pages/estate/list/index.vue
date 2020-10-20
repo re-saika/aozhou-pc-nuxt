@@ -34,9 +34,9 @@
                             {{ item.create_time }}
                           </span>
                         </div>
-                        <div class="main__row-information-r">
+                        <!-- <div class="main__row-information-r">
                           338次阅读
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                   </div>

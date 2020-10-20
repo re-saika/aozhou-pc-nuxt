@@ -34,20 +34,32 @@
           <div class="aboutus__content">
             <article class="aboutus__article">
               <p class="abouts__p">
-                从广州起步，我司的物业已经拓展至全国及海外，同时在全球拥有约49,500名雇员。除开发及销售住宅物业外，我司业务也涉及以下领域：开发，销售，租赁商业及办公物业；地产上下游产业，包括建筑设计，室内设计和工程设计；工程监理；项目管理及中介服务；商业及酒店地产开发。
+                从广州起步，我司的物业已经拓展至全国及海外，同时在全球拥有约49,500名雇员。我司于2014年年中进军澳洲地产市场，在墨尔本及布里斯班设有分公司。致力于将丰富的海内外优质物业的开发经验带到澳洲并打造适合澳洲市场的产品，实现多个项目开发并成功交付。自2019年5月30日以来，已有近500名业主顺利收楼入住。
               </p>
               <p class="abouts__p">
-                我司于2014年年中进军澳洲地产市场，在墨尔本及布里斯班设有分公司。致力于将其丰富的海内外优质物业的开发经验带到澳洲并打造适合澳洲市场的产品。
+                布里斯班CBD水景学位地铁房布里斯本1号、布里斯班CBD南永久产权土地美墅、墨尔本CBD地标社区精装现房Live City以及华人新贵之居博士山，四个项目均为我司重点打造，深受置业者喜爱与欢迎。
               </p>
-              <p class="abouts__p">
-                全球国际开发商实力打造，实现多个项目开发并成功交付。自2019年5月30日以来，已有近500名业主顺利收楼入住。
-              </p>
-              <p class="abouts__p">
-                澳洲的两大城市—布里斯班和墨尔本，其中这两大城市关注度最高的4个项目有：布里斯本1号的CBD水景学位地铁房、布里斯班CBD南的美墅永久产权土地、墨尔本CBD地标社区的Live City精装现房以及华人新贵区的博士山。
-              </p>
+              <div class="address">
+                <div class="address__line">
+                  <img class="address__icon" src="@/static/images/icon/about_position.png">
+                  广州市珠江新城富力中心37层澳洲展厅
+                </div>
+                <div class="address__line">
+                  <img class="address__icon" src="@/static/images/icon/about_position.png">
+                  北京市朝阳区东三环富力中心15层
+                </div>
+                <div class="address__line">
+                  <img class="address__icon" src="@/static/images/icon/about_position.png">
+                  上海市南京西路中信泰富广场710-711A
+                </div>
+                <div class="address__line">
+                  <img class="address__icon" src="@/static/images/icon/about_phone.png">
+                  联系热线：400-388-2777
+                </div>
+              </div>
             </article>
             <div class="aboutus__img">
-              <img src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/about_simg.png">
+              <img src="@/static/images/img/about_desc.png">
             </div>
           </div>
         </div>
@@ -557,12 +569,13 @@ export default {
       }
       .aboutus__img {
         width:1055px;
-        height:449px;
+        height:420px;
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center;
+          border-radius: 5px;
         }
       }
     }
@@ -772,6 +785,20 @@ export default {
         }
       }
     }
+  }
+}
+.address {
+  font-size: 18px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #2E6CB1;
+  &__line {
+    margin-bottom: 15px;
+  }
+  &__icon {
+    width: 17px;
+    height: 17px;
+    margin-right: 12px;
   }
 }
 .blackbg {

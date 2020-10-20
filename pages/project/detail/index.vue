@@ -406,13 +406,13 @@ export default {
     downloadUrl2() {
       switch (this.detail.id) {
       case 6:
-        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5OTR9'
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjoxNzg5fQoo00ooo00o'
       case 1:
-        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5NTZ9'
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjoxNzg4fQoo00ooo00o'
       case 7:
-        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjo5OTN9'
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjoxNzg3fQoo00ooo00o'
       case 8:
-        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjoxMDAwfQoo00ooo00o'
+        return 'http://admin.azhfang.com/attachment/MLDvAbw5MCD8AiwqMHDeAaw0MHsiYWlkIjoxNzkwfQoo00ooo00o'
       default:
         return ''
       }
