@@ -56,7 +56,7 @@
           </div>
           <div class="swiper__item swiper-slide">
             <div class="swiper__warp">
-              <img class="swiper__img" src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/wl.png">
+              <img class="swiper__img" src="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/az_img03.jpg">
             </div>
             <div class="rotation__mask" />
             <div class="w1200 swiper__flexbox">

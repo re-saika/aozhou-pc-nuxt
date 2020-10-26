@@ -299,7 +299,6 @@ export default {
   outline:none;/*去掉选中状态边框*/
   background-color:rgba(0,0,0,0);/*透明背景*/
   font-size:14px;
-  font-family:Source Han Sans CN;
   font-weight:400;
 }
 .footer-all {

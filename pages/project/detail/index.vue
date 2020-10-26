@@ -165,7 +165,7 @@
                 详细地址：{{ detail.address }}
               </div>
               <div class="project__btns">
-                <div class="project__btn1" @click="toVR">
+                <div v-if="detail.vr_url" class="project__btn1" @click="toVR">
                   VR看房
                 </div>
                 <div class="project__btn2" @click="doCopy">
@@ -431,6 +431,12 @@ export default {
       default:
         return ''
       }
+    }
+  },
+  watch: {
+    // 监听 route跳转时$route.fullPath'是否一样
+    '$route.fullPath'(val) {
+      history.go(0)
     }
   },
   mounted() {

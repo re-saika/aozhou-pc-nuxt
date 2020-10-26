@@ -1,6 +1,6 @@
 <template>
   <div class="gray">
-    <subtitle class="bm" sub-title="项目推荐" sub-title-en="Projects" />
+    <subtitle class="bm" sub-title="项目推荐" sub-title-en="Projects" bg="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/az_img04.jpg?imageMogr2/thumbnail/!20p" />
     <div class="project">
       <div v-for="(item, index) in list" :key="index" class="project__box">
         <div class="project__left">
@@ -48,7 +48,7 @@
             <div class="white-btn white-btn_project" @click="toDetail(item.id)">
               查看项目
             </div>
-            <div class="white-btn" @click="toSee(item.vr_url)">
+            <div v-if="item.vr_url" class="white-btn" @click="toSee(item.vr_url)">
               在线看房
             </div>
           </div>

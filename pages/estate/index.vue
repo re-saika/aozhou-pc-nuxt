@@ -1,6 +1,6 @@
 <template>
   <div class="gray">
-    <subtitle sub-title="澳洲利好" sub-title-en="News of AUS" />
+    <subtitle sub-title="澳洲利好" sub-title-en="News of AUS" bg="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/az_img01.jpg" />
     <div class="main">
       <div class="main__auto">
         <!-- 好房视频 -->

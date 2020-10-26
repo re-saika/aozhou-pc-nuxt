@@ -1,6 +1,6 @@
 <template>
   <div>
-    <subtitle sub-title="澳洲利好" sub-title-en="News of AUS" />
+    <subtitle sub-title="澳洲利好" sub-title-en="News of AUS" bg="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/az_img01.jpg" />
     <div class="main">
       <div class="main__tab">
         <div class="main__auto">
@@ -153,7 +153,7 @@ export default {
               id: 18
             },
             {
-              name: '其他资讯',
+              name: '项目资讯',
               id: 19
             }
           ]
@@ -171,10 +171,19 @@ export default {
       ArticleData: [] // 推荐文章数据
     }
   },
+  watch: {
+    // 监听 route跳转时$route.fullPath'是否一样
+    '$route.fullPath'(val) {
+      history.go(0)
+    }
+  },
   created() {
     if (this.$route.query.id) {
       this.setData(Number(this.$route.query.id))
     }
+    // if (this.$route.query.cid) {
+    //   this.activeFun(this.$route.query.cid)
+    // }
   },
   mounted() {
     this.init()
@@ -183,13 +192,15 @@ export default {
   methods: {
     // 初始化方法
     init() {
-      this.getArticleList()
+      // this.isActive.push(this.$route.query.cid || '')
+      this.activeFun(Number(this.$route.query.cid) || '')
     },
     activeFun(id) {
       if (!this.isActive.includes(id)) {
         this.isActive = []
         this.isActive.push(id)
       }
+      console.log('数组', this.isActive)
       this.getArticleList(id)
     },
     // 获取图文列表

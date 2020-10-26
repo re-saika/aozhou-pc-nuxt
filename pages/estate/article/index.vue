@@ -22,9 +22,9 @@
             {{ detail.name }}
           </div>
           <div class="article__msg">
-            <div class="article__pname">
+            <!-- <div class="article__pname">
               {{ detail.p_name }}
-            </div>
+            </div> -->
             <div class="article__time">
               发布时间：{{ detail.create_time }}
             </div>

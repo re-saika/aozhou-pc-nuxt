@@ -1,6 +1,6 @@
 <template>
   <div>
-    <subtitle sub-title="澳洲好房" sub-title-en="Australian Life" />
+    <subtitle sub-title="澳洲好房" sub-title-en="Australian Life" bg="https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az/az_img05.jpg?imageMogr2/thumbnail/!80p" />
     <div class="about">
       <nav class="about__navigation">
         <nav class="navigation">
@@ -302,6 +302,17 @@ export default {
       t1: null,
       t2: null,
       spinShow: false
+    }
+  },
+  watch: {
+    // 监听 route跳转时$route.fullPath'是否一样
+    '$route.fullPath'(val) {
+      history.go(0)
+    }
+  },
+  created() {
+    if (this.$route.query.id) {
+      this.isActive = this.$route.query.id
     }
   },
   mounted() {

@@ -14,15 +14,54 @@
               首页
             </li>
             <!-- <nuxt-link class="nav__li" to="index">首页</nuxt-link> -->
-            <li class="nav__li" :class="isActive == 'project'?'nav__li_active':''" @click="routeTo('project')">
-              项目推荐
-            </li>
-            <li class="nav__li" :class="isActive == 'estate'?'nav__li_active':''" @click="routeTo('estate')">
-              澳洲利好
-            </li>
-            <li class="nav__li" :class="isActive == 'about'?'nav__li_active':''" @click="routeTo('about')">
-              联系我们
-            </li>
+            <Poptip trigger="hover">
+              <li class="nav__li" :class="isActive == 'project'?'nav__li_active':''" @click="routeTo('project')">
+                项目推荐
+              </li>
+              <div slot="content" class="menu">
+                <div v-for="(item, index) in list" :key="index" class="menu__item" @click="routeTo('project-detail', {id: item.id})">
+                  {{ item.name }}
+                </div>
+              </div>
+            </Poptip>
+            <Poptip trigger="hover">
+              <li class="nav__li" :class="isActive == 'estate'?'nav__li_active':''" @click="routeTo('estate')" @mouseleave="hoverMenu('')">
+                澳洲利好
+              </li>
+              <div slot="content" class="menu">
+                <div
+                  v-for="(item, index) in newsList"
+                  :key="index"
+                  trigger="hover"
+                  placement="right"
+                  class="menu__item"
+                  @mouseover="hoverMenu(index)"
+                >
+                  {{ item.name }}
+                </div>
+                <div v-if="currentMenu !== ''" class="menu2">
+                  <div v-for="(ele, i) in newsList[currentMenu].children" :key="i" class="menu2__item" @click="routeTo('estate-list', { id: ele.pid, cid: ele.id })">
+                    {{ ele.name }}
+                  </div>
+                </div>
+              </div>
+            </Poptip>
+            <Poptip trigger="hover">
+              <li class="nav__li" :class="isActive == 'about'?'nav__li_active':''" @click="routeTo('about')">
+                联系我们
+              </li>
+              <div slot="content" class="menu">
+                <div class="menu__item" @click="routeTo('about', {id:0})">
+                  关于我们
+                </div>
+                <div class="menu__item" @click="routeTo('about', {id:1})">
+                  联系我们
+                </div>
+                <div class="menu__item" @click="routeTo('about', {id:2})">
+                  人才招聘
+                </div>
+              </div>
+            </Poptip>
           </ul>
           <div class="white-search">
             <img src="@/static/images/icon/search.png" class="white-search__icon" @click="getProjectList">
@@ -93,7 +132,10 @@ export default {
       showPic: 0,
       value: '',
       isActive: '',
-      showLang: false
+      showLang: false,
+      list: [], // 项目列表
+      newsList: [], // 澳洲利好列表
+      currentMenu: '' // 澳洲利好菜单移入
     }
   },
   watch: {
@@ -105,6 +147,8 @@ export default {
   // 第一次进入
   created() {
     this.isActive = this.$route.name
+    this.getProject()
+    this.getNews()
   },
   methods: {
     // 首页鼠标移入颜色会发生变化
@@ -117,14 +161,36 @@ export default {
     showTheLang() {
       this.showLang = !this.showLang
     },
-    routeTo(to) {
-      if (to === this.$route.name) {
-        // history.go(0)
-        return
-      }
+    routeTo(to, query = {}) {
+      // if (to === this.$route.name) {
+      //   history.go(0)
+      //   // return
+      // }
       this.$router.push({
-        name: to
+        name: to,
+        query
       })
+    },
+    // 获得列表
+    getProject() {
+      this.$api.app.projectlist().then((res) => {
+        this.list = res.data
+      })
+    },
+    // 获得新闻
+    getNews() {
+      this.$api.estate.setHouseAus().then((res) => {
+        res.data.shift()
+        this.newsList = [
+          res.data[2],
+          res.data[1],
+          res.data[0]
+        ]
+      })
+    },
+    // 鼠标移入菜单列表
+    hoverMenu(index) {
+      this.currentMenu = index
     },
     getProjectList() {
       this.$router.push({
@@ -281,6 +347,56 @@ export default {
         }
       }
     }
+  }
+}
+
+// 改写样式
+/deep/ .ivu-poptip-popper {
+  background-color: #062A5A;
+  /deep/ .ivu-poptip-body {
+    padding: 0;
+    // background-color: #062A5A;
+  }
+  /deep/ .ivu-poptip-arrow {
+    display: none;
+  }
+}
+// 内部列表
+.menu {
+  display: flex;
+  flex-direction: column;
+  &__item {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    background-color: #062A5A;
+    color: #FFF;
+    position: relative;
+  }
+  &__item:hover {
+    background-color: #FFF;
+    color: #062A5A;
+    cursor: pointer;
+  }
+}
+
+.menu2 {
+  position: absolute;
+  left: 150px;
+  width: 150px;
+  min-height: 150px;
+  background-color: #062A5A;
+  &__item {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #FFF;
+    position: relative;
+  }
+  &__item:hover {
+    background-color: #FFF;
+    color: #062A5A;
+    cursor: pointer;
   }
 }
 

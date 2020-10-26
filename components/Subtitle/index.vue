@@ -1,5 +1,5 @@
 <template>
-  <div class="subTitle">
+  <div class="subTitle" :style="{backgroundImage: 'url('+bg+')'}">
     <div class="subTitle__text">
       {{ subTitle }}
     </div>
@@ -20,6 +20,10 @@ export default {
     subTitleEn: {
       type: String,
       default: ''
+    },
+    bg: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -27,7 +31,9 @@ export default {
 
 <style lang="scss" scoped>
 .subTitle {
-  background-image: url('https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az//head_title_bg.png');
+  // background-image: url('https://fulihaofang-1253580818.cos.ap-guangzhou.myqcloud.com/static/az//head_title_bg.png');
+  background-size: cover;
+  background-position: center center;
   width:100%;
   height:400px;
   display: flex;
