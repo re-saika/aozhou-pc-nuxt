@@ -72,7 +72,7 @@
       </transition>
       <transition name="pointtwo">
         <div v-show="boxActive == 3" class="floatbox__msg2">
-          400-3888-2777
+          400-888-7222
         </div>
       </transition>
       <transition name="pointtwo">
@@ -95,7 +95,7 @@
           </div>
           <div class="kf__code">
             <img src="@/static/images/img/float_code2.png">
-            <div>北京销售咨询</div>
+            <div>上海销售咨询</div>
           </div>
         </div>
       </transition>
@@ -107,7 +107,7 @@
           </div>
           <div class="kf__code">
             <img src="@/static/images/img/float_code3.png">
-            <div>北京销售咨询</div>
+            <div>广州销售咨询</div>
           </div>
         </div>
       </transition>
@@ -227,7 +227,7 @@ export default {
     position: fixed;
     right:-54px;
     top: 50%;
-    transform: translate(-50%, -2%);
+    transform: translate(-50%, -148%);
     display: flex;
     align-items: center;
     justify-content: center;

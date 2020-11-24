@@ -54,7 +54,7 @@
                 </div>
                 <div class="address__line">
                   <img class="address__icon" src="@/static/images/icon/about_phone.png">
-                  联系热线：400-3888-2777
+                  联系热线：400-888-7222
                 </div>
               </div>
             </article>
@@ -88,7 +88,7 @@
               <div class="contact__boxtitle">
                 中国区
               </div>
-              <div>客户服务热线：400-3888-2777-(转)1428</div>
+              <div>客户服务热线：400-888-7222-(转)1428</div>
               <div>客服邮箱：ausettlements@rfchina.com</div>
             </div>
           </div>
@@ -482,7 +482,7 @@ export default {
       meta: [
         { charset: 'utf-8' },
         { hid: 'keywords', name: 'keywords', content: '澳洲好房联系方式,澳洲好房关于我们，澳洲好房人才招聘' },
-        { hid: 'description', name: 'description', content: '澳洲好房联系方式客户服务热线:400-3888-2777-(转)1409，客服邮箱:ausettlements@rfchina.com' }
+        { hid: 'description', name: 'description', content: '澳洲好房联系方式客户服务热线:400-888-7222-(转)1409，客服邮箱:ausettlements@rfchina.com' }
       ]
     }
   }

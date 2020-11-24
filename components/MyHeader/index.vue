@@ -69,7 +69,7 @@
           </div>
           <div class="white-phone white-phone_header">
             <img src="@/static/images/icon/header_phone.png" class="white-phone__icon">
-            <span>400-3888-2777</span>
+            <span>400-888-7222</span>
           </div>
           <div class="dropdown">
             <div @mouseover="showThePic(1)">
