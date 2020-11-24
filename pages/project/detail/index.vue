@@ -274,7 +274,7 @@
                 折页
               </a>
               <a class="article__btn" :href="downloadUrl3" target="_blank">
-                户型图
+                地块规划图
               </a>
             </div>
           </div>

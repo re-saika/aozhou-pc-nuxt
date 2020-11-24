@@ -72,7 +72,7 @@
       </transition>
       <transition name="pointtwo">
         <div v-show="boxActive == 3" class="floatbox__msg2">
-          400-888-7222
+          400-3888-2777
         </div>
       </transition>
       <transition name="pointtwo">

@@ -1111,7 +1111,8 @@ export default {
     height: 100%;
     .reason__main {
       width: 50%;
-      height: 750px;
+      // height: 750px;
+      height: 90vh;
       padding-bottom: 20px;
       .reason__front {
         min-height: 620px;

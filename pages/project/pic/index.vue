@@ -77,7 +77,7 @@
               </li>
             </ul>
             <div class="projectbox__phone">
-              <span class="projectbox__phone-title">咨询电话:</span>400-888-7222
+              <span class="projectbox__phone-title">咨询电话:</span>400-3888-2777
             </div>
             <div class="projectbox__btn" @click="toDetail">
               查看项目详情

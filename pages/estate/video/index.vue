@@ -34,7 +34,9 @@
     <div class="video-warp">
       <div class="video">
         <!-- 左侧视频 -->
-        <video class="video_view" :src="detail.file_url" controls />
+        <video class="video_view" :src="detail.file_url" controls>
+          您的浏览器不支持
+        </video>
         <!-- 右侧导航 -->
         <div class="video__msg">
           <div class="msg">
