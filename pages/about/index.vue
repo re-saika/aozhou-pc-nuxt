@@ -46,7 +46,7 @@
                 </div>
                 <div class="address__line">
                   <img class="address__icon" src="@/static/images/icon/about_position.png">
-                  上海展厅：上海市南京西路中信泰富广场710-711A
+                  上海展厅：上海市静安区石门一路288号兴业太古汇2座1702室
                 </div>
                 <div class="address__line">
                   <img class="address__icon" src="@/static/images/icon/about_position.png">
